@@ -1,6 +1,7 @@
 import pandas as pd
 from datetime import datetime
-
+from geopy.distance import vincenty
+from geopy.distance import geodesic
 
 pd.set_option('display.float_format', lambda x: '%.3f' % x)
 
@@ -26,13 +27,17 @@ devices.columns = devices.columns.str.replace("\"", "")
 
 test["tac"] = test["imei"].str.extract("^(\d{8})")
 test = test.merge(devices, on = "tac", how = "left")
+test = test.merge(event_type_data, on = "event_type")
 
-# devices
-# for i in devices:
-#     print(i.shape)
+test = test.sort_values(["msisdn", "tstamp"], ascending = False)
+test["lat_prev"] = test.groupby(["msisdn"])["lat"].shift(-1)
+test["long_prev"] = test.groupby(["msisdn"])["long"].shift(-1)
 
 
-test.merge(event_type_data, on = "event_type")
+test.apply(lambda x: geodesic((x["lat"], x["long"]), (x["lat_prev"], x["long_prev"])).meters)
+test.apply(lambda x: (x["lat"], x["long"]))
+test.apply(lambda x: x["lat"])
+
 
 event_type_data.event_type.values
 test.event_type.values

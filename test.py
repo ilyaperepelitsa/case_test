@@ -67,7 +67,7 @@ import math
 test["plot_radius"] = test.apply(lambda x: math.hypot(x["segment_lat"] - x["lat"], x["segment_lon"] - x["long"]), axis = 1)
 # Lat = Y Long = X
 
-
+test.inf
 
 
 test["max_dist"]

@@ -59,7 +59,8 @@ test["segment_lat"], test["segment_lon"] = test.apply(circle_segment, axis = 1)
 
 test["segment_lat"], test["segment_lon"] = test.apply(circle_segment, axis = 1)
 
-a1, 1test.head().apply(circle_segment, axis = 1)
+a1
+ = test.head().apply(circle_segment, axis = 1)
 test.head()
 #
 # test.apply(lambda x: (x["lat"], x["long"]))

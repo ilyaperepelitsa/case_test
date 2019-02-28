@@ -71,7 +71,7 @@ test.head().apply(lambda x: math.hypot(x["segment_lat"] - x["lat"], x["segment_l
 (test.head()["segment_lon"] - test.head()["long"])[76831]
 
 test.head()["segment_lon"]
-
+test.head()["long"]
 
 test[["segment_lat", "lat"]]
 

@@ -82,6 +82,23 @@ y_min = y * 1.05
 test.drop_duplicates("cid").loc[61811,:]
 
 
+
+
+Here's a simpler workaround. Use the hatch argument in your mpatches.Arc command. If you repeat symbols with the hatch argument it increases the density of the patterning. I find that if you use 6 dashes, '-', or 6 dots, '.' (others probably also work), then it solidly fills in the arc as desired. When I run this
+
+import matplotlib.patches as mpatches
+import matplotlib.pyplot as plt
+
+plt.axes()
+pac = mpatches.Arc([0, -2.5], 5, 5, 45, theta1=45, theta2=135, hatch = '......')
+plt.gca().add_patch(pac)
+pac.set_color('cyan')
+plt.axis('equal')
+plt.show()
+
+
+
+
 from matplotlib.patches import Arc as arc
 
 

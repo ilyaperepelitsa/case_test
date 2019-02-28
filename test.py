@@ -3,7 +3,7 @@ import numpy as np
 from datetime import datetime
 from geopy.distance import vincenty
 from geopy.distance import geodesic
-import
+from geo
 
 pd.set_option('display.float_format', lambda x: '%.3f' % x)
 

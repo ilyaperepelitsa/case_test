@@ -46,38 +46,38 @@ test.loc[~test["lat_prev"].isnull(),"previous_status_distance"] = test.loc[~test
 
 test["date"] = test["tstamp"].dt.date
 
-
-test.apply(lambda x: (x["lat"], x["long"]))
-test.apply(lambda x: print(x["lat"]))
-
-
-event_type_data.event_type.values
-test.event_type.values
-
-
-.astype({"event_type" : "object"})
-
-pd.Series(test.event_type.values).isin(event_type_data.event_type.values).any()
-
-
-test.merge(event_type)
-
-test.
-event_type.info()
-test.info()
-
-test.imei.isnull().sum()
-test.msisdn.isnull().sum()
-test
-
-
-
-
-
-
-
-test.describe()
-test.info()
-
-test["msisdn"].unique().shape[0]
-test.sort_values(["msisdn", "tstamp"])
+#
+# test.apply(lambda x: (x["lat"], x["long"]))
+# test.apply(lambda x: print(x["lat"]))
+#
+#
+# event_type_data.event_type.values
+# test.event_type.values
+#
+#
+# .astype({"event_type" : "object"})
+#
+# pd.Series(test.event_type.values).isin(event_type_data.event_type.values).any()
+#
+#
+# test.merge(event_type)
+#
+# test.
+# event_type.info()
+# test.info()
+#
+# test.imei.isnull().sum()
+# test.msisdn.isnull().sum()
+# test
+#
+#
+#
+#
+#
+#
+#
+# test.describe()
+# test.info()
+#
+# test["msisdn"].unique().shape[0]
+# test.sort_values(["msisdn", "tstamp"])

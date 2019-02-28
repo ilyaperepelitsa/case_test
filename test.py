@@ -72,6 +72,9 @@ test.info()
 test.cid.describe()
 test.lac.describe()
 
+
+
+
 test.drop_duplicates("cid").loc[61811,:]
 
 
@@ -89,7 +92,7 @@ fig = plt.figure()
 ax = plt.axes(xlim = (-10,10), ylim = (-10,10))
 
 
- 
+
 print()
 
 # test["max_dist"]

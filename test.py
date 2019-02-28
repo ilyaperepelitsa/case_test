@@ -46,8 +46,8 @@ test.loc[~test["lat_prev"].isnull(),"previous_status_distance"] = test.loc[~test
 
 test["date"] = test["tstamp"].dt.date
 
-def circle_segment(data):    
-    origin = geopy.Point(lat1, lon1)
+def circle_segment(data):
+    origin = geopy.Point(data, lon1)
     destination = VincentyDistance(kilometers=d).destination(origin, b)
 
 lat2, lon2 = destination.latitude, destination.longitude

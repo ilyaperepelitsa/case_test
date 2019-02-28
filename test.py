@@ -73,7 +73,7 @@ test.head().apply(lambda x: math.hypot(x["segment_lat"] - x["lat"], x["segment_l
 test.head()["segment_lon"]
 test.head()["long"]
 
-test[["segment_lat", "lat", ""]]
+test[["segment_lat", "lat", "segment_lon", "long"]]
 
 test["max_dist"]
 # a1, a2 = test.head().apply(circle_segment, axis = 1).apply(lambda x: x[0]), test.head().apply(circle_segment, axis = 1).apply(lambda x: x[0])

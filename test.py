@@ -49,9 +49,8 @@ test["date"] = test["tstamp"].dt.date
 def circle_segment(data):
     origin = geopy.Point(data["lat"], data["long"])
     destination = VincentyDistance(meters=data["max_dist"]).destination(origin, data["start_angle"])
-
     lat2, lon2 = destination.latitude, destination.longitude
-
+    rety
 
 
 test.columns

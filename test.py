@@ -75,7 +75,7 @@ test.lac.describe()
 test.drop_duplicates("cid").loc[61811,:]
 
 
-matplotlib.patches.Arc
+from matplotlib.patches import Arc 
 
 
 # test["max_dist"]

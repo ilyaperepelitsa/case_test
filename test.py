@@ -82,6 +82,14 @@ fig_width, fig_height = 3.30, 3.30
 fig = plt.figure(figsize=(fig_width, fig_height), frameon=False)
 ax = fig.add_axes([0.0, 0.0, 1.0, 1.0], aspect='equal')
 
+
+
+fig = plt.figure()
+
+ax = plt.axes(xlim = (-10,10), ylim = (-10,10))
+
+
+ 
 print()
 
 # test["max_dist"]

@@ -55,7 +55,7 @@ lat2, lon2 = destination.latitude, destination.longitude
 
 
 test.columns
-test.drop([cid, msis], axis = 1)
+test.drop([cid, msisdn, imei, event_type, ], axis = 1)
 #
 # test.apply(lambda x: (x["lat"], x["long"]))
 # test.apply(lambda x: print(x["lat"]))

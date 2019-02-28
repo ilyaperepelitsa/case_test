@@ -31,6 +31,7 @@ test = test.merge(devices, on = "tac", how = "left")
 test = test.merge(event_type_data, on = "event_type")
 
 test = test.sort_values(["msisdn", "tstamp"], ascending = False)
+
 test["lat_prev"] = test.groupby(["msisdn"])["lat"].shift(-1)
 test["long_prev"] = test.groupby(["msisdn"])["long"].shift(-1)
 

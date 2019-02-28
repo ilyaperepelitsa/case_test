@@ -35,6 +35,8 @@ test["long_prev"] = test.groupby(["msisdn"])["long"].shift(-1)
 def get_geodesic_distance(data):
     if not data.lat_prev.isnull:
         return geodesic((x["lat"], x["long"]), (x["lat_prev"], x["long_prev"])).meters
+    else:
+        
 
 test.loc[~test["lat_prev"].isnull(),:].apply(lambda x: geodesic((x["lat"], x["long"]), (x["lat_prev"], x["long_prev"])).meters, axis = 1)
 

@@ -1,5 +1,5 @@
 import pandas as pd
-import 
+import numpy as np
 from datetime import datetime
 from geopy.distance import vincenty
 from geopy.distance import geodesic
@@ -38,6 +38,8 @@ def get_geodesic_distance(data):
         return geodesic((x["lat"], x["long"]), (x["lat_prev"], x["long_prev"])).meters
     else:
         return np.nan
+
+test.groupby(["cid"])
 
 test.loc[~test["lat_prev"].isnull(),:].apply(lambda x: geodesic((x["lat"], x["long"]), (x["lat_prev"], x["long_prev"])).meters, axis = 1)
 

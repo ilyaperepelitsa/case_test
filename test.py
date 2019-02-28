@@ -73,8 +73,8 @@ test.cid.describe()
 test.lac.describe()
 
 x = test.drop_duplicates("cid").loc[61811,"long"]
-y = test.drop_duplicates("cid").loc[61811,"long"]
-
+y = test.drop_duplicates("cid").loc[61811,"lat"]
+x_
 
 test.drop_duplicates("cid").loc[61811,:]
 

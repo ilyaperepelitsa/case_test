@@ -72,7 +72,7 @@ test.info()
 test.cid.describe()
 test.lac.describe()
 
-
+x = 
 
 
 test.drop_duplicates("cid").loc[61811,:]

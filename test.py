@@ -70,6 +70,7 @@ test["plot_radius"] = test.apply(lambda x: math.hypot(x["segment_lat"] - x["lat"
 test.info()
 
 test.cid.describe()
+test.l.describe()
 
 
 test["max_dist"]

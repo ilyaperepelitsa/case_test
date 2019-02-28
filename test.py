@@ -53,7 +53,7 @@ def circle_segment(data):
     return lat2, lon2
 
 
-test.columns
+test
 test.drop(test.columns.tolist()[0:5], axis = 1)
 #
 # test.apply(lambda x: (x["lat"], x["long"]))

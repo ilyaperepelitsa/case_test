@@ -48,10 +48,13 @@ test["date"] = test["tstamp"].dt.date
 
 def circle_segment(data):
     origin = geopy.Point(data["lat"], data["long"])
-    destination = VincentyDistance(meters=d).destination(origin, b)
+    destination = VincentyDistance(meters=data["long"]).destination(origin, b)
 
 lat2, lon2 = destination.latitude, destination.longitude
 
+
+
+test
 
 #
 # test.apply(lambda x: (x["lat"], x["long"]))

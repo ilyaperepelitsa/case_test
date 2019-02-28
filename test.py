@@ -5,7 +5,7 @@ from geopy.distance import vincenty
 from geopy.distance import geodesic
 from geopy import Point
 
-import matplotl
+import matplotlib.pyplot as plt
 
 pd.set_option('display.float_format', lambda x: '%.3f' % x)
 

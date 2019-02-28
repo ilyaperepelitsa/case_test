@@ -72,6 +72,7 @@ test.info()
 test.cid.describe()
 test.lac.describe()
 
+te
 
 # test["max_dist"]
 # a1, a2 = test.head().apply(circle_segment, axis = 1).apply(lambda x: x[0]), test.head().apply(circle_segment, axis = 1).apply(lambda x: x[0])

@@ -39,7 +39,7 @@ def get_geodesic_distance(data):
     else:
         return np.nan
 
-test.groupby(["cid"])
+test.groupby(["msisdn"])
 
 test.loc[~test["lat_prev"].isnull(),:].apply(lambda x: geodesic((x["lat"], x["long"]), (x["lat_prev"], x["long_prev"])).meters, axis = 1)
 

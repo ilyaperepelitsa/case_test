@@ -48,13 +48,13 @@ test.loc[~test["lat_prev"].isnull(),"previous_status_distance"] = test.loc[~test
 test["date"] = test["tstamp"].dt.date
 
 def circle_segment(data):
-    origin = geopy.Point(data["lat"], data["long"])
+    origin = Point(data["lat"], data["long"])
     destination = geodesic(meters=data["max_dist"]).destination(origin, data["start_angle"])
     lat2, lon2 = destination.latitude, destination.longitude
     return lat2, lon2
 
 
-test.head().apply(circle_segment, axis = 1)
+test]test.head().apply(circle_segment, axis = 1)
 test.drop(test.columns.tolist()[0:5], axis = 1)
 #
 # test.apply(lambda x: (x["lat"], x["long"]))

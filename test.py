@@ -94,7 +94,7 @@ import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
 
 plt.axes()
-pac = mpatches.Wedge(center = [x, y], r = radius, theta1=start_angle, theta2=end_angle)
+pac = mpatches.Wedge(center = [x, y], r = radius, theta1=start_angle + 0, theta2=end_angle)
 plt.gca().add_patch(pac)
 pac.set_color('cyan')
 plt.axis('equal')

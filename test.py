@@ -41,7 +41,7 @@ def get_geodesic_distance(data):
 
 test.groupby(["msisdn"]).apply(get_geodesic_distance)
 
-test.loc[~test["lat_prev"].isnull(),:].groupby(["msisdn"])"lat"].apply(lambda x: geodesic((x["lat"], x["long"]), (x["lat_prev"], x["long_prev"])).meters, axis = 1)
+test.loc[~test["lat_prev"].isnull(),:].groupby(["msisdn"])["lat"].apply(lambda x: geodesic((x["lat"], x["long"]), (x["lat_prev"], x["long_prev"])).meters, axis = 1)
 
 test.apply(lambda x: (x["lat"], x["long"]))
 test.apply(lambda x: print(x["lat"]))

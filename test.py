@@ -39,14 +39,14 @@ test.loc[~test["lat_prev"].isnull(),"previous_status_distance"] = test.loc[~test
                                                                     x["long"]),
                                                                 (x["lat_prev"],
                                                                 x["long_prev"])).meters, axis = 1)
-test.loc[~test["lat_prev"].isnull(),"previous_status_distance_vincen"] = test.loc[~test["lat_prev"].isnull(),:].\
-                                        apply(lambda x: geodesic((x["lat"],
+test.loc[~test["lat_prev"].isnull(),"previous_status_distance_vincenty"] = test.loc[~test["lat_prev"].isnull(),:].\
+                                        apply(lambda x: vincenty((x["lat"],
                                                                     x["long"]),
                                                                 (x["lat_prev"],
                                                                 x["long_prev"])).meters, axis = 1)
 
 
-vincenty
+
 
 test
 test.apply(lambda x: (x["lat"], x["long"]))

@@ -62,9 +62,11 @@ def circle_segment(data):
 
 test["segment_lat"], test["segment_lon"] = test.apply(circle_segment, axis = 1).apply(lambda x: x[0]), test.apply(circle_segment, axis = 1).apply(lambda x: x[0])
 
+im
+
 test[["segment_lat", "lat"]]
 
-data["max_dist"]
+test["max_dist"]
 # a1, a2 = test.head().apply(circle_segment, axis = 1).apply(lambda x: x[0]), test.head().apply(circle_segment, axis = 1).apply(lambda x: x[0])
 
 

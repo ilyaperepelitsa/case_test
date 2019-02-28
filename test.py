@@ -3,6 +3,7 @@ import numpy as np
 from datetime import datetime
 from geopy.distance import vincenty
 from geopy.distance import geodesic
+import
 
 pd.set_option('display.float_format', lambda x: '%.3f' % x)
 
@@ -53,7 +54,7 @@ def circle_segment(data):
     return lat2, lon2
 
 
-test.head().apply(circle_a)
+test.head().apply(circle_segment, axis = 1)
 test.drop(test.columns.tolist()[0:5], axis = 1)
 #
 # test.apply(lambda x: (x["lat"], x["long"]))

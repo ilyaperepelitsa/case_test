@@ -64,7 +64,7 @@ test["segment_lat"], test["segment_lon"] = test.apply(circle_segment, axis = 1).
 
 import math
 
-test.head().apply(lambda x: math.hypot(x["segment_lat"] - x["lat"], x["segment_lon"] - x["long"]), axis = 1)
+test.apply(lambda x: math.hypot(x["segment_lat"] - x["lat"], x["segment_lon"] - x["long"]), axis = 1)
 # Lat = Y Long = X
 
 (test.head()["segment_lat"] - test.head()["lat"])[76831]

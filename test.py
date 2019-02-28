@@ -75,8 +75,11 @@ test.lac.describe()
 test.drop_duplicates("cid").loc[61811,:]
 
 
-from matplotlib.patches import Arc 
+from matplotlib.patches import Arc as arc
 
+
+
+print()
 
 # test["max_dist"]
 # a1, a2 = test.head().apply(circle_segment, axis = 1).apply(lambda x: x[0]), test.head().apply(circle_segment, axis = 1).apply(lambda x: x[0])

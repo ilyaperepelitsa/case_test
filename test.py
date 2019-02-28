@@ -60,7 +60,7 @@ test["segment_lat"], test["segment_lon"] = test.apply(circle_segment, axis = 1)
 test["segment_lat"], test["segment_lon"] = test.apply(circle_segment, axis = 1)
 
 test.head().apply(circle_segment, axis = 1)
-test.drop(test.columns.tolist(), axis = 1)
+test
 #
 # test.apply(lambda x: (x["lat"], x["long"]))
 # test.apply(lambda x: print(x["lat"]))

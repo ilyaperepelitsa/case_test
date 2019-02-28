@@ -51,8 +51,8 @@ def circle_segment(data):
     origin = Point(data["lat"], data["long"])
     destination = geodesic(meters=data["max_dist"]).destination(origin, data["start_angle"])
     lat2, lon2 = destination.latitude, destination.longitude
-    print
-    return pd.DataFrame(pd.Series(lat2), pd.Series(lon2))
+    print(pd.DataFrame(pd.Series(lat2), pd.Series(lon2)))
+    # return pd.DataFrame(pd.Series(lat2), pd.Series(lon2))
 
 
 test["segment_lat"], test["segment_lon"] = test.apply(circle_segment, axis = 1)

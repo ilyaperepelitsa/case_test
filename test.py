@@ -49,7 +49,7 @@ test["date"] = test["tstamp"].dt.date
 
 def circle_segment(data):
     origin = Point(data["lat"], data["long"])
-    destination = geodesic(meters=data["max_dist"]).destination(origin, data["start_angle"])
+    destination = geodesic(kilometers=data["max_dist"]).destination(origin, data["start_angle"])
     lat2, lon2 = destination.latitude, destination.longitude
     # print(type(lat2))
     return lat2, lon2

@@ -35,6 +35,8 @@ test = test.sort_values(["msisdn", "tstamp"], ascending = False)
 test["lat_prev"] = test.groupby(["msisdn"])["lat"].shift(-1)
 test["long_prev"] = test.groupby(["msisdn"])["long"].shift(-1)
 
+test["previous "] = test.groupby(["msisdn"])["lat"].shift(-1)
+
 test.loc[~test["lat_prev"].isnull(),"previous_status_distance"] = test.loc[~test["lat_prev"].isnull(),:].\
                                         apply(lambda x: geodesic((x["lat"],
                                                                     x["long"]),

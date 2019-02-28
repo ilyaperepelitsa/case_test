@@ -60,9 +60,9 @@ def circle_segment(data):
 test["segment_lat"], test["segment_lon"] = test.apply(circle_segment, axis = 1)
 
 
-test["segment_lat"], test["segment_lon"] = test.apply(circle_segment, axis = 1)
+test["segment_lat"], test["segment_lon"] = test.apply(circle_segment, axis = 1)[0], 
 
-test.head().apply(circle_segment, axis = 1)[76831]
+type(test.head().apply(circle_segment, axis = 1)[76831])
 
 
 a1

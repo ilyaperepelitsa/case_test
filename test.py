@@ -3,7 +3,7 @@ import numpy as np
 from datetime import datetime
 from geopy.distance import vincenty
 from geopy.distance import geodesic
-from geo
+from geopy import Point
 
 pd.set_option('display.float_format', lambda x: '%.3f' % x)
 
@@ -49,7 +49,7 @@ test["date"] = test["tstamp"].dt.date
 
 def circle_segment(data):
     origin = geopy.Point(data["lat"], data["long"])
-    destination = VincentyDistance(meters=data["max_dist"]).destination(origin, data["start_angle"])
+    destination = geodesic(meters=data["max_dist"]).destination(origin, data["start_angle"])
     lat2, lon2 = destination.latitude, destination.longitude
     return lat2, lon2
 

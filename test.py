@@ -54,8 +54,8 @@ lat2, lon2 = destination.latitude, destination.longitude
 
 
 
-test.
-
+test.columns
+test.drop
 #
 # test.apply(lambda x: (x["lat"], x["long"]))
 # test.apply(lambda x: print(x["lat"]))

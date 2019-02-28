@@ -75,6 +75,7 @@ test.lac.describe()
 x = test.drop_duplicates("cid").loc[61811,"long"]
 y = test.drop_duplicates("cid").loc[61811,"lat"]
 angle = test.drop_duplicates("cid").loc[61811,"end_angle"] - test.drop_duplicates("cid").loc[61811,"start_angle"]
+
 x_min = x * 0.95
 x_max = x * 1.05
 y_min = y * 0.95
@@ -91,7 +92,7 @@ import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
 
 plt.axes()
-pac = mpatches.Arc([x, y], 2, 2, 45, theta1=45, theta2=135, hatch = '......')
+pac = mpatches.Arc([x, y], 2, 2, angle, theta1=45, theta2=135, hatch = '......')
 plt.gca().add_patch(pac)
 pac.set_color('cyan')
 plt.axis('equal')

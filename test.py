@@ -77,7 +77,7 @@ y = test.drop_duplicates("cid").loc[61811,"lat"]
 x_min = x * 0.95
 x_max = x * 0.95
 y_min = y * 0.95
-y_min =
+y_min = y * 0.95
 
 test.drop_duplicates("cid").loc[61811,:]
 

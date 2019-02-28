@@ -34,7 +34,7 @@ test["lat_prev"] = test.groupby(["msisdn"])["lat"].shift(-1)
 test["long_prev"] = test.groupby(["msisdn"])["long"].shift(-1)
 
 
-test.loc[test["lat_prev"],:].apply(lambda x: geodesic((x["lat"], x["long"]), (x["lat_prev"], x["long_prev"])), axis = 1)
+test.loc[~test["lat_prev"].isnull(),:].apply(lambda x: geodesic((x["lat"], x["long"]), (x["lat_prev"], x["long_prev"])), axis = 1)
 
 test.apply(lambda x: (x["lat"], x["long"]))
 test.apply(lambda x: print(x["lat"]))

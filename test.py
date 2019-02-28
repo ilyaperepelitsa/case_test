@@ -42,7 +42,7 @@ test.loc[~test["lat_prev"].isnull(),"previous_status_distance"] = test.loc[~test
 
 
 
-
+vincenty
 
 test
 test.apply(lambda x: (x["lat"], x["long"]))

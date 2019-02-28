@@ -49,7 +49,7 @@ test["date"] = test["tstamp"].dt.date
 
 def circle_segment(data):
     origin = Point(data["lat"], data["long"])
-    destination = geodesic(kilometers=data["max_dist"]).destination(origin, data["start_angle"])
+    destination = geodesic(kilometers=data["max_dist"]/1000).destination(origin, data["start_angle"])
     lat2, lon2 = destination.latitude, destination.longitude
     # print(type(lat2))
     return lat2, lon2
@@ -73,7 +73,7 @@ test.head().apply(lambda x: math.hypot(x["segment_lat"] - x["lat"], x["segment_l
 test.head()["segment_lon"]
 test.head()["long"]
 
-test[["segment_lat", "lat"]]
+test[["segment_lat", "lat", ""]]
 
 test["max_dist"]
 # a1, a2 = test.head().apply(circle_segment, axis = 1).apply(lambda x: x[0]), test.head().apply(circle_segment, axis = 1).apply(lambda x: x[0])

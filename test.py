@@ -90,7 +90,7 @@ import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
 
 plt.axes()
-pac = mpatches.Arc([x, y], , 5, 45, theta1=45, theta2=135, hatch = '......')
+pac = mpatches.Arc([x, y], 2, 2, 45, theta1=45, theta2=135, hatch = '......')
 plt.gca().add_patch(pac)
 pac.set_color('cyan')
 plt.axis('equal')

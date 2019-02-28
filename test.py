@@ -74,7 +74,7 @@ test.lac.describe()
 
 x = test.drop_duplicates("cid").loc[61811,"long"]
 y = test.drop_duplicates("cid").loc[61811,"lat"]
-angle = y = test.drop_duplicates("cid").loc[61811,"end_angle"] - test.drop_duplicates("cid").loc[61811,"end_angle"]
+angle = test.drop_duplicates("cid").loc[61811,"end_angle"] - test.drop_duplicates("cid").loc[61811,"start_angle"]
 x_min = x * 0.95
 x_max = x * 1.05
 y_min = y * 0.95

@@ -46,9 +46,6 @@ test.loc[~test["lat_prev"].isnull(),"previous_status_distance"] = test.loc[~test
 
 
 test["date"] = test["tstamp"].dt.date
-
-
-
 test.apply(lambda x: (x["lat"], x["long"]))
 test.apply(lambda x: print(x["lat"]))
 

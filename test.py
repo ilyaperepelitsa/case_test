@@ -67,6 +67,8 @@ import math
 test.head().apply(lambda x: math.hypot(x["segment_lat"] - x["lat"], x["segment_lon"] - x["long"]), axis = 1)
 # Lat = Y Long = X
 
+["segment_lat"] - x["lat"]
+
 test[["segment_lat", "lat"]]
 
 test["max_dist"]

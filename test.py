@@ -39,7 +39,6 @@ test.loc[~test["lat_prev"].isnull(),"previous_status_distance"] = test.loc[~test
                                                                     x["long"]),
                                                                 (x["lat_prev"],
                                                                 x["long_prev"])).meters, axis = 1)
-test.drop("previous_status_distance_vincenty", axis = 1)
 
 
 

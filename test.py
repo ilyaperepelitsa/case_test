@@ -75,7 +75,7 @@ test.lac.describe()
 x = test.drop_duplicates("cid").loc[61811,"long"]
 y = test.drop_duplicates("cid").loc[61811,"lat"]
 x_min =
-
+y_
 
 test.drop_duplicates("cid").loc[61811,:]
 

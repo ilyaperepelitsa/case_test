@@ -67,7 +67,7 @@ import math
 test.head().apply(lambda x: math.hypot(x["segment_lat"] - x["lat"], x["segment_lon"] - x["long"]), axis = 1)
 # Lat = Y Long = X
 
-x["segment_lat"] - x["lat"]
+test.head()["segment_lat"] - test.head()["lat"]
 
 test[["segment_lat", "lat"]]
 

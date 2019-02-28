@@ -80,7 +80,7 @@ from matplotlib.patches import Arc as arc
 
 fig_width, fig_height = 3.30, 3.30
 fig = plt.figure(figsize=(fig_width, fig_height), frameon=False)
-
+ax = fig.add_axes([0.0, 0.0, 1.0, 1.0], aspect='equal')
 
 print()
 

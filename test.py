@@ -8,7 +8,7 @@ pd.set_option('display.float_format', lambda x: '%.3f' % x)
 
 facts = pd.read_excel("01_Facts.xlsx", header = None)
 event_type_data = pd.read_excel("04_event_type.xlsx")
-event_type_data = event_type.rename(columns = {"Номер":"event_type", "Обозначение":"event_symbol", "Описание":"event_description"})
+event_type_data = event_type_data.rename(columns = {"Номер":"event_type", "Обозначение":"event_symbol", "Описание":"event_description"})
 event_type_data = event_type_data.astype({"event_type" : int})
 # event_type.to_dict("records")
 test = pd.read_csv("02_Data_test.csv", sep = ";", dtype = {"imei" : "object",

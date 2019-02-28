@@ -78,6 +78,9 @@ test.drop_duplicates("cid").loc[61811,:]
 from matplotlib.patches import Arc as arc
 
 
+fig_width, fig_height = 3.30, 3.30
+fig = plt.figure(figsize=(fig_width, fig_height), frameon=False)
+
 
 print()
 

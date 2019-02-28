@@ -62,7 +62,10 @@ def circle_segment(data):
 
 test["segment_lat"], test["segment_lon"] = test.apply(circle_segment, axis = 1).apply(lambda x: x[0]), test.apply(circle_segment, axis = 1).apply(lambda x: x[0])
 
-im
+import math
+
+test.apply(circle_segment, axis = 1)
+
 
 test[["segment_lat", "lat"]]
 

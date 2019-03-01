@@ -66,9 +66,9 @@ def sector_centroid(data):
     angle_mid = (data["end_angle"] + data["start_angle"]) / 2
     if angle_mid > 360:
         angle_mid = angle_mid - 180
-    if data["end_angle"] - data["start_angle"] >= 180:
-        destination = geodesic(kilometers=-data["sector_centroid_shift"]/1000).destination(origin, angle_mid)
-    else:
+# if data["end_angle"] - data["start_angle"] >= 180:
+#     destination = geodesic(kilometers=-data["sector_centroid_shift"]/1000).destination(origin, angle_mid)
+# else:
         destination = geodesic(kilometers=data["sector_centroid_shift"]/1000).destination(origin, angle_mid)
     lat2, lon2 = destination.latitude, destination.longitude
     # print(type(lat2))
@@ -96,7 +96,7 @@ test["station_angle"] = test.end_angle - test.start_angle
 # test["station_angle"][test["station_angle"] < 0] += 360
 test["station_angle"][test["station_angle"] < 0] = test["station_angle"][test["station_angle"] < 0] + 360
 
-test["sector_centroid_shift"] = (2*test["max_dist"] * np.sin(test["station_angle"])) / (3*math.radians(test["station_angle"]))
+test["sector_centroid_shift"] = test.apply(lambda x: (2*x["max_dist"] * np.sin(math.radians(x["station_angle"]))) / (3*math.radians(x["station_angle"])),axis = 1)
 
 
 

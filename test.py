@@ -157,7 +157,7 @@ plt.axis('equal')
 plt.show()
 
 
-texz
+test.head()
 
 
 

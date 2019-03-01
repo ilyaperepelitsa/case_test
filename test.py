@@ -92,7 +92,7 @@ test["sector_centroid_lat"], test["sector_centroid_lon"] = test.apply(sector_cen
 
 test[["sector_centroid_lat","sector_centroid_lon"]]
 
-# 
+#
 #
 # 350 + 100
 # (350 + 180)/2 -360/2
@@ -151,6 +151,8 @@ for x, i in test.drop_duplicates("cid").head().iterrows():
 # plt.gca().add_patch(pac)
     plt.gca().add_patch(pac_2)
     pac_2.set_color('cyan')
+
+pl
 plt.axis('equal')
 plt.show()
 

@@ -185,7 +185,7 @@ plt.show()
 
 
 
-test.tail()["sector_centroid_lon"]
+test.tail()["sector_centroid_lon"] - test\
 
 
 

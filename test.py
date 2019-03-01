@@ -68,22 +68,9 @@ def circle_segment(data):
 test["segment_lat"], test["segment_lon"] = test.apply(circle_segment, axis = 1).apply(lambda x: x[0]), test.apply(circle_segment, axis = 1).apply(lambda x: x[1])
 
 test["plot_radius"] = test.apply(lambda x: math.hypot(x["segment_lat"] - x["lat"], x["segment_lon"] - x["long"]), axis = 1)
-# Lat = Y Long = X
-
-test.info()
-
-test.cid.describe()
-test.lac.describe()
 
 
-# x_min = x * 0.95
-# x_max = x * 1.05
-# y_min = y * 0.95
-# y_min = y * 1.05
-
-test.drop_duplicates("cid").loc[61811,:]
-
-test.info()
+test.columns
 
 
 

@@ -10,7 +10,7 @@ import matplotlib.patches as mpatches
 # import matplotlib.pyplot as plt
 import math
 
-pd.set_option('display.float_format', lambda x: '%.3f' % x)
+pd.set_option('display.float_format', lambda x: '%.7f' % x)
 
 
 facts = pd.read_excel("01_Facts.xlsx", header = None)

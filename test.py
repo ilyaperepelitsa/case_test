@@ -90,6 +90,7 @@ import matplotlib.pyplot as plt
 
 plt.axes()
 for i in test.drop_duplicates("cid").iterrows():
+    
     x = i["long"]
     y = i["lat"]
     # angle = i["end_angle"] - i["start_angle"]

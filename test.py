@@ -138,6 +138,7 @@ for x, i in test.drop_duplicates("cid").loc[test.lac == test.lac.unique()[3],:].
 # plt.gca().add_patch(pac)
     plt.gca().add_patch(pac_2)
     pac_2.set_color('cyan')
+plt.scatter(test.tail()["sector_centroid_lon"], test.head()["sector_centroid_lat"])
 plt.axis('equal')
 plt.show()
 

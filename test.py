@@ -61,6 +61,16 @@ def circle_segment(data):
     # print(pd.concat(lat2, lon2), axis = 0)
     # return pd.DataFrame(pd.Series(lat2), pd.Series(lon2))
 
+def circle_segment(data):
+    origin = Point(data["lat"], data["long"])
+    destination = geodesic(kilometers=data["max_dist"]/1000).destination(origin, data["start_angle"])
+    lat2, lon2 = destination.latitude, destination.longitude
+    # print(type(lat2))
+    return lat2, lon2
+    # print(pd.concat(lat2, lon2), axis = 0)
+    # return pd.DataFrame(pd.Series(lat2), pd.Series(lon2))
+
+
 
 # test["segment_lat"], test["segment_lon"] = test.apply(circle_segment, axis = 1)
 

@@ -85,8 +85,8 @@ test["station_angle"][test["station_angle"] < 0] = test["station_angle"][test["s
 
 test["sector_centroid_shift"] = (2*test["max_dist"] * np.sin(test["station_angle"])) / 3*np.sin(test["station_angle"])
 # plt.hist(np.log((2*test["max_dist"] * np.sin(test["station_angle"])) / 3*np.sin(test["station_angle"])))
-350 
-
+350 + 100
+350 + 100
 # test["station_angle"].columns
 
 test.columns

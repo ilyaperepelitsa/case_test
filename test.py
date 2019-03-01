@@ -91,7 +91,7 @@ test.drop_duplicates("cid").loc[61811,:]
 
 
 plt.axes()
-for i, x in test.drop_duplicates("cid").head().iterrows():
+for x, x in test.drop_duplicates("cid").head().iterrows():
     print(x["cid"])
 #     x = i["long"]
 #     y = i["lat"]

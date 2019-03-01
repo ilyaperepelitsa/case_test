@@ -6,6 +6,8 @@ from geopy.distance import geodesic
 from geopy import Point
 
 import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+# import matplotlib.pyplot as plt
 import math
 
 pd.set_option('display.float_format', lambda x: '%.3f' % x)

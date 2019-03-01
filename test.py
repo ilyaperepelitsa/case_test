@@ -90,7 +90,7 @@ test["sector_centroid_lat"], test["sector_centroid_lon"] = test.apply(sector_cen
 # plt.hist(np.log((2*test["max_dist"] * np.sin(test["station_angle"])) / 3*np.sin(test["station_angle"])))
 
 
-test["sector_centroid_lat","sector_centroid_lon"]
+test[["sector_centroid_lat","sector_centroid_lon"]]
 
 
 

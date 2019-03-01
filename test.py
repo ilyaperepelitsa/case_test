@@ -175,7 +175,7 @@ plt.scatter(x = test.tail()["sector_centroid_lon"], y = test.tail()["sector_cent
 plt.axis('equal')
 plt.show()
 
-te
+test.drop_duplicates("cid")
 
 
 test.head().loc[:,["long", "sector_centroid_lon", "lat", "sector_centroid_lat", "plot_radius"]]

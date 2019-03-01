@@ -72,7 +72,7 @@ def sector_centroid(data):
     return lat2, lon2
     # print(pd.concat(lat2, lon2), axis = 0)
     # return pd.DataFrame(pd.Series(lat2), pd.Series(lon2))
-def sector_centroid(data):
+def sector_angle_mid(data):
     origin = Point(data["lat"], data["long"])
     angle_mid = (data["end_angle"] + data["start_angle"]) / 2
     if angle_mid > 360:

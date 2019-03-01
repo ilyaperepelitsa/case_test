@@ -152,7 +152,7 @@ for x, i in test.drop_duplicates("cid").head().iterrows():
     plt.gca().add_patch(pac_2)
     pac_2.set_color('cyan')
 
-plt.scatter(, test.head()["sector_centroid_lat"])
+plt.scatter(test.head()["sector_centroid_lat"], test.head()["sector_centroid_lon"])
 plt.axis('equal')
 plt.show()
 

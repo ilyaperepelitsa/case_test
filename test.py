@@ -78,10 +78,10 @@ angle = test.drop_duplicates("cid").loc[61811,"end_angle"] - test.drop_duplicate
 start_angle = test.drop_duplicates("cid").loc[61811,"start_angle"]
 end_angle = test.drop_duplicates("cid").loc[61811,"end_angle"]
 radius = test.drop_duplicates("cid").loc[61811,"plot_radius"]
-x_min = x * 0.95
-x_max = x * 1.05
-y_min = y * 0.95
-y_min = y * 1.05
+# x_min = x * 0.95
+# x_max = x * 1.05
+# y_min = y * 0.95
+# y_min = y * 1.05
 
 test.drop_duplicates("cid").loc[61811,:]
 

@@ -68,7 +68,8 @@ def circle_segment(data):
 test["segment_lat"], test["segment_lon"] = test.apply(circle_segment, axis = 1).apply(lambda x: x[0]), test.apply(circle_segment, axis = 1).apply(lambda x: x[1])
 
 test["plot_radius"] = test.apply(lambda x: math.hypot(x["segment_lat"] - x["lat"], x["segment_lon"] - x["long"]), axis = 1)
-def fl
+def flip_angle(data):
+    
 
 test.columns
 

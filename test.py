@@ -61,7 +61,7 @@ def circle_segment(data):
     # print(pd.concat(lat2, lon2), axis = 0)
     # return pd.DataFrame(pd.Series(lat2), pd.Series(lon2))
 
-def circle_segment(data):
+def sector_centroid(data):
     origin = Point(data["lat"], data["long"])
     destination = geodesic(kilometers=data["max_dist"]/1000).destination(origin, data["start_angle"])
     lat2, lon2 = destination.latitude, destination.longitude
@@ -82,8 +82,7 @@ test["station_angle"] = test.end_angle - test.start_angle
 # test["station_angle"][test["station_angle"] < 0] += 360
 test["station_angle"][test["station_angle"] < 0] = test["station_angle"][test["station_angle"] < 0] + 360
 
-# test["sector_centroid"] =
-(2*test["max_dist"] * np.sin(test["station_angle"])) / 3*np.sin(test["station_angle"])
+# test["sector_centroid"] = (2*test["max_dist"] * np.sin(test["station_angle"])) / 3*np.sin(test["station_angle"])
 # plt.hist(np.log((2*test["max_dist"] * np.sin(test["station_angle"])) / 3*np.sin(test["station_angle"])))
 
 

@@ -83,7 +83,7 @@ def sector_angle_mid(data):
     # print(type(lat2))
     return angle_mid
 
-
+math.radians(angle_mid)
 
 # test["segment_lat"], test["segment_lon"] = test.apply(circle_segment, axis = 1)
 
@@ -180,8 +180,8 @@ for x, i in test.drop_duplicates("cid").tail().iterrows():
 # plt.gca().add_patch(pac)
     plt.gca().add_patch(pac_2)
     pac_2.set_color('cyan')
-plt.scatter(x = test.drop_duplicates("cid").head()["long"], y = test.drop_duplicates("cid").head()["lat"])
-plt.scatter(x = test.drop_duplicates("cid").head()["sector_centroid_lon"], y = test.drop_duplicates("cid").head()["sector_centroid_lat"])
+plt.scatter(x = test.drop_duplicates("cid").tail()["long"], y = test.drop_duplicates("cid").tail()["lat"])
+plt.scatter(x = test.drop_duplicates("cid").tail()["sector_centroid_lon"], y = test.drop_duplicates("cid").tail()["sector_centroid_lat"])
 plt.axis('equal')
 plt.show()
 

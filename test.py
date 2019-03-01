@@ -83,6 +83,7 @@ test.lac.describe()
 
 test.drop_duplicates("cid").loc[61811,:]
 
+test
 
 
 
@@ -112,7 +113,7 @@ for x, i in test.drop_duplicates("cid").loc[test.lac == test.lac.unique()[3],:].
 plt.axis('equal')
 plt.show()
 
-math.p
+math.pi
 
 
 

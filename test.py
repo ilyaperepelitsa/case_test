@@ -76,7 +76,7 @@ test.columns
 pd.concat([test.end_angle - test.start_angle, test.start_angle, test.end_angle], axis =  1)
 
 a = pd.Series(test.end_angle - test.start_angle)
-a[a]
+a[a<0] 
 # Here's a simpler workaround. Use the hatch argument in your mpatches.Arc command. If you repeat symbols with the hatch argument it increases the density of the patterning. I find that if you use 6 dashes, '-', or 6 dots, '.' (others probably also work), then it solidly fills in the arc as desired. When I run this
 
 

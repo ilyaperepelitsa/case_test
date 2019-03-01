@@ -105,6 +105,8 @@ pd.concat([test["start_angle"], test["station_angle"], test["end_angle"]], axis 
 
 test[["sector_centroid_lat","sector_centroid_lon"]]
 
+
+test.apply(circle_segment, axis = 1)
 geodesic(kilometers=data["max_dist"]/1000)
 #
 #

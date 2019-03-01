@@ -157,7 +157,7 @@ plt.axis('equal')
 plt.show()
 
 
-test.head().loc[:,["long", "sector_centroid_lon", ""]]
+test.head().loc[:,["long", "sector_centroid_lon", "lat", "plot_radius"]]
 
 
 

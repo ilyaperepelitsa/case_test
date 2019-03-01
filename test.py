@@ -64,7 +64,7 @@ def circle_segment(data):
 def sector_centroid(data):
     origin = Point(data["lat"], data["long"])
     angle_mid = (data["end_angle"] + data["start_angle"]) / 2
-    destination = geodesic(kilometers=data["max_dist"]/1000).destination(origin, data["start_angle"])
+    destination = geodesic(kilometers=data["max_dist"]/1000).destination(origin, angle_mid)
     lat2, lon2 = destination.latitude, destination.longitude
     # print(type(lat2))
     return lat2, lon2

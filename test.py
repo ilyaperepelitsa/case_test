@@ -72,7 +72,16 @@ def sector_centroid(data):
     return lat2, lon2
     # print(pd.concat(lat2, lon2), axis = 0)
     # return pd.DataFrame(pd.Series(lat2), pd.Series(lon2))
-
+def sector_centroid(data):
+    origin = Point(data["lat"], data["long"])
+    angle_mid = (data["end_angle"] + data["start_angle"]) / 2
+    if angle_mid > 360:
+        angle_mid = angle_mid - 180
+    destination = geodesic(kilometers=data["sector_centroid_shift"]/1000).destination(origin, angle_mid)
+    lat2, lon2 = destination.latitude, destination.longitude
+    # print(type(lat2))
+    return lat2, lon2
+    
 
 
 # test["segment_lat"], test["segment_lon"] = test.apply(circle_segment, axis = 1)
@@ -152,7 +161,7 @@ for x, i in test.drop_duplicates("cid").tail().iterrows():
     plt.gca().add_patch(pac_2)
     pac_2.set_color('cyan')
 
-plt.scatter(test.head()["sector_centroid_lon"], test.head()["sector_centroid_lat"])
+plt.scatter(test.tail()["sector_centroid_lon"], test.head()["sector_centroid_lat"])
 plt.axis('equal')
 plt.show()
 

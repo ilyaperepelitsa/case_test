@@ -96,7 +96,7 @@ test["station_angle"] = test.end_angle - test.start_angle
 # test["station_angle"][test["station_angle"] < 0] += 360
 test["station_angle"][test["station_angle"] < 0] = test["station_angle"][test["station_angle"] < 0] + 360
 
-test["sector_centroid_shift"] = (2*test["max_dist"] * np.sin(test["station_angle"])) / 3*np.sin(test["station_angle"])
+test["sector_centroid_shift"] = (2*test["max_dist"] * np.sin(test["station_angle"])) / 3*test["station_angle"]
 
 # pd.concat([test["plot_radius"], test["plot_radius_2"]], axis = 1)
 pd.concat([test["sector_centroid_shift"], test["max_dist"]], axis = 1)

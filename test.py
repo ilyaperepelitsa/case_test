@@ -180,8 +180,8 @@ test.drop_duplicates("cid")
 plt.scatter(test.drop_duplicates("cid").loc[:,["sector_centroid_lat"]],
                 test.drop_duplicates("cid").loc[:,["sector_centroid_lon"]])
 
-plt.scatter(test.drop_duplicates("cid").loc[:,["sector_centroid_lat"]],
-                test.drop_duplicates("cid").loc[:,["sector_centroid_lon"]])
+plt.scatter(test.drop_duplicates("cid").loc[:,["lat"]],
+                test.drop_duplicates("cid").loc[:,["long"]])
 
 test.head().loc[:,["long", "sector_centroid_lon", "lat", "sector_centroid_lat", "plot_radius"]]
 

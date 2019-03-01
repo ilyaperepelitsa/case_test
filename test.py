@@ -72,7 +72,8 @@ def flip_angle(data):
     if data
 
 test.columns
-test["station_angle"] = 
+test["station_angle"] = test.end_angle - test.start_angle
+test["station_angle"]
 
 pd.concat([test.end_angle - test.start_angle, test.start_angle, test.end_angle], axis =  1)
 

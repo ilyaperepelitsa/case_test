@@ -170,7 +170,7 @@ y = 1
 # angle = i["end_angle"] - i["start_angle"]
 start_angle = 0
 end_angle = 90
-radius = 3
+radius = 2
 
 pac_2 = mpatches.Wedge(center = [x, y], r = radius, theta1=math.radians(start_angle), theta2=math.radians(end_angle), alpha = 0.6)
 plt.gca().add_patch(pac_2)

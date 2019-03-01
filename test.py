@@ -93,10 +93,10 @@ test.drop_duplicates("cid").loc[61811,:]
 plt.axes()
 for i in test.drop_duplicates("cid").head().iterrows():
     # print(i["cid"])
-    x = i["long"]
-    y = i["lat"]
+    x = i.loc["long"]
+    y = i.loc["lat"]
     # angle = i["end_angle"] - i["start_angle"]
-    start_angle = i["start_angle"]
+    start_angle = i.loc["start_angle"]
     end_angle = i["end_angle"]
     radius = i["plot_radius"]
 

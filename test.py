@@ -185,7 +185,7 @@ plt.show()
 
 
 
-pd.concat([tes, test["plot_radius"]], axis = 1)
+pd.concat([test["ce"], test["plot_radius"]], axis = 1)
 
 
 

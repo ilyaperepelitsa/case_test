@@ -185,7 +185,7 @@ plt.show()
 
 
 
-test["sector_centroid_lon"] - test["long"], 
+pd.[test["sector_centroid_lon"] - test["long"], ]
 
 
 

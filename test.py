@@ -72,10 +72,10 @@ test["station_angle"] = test.end_angle - test.start_angle
 # test["station_angle"][test["station_angle"] < 0] += 360
 test["station_angle"][test["station_angle"] < 0] = test["station_angle"][test["station_angle"] < 0] + 360
 
-test["sector_area"] = 
+test["sector_area"] =
 
 
-# test["station_angle"].describe()
+# test["station_angle"].columns
 
 test.columns
 

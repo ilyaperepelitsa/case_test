@@ -107,7 +107,7 @@ for x, i in test.drop_duplicates("cid").head().iterrows():
     pac_2 = mpatches.Wedge(center = [x, y], r = radius, theta1=start_angle, theta2=end_angle, alpha = 0.3)
 # plt.gca().add_patch(pac)
     plt.gca().add_patch(pac_2)
-pac.set_color('cyan')
+    pac.set_color('cyan')
 plt.axis('equal')
 plt.show()
 

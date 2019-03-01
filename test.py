@@ -69,7 +69,7 @@ def sector_centroid(data):
     if data["end_angle"] - data["start_angle"] >= 180:
         destination = geodesic(kilometers=-data["sector_centroid_shift"]/1000).destination(origin, angle_mid)
     else:
-    destination = geodesic(kilometers=data["sector_centroid_shift"]/1000).destination(origin, angle_mid)
+        destination = geodesic(kilometers=data["sector_centroid_shift"]/1000).destination(origin, angle_mid)
     lat2, lon2 = destination.latitude, destination.longitude
     # print(type(lat2))
     return lat2, lon2
@@ -105,6 +105,7 @@ pd.concat([test["start_angle"], test["station_angle"], test["end_angle"]], axis 
 
 test[["sector_centroid_lat","sector_centroid_lon"]]
 
+geodesic(kilometers=data["max_dist"]/1000)
 #
 #
 # 350 + 100

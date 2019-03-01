@@ -74,7 +74,7 @@ test["station_angle"][test["station_angle"] < 0] = test["station_angle"][test["s
 
 test["sector_area"] = 2*test["max_dist"]
 
-np.si
+np.sin()
 # test["station_angle"].columns
 
 test.columns

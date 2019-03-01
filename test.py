@@ -69,7 +69,7 @@ def sector_centroid(data):
 # if data["end_angle"] - data["start_angle"] >= 180:
 #     destination = geodesic(kilometers=-data["sector_centroid_shift"]/1000).destination(origin, angle_mid)
 # else:
-    destination = geodesic(kilometers=data["sector_centroid_shift"]/1000).destination(origin, math.radians(angle_mid)
+    destination = geodesic(kilometers=data["sector_centroid_shift"]/1000).destination(origin, math.radians(angle_mid))
     lat2, lon2 = destination.latitude, destination.longitude
     # print(type(lat2))
     return lat2, lon2
@@ -176,7 +176,7 @@ for x, i in test.drop_duplicates("cid").head().iterrows():
 # pac = mpatches.Wedge(center = [x, y], r = radius, theta1=start_angle + 90, theta2=end_angle)
 # pac = mpatches.Wedge(center = [x, y], r = radius, theta1=0, theta2=15)
 # pac_2 = mpatches.Wedge(center = [x + 0.1, y + 0.1], r = radius, theta1=0, theta2=35)
-    pac_2 = mpatches.Wedge(center = [x, y], r = radius, theta1=math.radians(start_angle), theta2=math.radians(end_angle), alpha = 0.6)
+    pac_2 = mpatches.Wedge(center = [x, y], r = radius, theta1=start_angle, theta2=math.radians(end_angle), alpha = 0.6)
 # plt.gca().add_patch(pac)
     plt.gca().add_patch(pac_2)
     pac_2.set_color('cyan')

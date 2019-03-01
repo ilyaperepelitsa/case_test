@@ -90,7 +90,7 @@ test["sector_centroid_shift"] = (2*test["max_dist"] * np.sin(test["station_angle
 # test["station_angle"].columns
 
 test.columns
-(test.end_angle < test.start_angle)
+(test.end_angle > test.start_angle).sum()
 
 pd.concat([test.end_angle - test.start_angle, test.start_angle, test.end_angle], axis =  1)
 

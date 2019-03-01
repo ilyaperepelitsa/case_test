@@ -157,7 +157,7 @@ plt.axis('equal')
 plt.show()
 
 
-test.head()
+test.head().loc[]
 
 
 

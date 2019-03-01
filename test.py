@@ -104,7 +104,7 @@ test["sector_centroid_shift"]
 
 
 # pd.concat([test["plot_radius"], test["plot_radius_2"]], axis = 1)
-# pd.concat([test["sector_centroid_shift"], test["max_dist"]], axis = 1)
+pd.concat([test["sector_centroid_shift"], test["max_dist"]], axis = 1)
 
 
 

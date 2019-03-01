@@ -65,7 +65,7 @@ def sector_centroid(data):
     origin = Point(data["lat"], data["long"])
     angle_mid = (data["end_angle"] + data["start_angle"]) / 2
     if angle_mid > 360:
-        angle_mid -= 180
+        angle_mid = 180
     destination = geodesic(kilometers=data["sector_centroid_shift"]/1000).destination(origin, angle_mid)
     lat2, lon2 = destination.latitude, destination.longitude
     # print(type(lat2))

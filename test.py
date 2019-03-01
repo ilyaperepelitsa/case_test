@@ -83,7 +83,7 @@ def sector_angle_mid(data):
     # print(type(lat2))
     return angle_mid
 
-math.radians(angle_mid)
+math.degrees(90)
 
 # test["segment_lat"], test["segment_lon"] = test.apply(circle_segment, axis = 1)
 

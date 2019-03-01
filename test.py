@@ -89,7 +89,7 @@ def sector_angle_mid(data):
 
 test["segment_lat"], test["segment_lon"] = test.apply(circle_segment, axis = 1).apply(lambda x: x[0]), test.apply(circle_segment, axis = 1).apply(lambda x: x[1])
 
-test["plot_radius"] = test.apply(lambda x: math.hypot(x["segment_lat"] - x["lat"], x["segment_lon"] - x["long"]), axis = 1)
+test["plot_radius"] = test.apply(lambda x: math.hypot(x["segment_lat"] - x["lat"], ), axis = 1)
 test["station_angle"] = test.end_angle - test.start_angle
 # test["station_angle"][test["station_angle"] < 0] += 360
 test["station_angle"][test["station_angle"] < 0] = test["station_angle"][test["station_angle"] < 0] + 360
@@ -106,7 +106,7 @@ pd.concat([test["start_angle"], test["station_angle"], test["end_angle"]], axis 
 test[["sector_centroid_lat","sector_centroid_lon"]]
 
 
-test.head().apply(lambda x: x["max_dist"]/, axis = 1)
+test.head().apply(lambda x: x["max_dist"]/1000, axis = 1)
 
 
 geodesic(kilometers=data["max_dist"]/1000)

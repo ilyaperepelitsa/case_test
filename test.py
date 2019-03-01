@@ -89,13 +89,13 @@ import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
 
 plt.axes()
-for i in test.drop_duplicates("cid").ite:
+for i in test.drop_duplicates("cid").iterrows():
 x = test.drop_duplicates("cid").loc[61811,"long"]
 y = test.drop_duplicates("cid").loc[61811,"lat"]
 angle = test.drop_duplicates("cid").loc[61811,"end_angle"] - test.drop_duplicates("cid").loc[61811,"start_angle"]
 start_angle = test.drop_duplicates("cid").loc[61811,"start_angle"]
 end_angle = test.drop_duplicates("cid").loc[61811,"end_angle"]
-radius = test.drop_duplicates("cid").loc[61811,"plot_radius"]
+radius = test.drop_duplicates("cid").loc[61811,"plot_radius"]   
 
 
 # pac = mpatches.Wedge(center = [x, y], r = radius, theta1=start_angle + 90, theta2=end_angle)

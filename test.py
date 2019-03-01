@@ -90,8 +90,8 @@ import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
 
 plt.axes()
-for i in test.drop_duplicates("cid").hea iterrows():
-    print(i)
+for i in test.drop_duplicates("cid").head().iterrows():
+    print(i[""])
 #     x = i["long"]
 #     y = i["lat"]
 #     # angle = i["end_angle"] - i["start_angle"]

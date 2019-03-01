@@ -188,8 +188,8 @@ plt.show()
 plt.figure(figsize=(20,10))
 for x, i in test.drop_duplicates("cid").head().iterrows():
     # print(i["cid"])
-    start_angle = math.degrees(i["start_angle"])
-    end_angle = math.degrees(i["end_angle"])
+    x = i["long"]
+    y = i["lat"]
     # angle = i["end_angle"] - i["start_angle"]
     start_angle = i["start_angle"]
     end_angle = i["end_angle"]
@@ -203,8 +203,8 @@ for x, i in test.drop_duplicates("cid").head().iterrows():
 # plt.gca().add_patch(pac)
     plt.gca().add_patch(pac_2)
     pac_2.set_color('cyan')
-# plt.scatter(x = test.drop_duplicates("cid").head()["long"], y = test.drop_duplicates("cid").head()["lat"])
-# plt.scatter(x = test.drop_duplicates("cid").head()["sector_centroid_lon"], y = test.drop_duplicates("cid").head()["sector_centroid_lat"])
+plt.scatter(x = test.drop_duplicates("cid").head()["long"], y = test.drop_duplicates("cid").head()["lat"])
+plt.scatter(x = test.drop_duplicates("cid").head()["sector_centroid_lon"], y = test.drop_duplicates("cid").head()["sector_centroid_lat"])
 plt.axis('equal')
 plt.show()
 

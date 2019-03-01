@@ -97,7 +97,7 @@ test["sector_centroid_lat"], test["sector_centroid_lon"] = test.apply(sector_cen
 
 pd.concat([test["start_angle"], test.apply(sector_angle_mid, axis = 1), test["end_angle"]], axis = 1)
 # plt.hist(np.log((2*test["max_dist"] * np.sin(test["station_angle"])) / 3*np.sin(test["station_angle"])))
-pd.concat([test["start_angle"], test.apply(sector_angle_mid, axis = 1), test["end_angle"]], axis = 1)
+pd.concat([test["start_angle"], test["station_angle"], test["end_angle"]], axis = 1)
 
 
 test[["sector_centroid_lat","sector_centroid_lon"]]

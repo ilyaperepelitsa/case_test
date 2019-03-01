@@ -163,7 +163,7 @@ plt.show()
 
 
 plt.figure(figsize=(20,10))
-for x, i in test.drop_duplicates("cid").head().iterrows():
+for x, i in test.drop_duplicates("cid").tail().iterrows():
     # print(i["cid"])
     x = i["long"]
     y = i["lat"]

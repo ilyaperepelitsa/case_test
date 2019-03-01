@@ -91,7 +91,7 @@ test.drop_duplicates("cid").loc[61811,:]
 
 
 plt.axes()
-plt.f
+plt.figure(figsize=(3,4))
 for x, i in test.drop_duplicates("cid").iterrows():
     # print(i["cid"])
     x = i["long"]

@@ -71,7 +71,7 @@ test["plot_radius"] = test.apply(lambda x: math.hypot(x["segment_lat"] - x["lat"
 test["station_angle"] = test.end_angle - test.start_angle
 test["station_angle"][test["station_angle"] < 0] += 360
 
-test["station_angle"][test["station_angle"] < 0] 
+test["station_angle"][test["station_angle"] < 0] = test["station_angle"][test["station_angle"] < 0] + 360
 
 test["station_angle"]
 

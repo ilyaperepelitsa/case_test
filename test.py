@@ -68,13 +68,13 @@ def circle_segment(data):
 test["segment_lat"], test["segment_lon"] = test.apply(circle_segment, axis = 1).apply(lambda x: x[0]), test.apply(circle_segment, axis = 1).apply(lambda x: x[1])
 
 test["plot_radius"] = test.apply(lambda x: math.hypot(x["segment_lat"] - x["lat"], x["segment_lon"] - x["long"]), axis = 1)
-
+def fl
 
 test.columns
 
 pd.concat([test.end_angle - test.start_angle, test.start_angle, test.end_angle], axis =  1)
 
-pd.Series(test.end_angle - test.start_angle).appl
+pd.Series(test.end_angle - test.start_angle).apply
 
 # Here's a simpler workaround. Use the hatch argument in your mpatches.Arc command. If you repeat symbols with the hatch argument it increases the density of the patterning. I find that if you use 6 dashes, '-', or 6 dots, '.' (others probably also work), then it solidly fills in the arc as desired. When I run this
 

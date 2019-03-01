@@ -101,7 +101,7 @@ test["sector_centroid_lat"], test["sector_centroid_lon"] = test.apply(sector_cen
 
 
 test["sector_centroid_shift"]
-np.sin(math.radians(360)
+np.sin(math.radians(90))
 
 # pd.concat([test["plot_radius"], test["plot_radius_2"]], axis = 1)
 pd.concat([test["sector_centroid_shift"], test["max_dist"]], axis = 1)

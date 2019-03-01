@@ -131,6 +131,11 @@ for x, i in test.drop_duplicates("cid").loc[test.lac == test.lac.unique()[3],:].
 plt.axis('equal')
 plt.show()
 
+
+
+
+
+
 math.pi
 
 

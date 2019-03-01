@@ -97,7 +97,7 @@ test["station_angle"] = test.end_angle - test.start_angle
 test["station_angle"][test["station_angle"] < 0] = test["station_angle"][test["station_angle"] < 0] + 360
 
 test["sector_centroid_shift"] = (2*test["max_dist"] * np.sin(test["station_angle"])) / (3*math.radians(test["station_angle"]))
-
+test["sector_centroid_shift"].lamb
 
 math.radians(test["station_angle"])
 

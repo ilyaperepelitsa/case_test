@@ -92,22 +92,22 @@ test["sector_centroid_lat"], test["sector_centroid_lon"] = test.apply(sector_cen
 
 test[["sector_centroid_lat","sector_centroid_lon"]]
 
-
-
-350 + 100
-(350 + 180)/2 -360/2
-# test["station_angle"].columns
-
-test.columns
-(test.end_angle > test.start_angle).sum()
-
-pd.concat([test.end_angle - test.start_angle, test.start_angle, test.end_angle], axis =  1)
-
-a = pd.Series(test.end_angle - test.start_angle)
-a[a<0] += 360
-# Here's a simpler workaround. Use the hatch argument in your mpatches.Arc command. If you repeat symbols with the hatch argument it increases the density of the patterning. I find that if you use 6 dashes, '-', or 6 dots, '.' (others probably also work), then it solidly fills in the arc as desired. When I run this
-
-
+# 
+#
+# 350 + 100
+# (350 + 180)/2 -360/2
+# # test["station_angle"].columns
+#
+# test.columns
+# (test.end_angle > test.start_angle).sum()
+#
+# pd.concat([test.end_angle - test.start_angle, test.start_angle, test.end_angle], axis =  1)
+#
+# a = pd.Series(test.end_angle - test.start_angle)
+# a[a<0] += 360
+# # Here's a simpler workaround. Use the hatch argument in your mpatches.Arc command. If you repeat symbols with the hatch argument it increases the density of the patterning. I find that if you use 6 dashes, '-', or 6 dots, '.' (others probably also work), then it solidly fills in the arc as desired. When I run this
+#
+#
 
 # plt.axes()
 plt.figure(figsize=(20,10))
@@ -134,7 +134,7 @@ plt.show()
 
 
 plt.figure(figsize=(20,10))
-for x, i in test.drop_duplicates("cid").he.iterrows():
+for x, i in test.drop_duplicates("cid").head().iterrows():
     # print(i["cid"])
     x = i["long"]
     y = i["lat"]

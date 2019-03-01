@@ -95,13 +95,13 @@ for i in test.drop_duplicates("cid").iterrows():
     angle = i["end_angle"] - i["start_angle"]
     start_angle = i["start_angle"]
     end_angle = i["end_angle"]
-    radius = i[61811,"plot_radius"]
+    radius = i["plot_radius"]
 
 
 # pac = mpatches.Wedge(center = [x, y], r = radius, theta1=start_angle + 90, theta2=end_angle)
 # pac = mpatches.Wedge(center = [x, y], r = radius, theta1=0, theta2=15)
 # pac_2 = mpatches.Wedge(center = [x + 0.1, y + 0.1], r = radius, theta1=0, theta2=35)
-pac_2 = mpatches.Wedge(center = [x, y], r = radius, theta1=0, theta2=95, alpha = 0.3)
+    pac_2 = mpatches.Wedge(center = [x, y], r = radius, theta1=0, theta2=95, alpha = 0.3)
 # plt.gca().add_patch(pac)
 plt.gca().add_patch(pac_2)
 pac.set_color('cyan')

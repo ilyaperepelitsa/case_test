@@ -168,7 +168,7 @@ for x, i in test.drop_duplicates("cid").head().iterrows():
     x = i["long"]
     y = i["lat"]
     # angle = i["end_angle"] - i["start_angle"]
-    start_angle = i["start_angle"]
+    start_angle = 0
     end_angle = i["end_angle"]
     radius = i["plot_radius"]
 

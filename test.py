@@ -144,8 +144,8 @@ for x, i in test.drop_duplicates("cid").loc[test.lac == test.lac.unique()[3],:].
     x = i["long"]
     y = i["lat"]
     # angle = i["end_angle"] - i["start_angle"]
-    start_angle = math.degrees(0)i["start_angle"]
-    end_angle = i["end_angle"]
+    start_angle = math.degrees(i["start_angle"])
+    end_angle = math.degrees(0)i["end_angle"]
     radius = i["plot_radius"]
 
 

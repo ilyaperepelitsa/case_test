@@ -90,8 +90,8 @@ def sector_angle_mid(data):
 test["segment_lat"], test["segment_lon"] = test.apply(circle_segment, axis = 1).apply(lambda x: x[0]), test.apply(circle_segment, axis = 1).apply(lambda x: x[1])
 
 test["plot_radius"] = test.apply(lambda x: math.hypot(x["segment_lon"] - x["long"], x["segment_lat"] - x["lat"]), axis = 1)
-test["plot_radius"] = test.apply(lambda x:
-math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
+test["plot_radius"] = test.apply(lambda x: math.sqrt((x["segment_lon"] - x["long"])**2 + (y2 - y1)**2), axis = 1)
+
 test["station_angle"] = test.end_angle - test.start_angle
 # test["station_angle"][test["station_angle"] < 0] += 360
 test["station_angle"][test["station_angle"] < 0] = test["station_angle"][test["station_angle"] < 0] + 360

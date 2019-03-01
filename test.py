@@ -163,7 +163,7 @@ plt.show()
 
 
 plt.figure(figsize=(20,10))
-for x, i in test.drop_duplicates("cid").tail().iterrows():
+for x, i in test.drop_duplicates("cid").head().iterrows():
     # print(i["cid"])
     x = i["long"]
     y = i["lat"]
@@ -180,8 +180,8 @@ for x, i in test.drop_duplicates("cid").tail().iterrows():
 # plt.gca().add_patch(pac)
     plt.gca().add_patch(pac_2)
     pac_2.set_color('cyan')
-plt.scatter(x = test.drop_duplicates("cid").head()["long"], y = test.drop_duplicates("cid").tail()["lat"])
-plt.scatter(x = test.drop_duplicates("cid").tail()["sector_centroid_lon"], y = test.drop_duplicates("cid").tail()["sector_centroid_lat"])
+plt.scatter(x = test.drop_duplicates("cid").head()["long"], y = test.drop_duplicates("cid").head()["lat"])
+plt.scatter(x = test.drop_duplicates("cid").head()["sector_centroid_lon"], y = test.drop_duplicates("cid").head()["sector_centroid_lat"])
 plt.axis('equal')
 plt.show()
 

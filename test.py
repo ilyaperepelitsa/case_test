@@ -177,6 +177,8 @@ plt.show()
 
 test.drop_duplicates("cid")
 
+test.drop_duplicates("cid")
+
 
 test.head().loc[:,["long", "sector_centroid_lon", "lat", "sector_centroid_lat", "plot_radius"]]
 

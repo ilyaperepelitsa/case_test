@@ -163,9 +163,9 @@ plt.show()
 
 
 plt.figure(figsize=(20,10))
-for x, i in test.drop_duplicates("cid").head().iterrows():
-    # print(i["cid"])
-    x = i["long"]
+# for x, i in test.drop_duplicates("cid").head().iterrows():
+#     # print(i["cid"])
+    x = 1
     y = 1
     # angle = i["end_angle"] - i["start_angle"]
     start_angle = 0

@@ -144,7 +144,7 @@ for x, i in test.drop_duplicates("cid").loc[test.lac == test.lac.unique()[3],:].
     x = i["long"]
     y = i["lat"]
     # angle = i["end_angle"] - i["start_angle"]
-    start_angle = i["start_angle"]
+    start_angle = math.degrees(0)i["start_angle"]
     end_angle = i["end_angle"]
     radius = i["plot_radius"]
 
@@ -169,7 +169,7 @@ x = 1
 y = 1
 # angle = i["end_angle"] - i["start_angle"]
 start_angle = math.degrees(0)
-end_angle = math.degrees()
+end_angle = math.degrees(90)
 radius = 1
 
 pac_2 = mpatches.Wedge(center = [x, y], r = radius, theta1=math.radians(start_angle), theta2=math.radians(end_angle), alpha = 0.6)

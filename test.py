@@ -72,7 +72,7 @@ test["station_angle"] = test.end_angle - test.start_angle
 # test["station_angle"][test["station_angle"] < 0] += 360
 test["station_angle"][test["station_angle"] < 0] = test["station_angle"][test["station_angle"] < 0] + 360
 
-test["sector_area"] = 2*test["max_dist"] 
+test["sector_area"] = 2*test["max_dist"]p.sin(test["station_angle"])
 
 
 # test["station_angle"].columns

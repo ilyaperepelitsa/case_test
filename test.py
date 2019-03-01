@@ -185,7 +185,7 @@ plt.show()
 
 
 
-pd.concat([test["sector_centroid_lon"] - test["long"], test["sector_centroid_lat"] - test["lat"], test["plot_radius"]], axis = )
+pd.concat([tes, test["plot_radius"]], axis = 1)
 
 
 

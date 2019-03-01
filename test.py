@@ -6,6 +6,7 @@ from geopy.distance import geodesic
 from geopy import Point
 
 import matplotlib.pyplot as plt
+import math
 
 pd.set_option('display.float_format', lambda x: '%.3f' % x)
 
@@ -89,7 +90,7 @@ import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
 
 plt.axes()
-for i in test.drop_duplicates("cid").iterrows():
+for i in test.drop_duplicates("cid").hea iterrows():
     print(i)
 #     x = i["long"]
 #     y = i["lat"]

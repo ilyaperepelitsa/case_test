@@ -96,7 +96,7 @@ test["station_angle"] = test.end_angle - test.start_angle
 # test["station_angle"][test["station_angle"] < 0] += 360
 test["station_angle"][test["station_angle"] < 0] = test["station_angle"][test["station_angle"] < 0] + 360
 
-test["sector_centroid_shift"] = test.apply(lambda x: (2*x["max_dist"] * np.sin(x["station_angle"])) / (3*x["station_angle"]),axis = 1)
+test["sector_centroid_shift"] = test.apply(lambda x: (2*x["max_dist"] * np.sin(x["station_angle"])) / (3*math.radians(x["station_angle"])),axis = 1)
 test["sector_centroid_lat"], test["sector_centroid_lon"] = test.apply(sector_centroid, axis = 1).apply(lambda x: x[0]), test.apply(sector_centroid, axis = 1).apply(lambda x: x[1])
 
 
@@ -180,7 +180,7 @@ for x, i in test.drop_duplicates("cid").tail().iterrows():
 # plt.gca().add_patch(pac)
     plt.gca().add_patch(pac_2)
     pac_2.set_color('cyan')
-# plt.scatter(x = test.drop_duplicates("cid").tail()["long"], y = test.drop_duplicates("cid").tail()["lat"])
+plt.scatter(x = test.drop_duplicates("cid").tail()["long"], y = test.drop_duplicates("cid").tail()["lat"])
 plt.scatter(x = test.drop_duplicates("cid").tail()["sector_centroid_lon"], y = test.drop_duplicates("cid").tail()["sector_centroid_lat"])
 plt.axis('equal')
 plt.show()

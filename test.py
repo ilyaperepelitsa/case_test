@@ -133,6 +133,30 @@ plt.show()
 
 
 
+plt.figure(figsize=(20,10))
+for x, i in test.drop_duplicates("cid").he.iterrows():
+    # print(i["cid"])
+    x = i["long"]
+    y = i["lat"]
+    # angle = i["end_angle"] - i["start_angle"]
+    start_angle = i["start_angle"]
+    end_angle = i["end_angle"]
+    radius = i["plot_radius"]
+
+
+# pac = mpatches.Wedge(center = [x, y], r = radius, theta1=start_angle + 90, theta2=end_angle)
+# pac = mpatches.Wedge(center = [x, y], r = radius, theta1=0, theta2=15)
+# pac_2 = mpatches.Wedge(center = [x + 0.1, y + 0.1], r = radius, theta1=0, theta2=35)
+    pac_2 = mpatches.Wedge(center = [x, y], r = radius, theta1=start_angle, theta2=end_angle, alpha = 0.1)
+# plt.gca().add_patch(pac)
+    plt.gca().add_patch(pac_2)
+    pac_2.set_color('cyan')
+plt.axis('equal')
+plt.show()
+
+
+
+
 
 
 

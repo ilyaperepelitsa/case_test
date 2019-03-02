@@ -155,8 +155,8 @@ radius = i["plot_radius"]
 # pac_2 = mpatches.Wedge(center = [x + 0.1, y + 0.1], r = radius, theta1=0, theta2=35)
 pac_2 = mpatches.Wedge(center = [x, y], r = radius, theta1=start_angle, theta2=end_angle, alpha = 0.7)
 pac_23 = [mpatches.Wedge(center = [x, y], r = radius*1.2, theta1=0, theta2=90, alpha = 0.7),
-            mpatches.Wedge(center = [x, y], r = radius*1.2, theta1=45, theta2=90, alpha = 0.7)
-            mpatches.Wedge(center = [x, y], r = radius*1.2, theta1=60, theta2=90, alpha = 0.7)]
+            mpatches.Wedge(center = [x, y], r = radius*1.5, theta1=45, theta2=90, alpha = 0.7)
+            mpatches.Wedge(center = [x, y], r = radius*2, theta1=60, theta2=90, alpha = 0.7)]
 # plt.gca().add_patch(pac)
 plt.gca().add_patch(pac_2)
 pac_2.set_color('cyan')

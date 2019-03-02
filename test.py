@@ -157,7 +157,7 @@ pac_2 = mpatches.Wedge(center = [x, y], r = radius, theta1=math.radians(start_an
 # plt.gca().add_patch(pac)
 plt.gca().add_patch(pac_2)
 pac_2.set_color('cyan')
-plt.scatter(i["sector_centroid_lon"], i["sector_centroid_lat"])
+# plt.scatter(i["sector_centroid_lon"], i["sector_centroid_lat"])
 plt.axis('equal')
 plt.show()
 

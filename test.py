@@ -194,7 +194,7 @@ x = i["long"]
 y = i["lat"]
 # angle = i["end_angle"] - i["start_angle"]
 start_angle = math.degrees(i["start_angle"])
-end_angle = math.degrees(i["end_angle"])
+end_angle = i["end_angle"])
 radius = i["plot_radius"]
 
 
@@ -206,7 +206,7 @@ pac_2 = mpatches.Wedge(center = [x, y], r = radius, theta1=math.radians(start_an
 plt.gca().add_patch(pac_2)
 pac_2.set_color('cyan')
 # plt.scatter(x = test.drop_duplicates("cid").head()["long"], y = test.drop_duplicates("cid").head()["lat"])
-plt.scatter(x = i["sector_centroid_lon"], y = test.drop_duplicates("cid").head()["sector_centroid_lat"])
+plt.scatter(x = i["sector_centroid_lon"], y = i["sector_centroid_lat"])
 plt.axis('equal')
 plt.show()
 

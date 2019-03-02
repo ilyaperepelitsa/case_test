@@ -189,7 +189,7 @@ plt.show()
 # for x, i in test.drop_duplicates("cid").iterrows():
     # print(i["cid"])
 
-test.loc[test.index[0]]
+i = test.loc[test.index[0],:]
 x = i["long"]
 y = i["lat"]
 # angle = i["end_angle"] - i["start_angle"]

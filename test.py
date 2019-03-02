@@ -161,6 +161,8 @@ plt.scatter(i["sector_centroid_lon"], i["sector_centroid_lat"])
 plt.axis('equal')
 plt.show()
 
+i["sector_centroid_lon"], i["sector_centroid_lat"]
+
 
 
 plt.figure(figsize=(20,10))

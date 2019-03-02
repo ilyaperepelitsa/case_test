@@ -63,7 +63,7 @@ def circle_segment(data):
 
 def sector_centroid(data):
     origin = Point(data["lat"], data["long"])
-    
+    angle = data["end_angle"] - 
     angle_mid = (data["end_angle"] + data["start_angle"]) / 2
     if angle_mid > 360:
         angle_mid = angle_mid - 180

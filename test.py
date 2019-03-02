@@ -161,7 +161,7 @@ pac_23 = [mpatches.Wedge(center = [x, y], r = radius*1.2, theta1=0, theta2=90, a
 plt.gca().add_patch(pac_2)
 for plo in pac_23:
     plt.gca().add_patch(plo)
-    plo.set_
+    plo.set_color("orange")
 pac_2.set_color('cyan')
 # plt.scatter(i["sector_centroid_lon"], i["sector_centroid_lat"])
 plt.axis('equal')

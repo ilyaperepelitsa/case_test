@@ -76,8 +76,6 @@ def sector_centroid(data):
 
 
 def sector_angle_mid(data):
-    origin = Point(data["lat"], data["long"])
-    
     angle_mid = (data["end_angle"] + data["start_angle"]) / 2
     if angle_mid > 360:
         angle_mid = angle_mid - 180

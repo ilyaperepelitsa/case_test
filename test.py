@@ -185,9 +185,11 @@ plt.show()
 
 
 
-plt.figure(figsize=(20,10))
-for x, i in test.drop_duplicates("cid").iterrows():
+# plt.figure(figsize=(20,10))
+# for x, i in test.drop_duplicates("cid").iterrows():
     # print(i["cid"])
+
+test
 x = i["long"]
 y = i["lat"]
 # angle = i["end_angle"] - i["start_angle"]

@@ -162,7 +162,7 @@ plt.axis('equal')
 plt.show()
 
 i["sector_centroid_lon"], i["sector_centroid_lat"]
-
+x, y
 
 
 plt.figure(figsize=(20,10))

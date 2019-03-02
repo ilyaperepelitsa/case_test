@@ -156,7 +156,7 @@ radius = i["plot_radius"]
 pac_2 = mpatches.Wedge(center = [x, y], r = radius, theta1=start_angle, theta2=end_angle, alpha = 0.7)
 pac_23 = [mpatches.Wedge(center = [x, y], r = radius*1.2, theta1=0, theta2=0, alpha = 0.7),
             mpatches.Wedge(center = [x, y], r = radius*1.5, theta1=0, theta2=0, alpha = 0.7),
-            mpatches.Wedge(center = [x, y], r = radius*2, theta2=-270theta1=-270-30, , alpha = 0.7)]
+            mpatches.Wedge(center = [x, y], r = radius*2, theta2=-270, theta1=-270-30,alpha = 0.7)]
 # plt.gca().add_patch(pac)
 plt.gca().add_patch(pac_2)
 for plo in pac_23:

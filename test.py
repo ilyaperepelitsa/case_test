@@ -154,14 +154,14 @@ radius = i["plot_radius"]
 # pac = mpatches.Wedge(center = [x, y], r = radius, theta1=0, theta2=15)
 # pac_2 = mpatches.Wedge(center = [x + 0.1, y + 0.1], r = radius, theta1=0, theta2=35)
 pac_2 = mpatches.Wedge(center = [x, y], r = radius, theta2=-270 - start_angle, theta1=-270-end_angle, alpha = 0.7)
-pac_23 = [mpatches.Wedge(center = [x, y], r = radius*1.2, theta1=0, theta2=0, alpha = 0.7),
-            mpatches.Wedge(center = [x, y], r = radius*1.5, theta1=0, theta2=0, alpha = 0.7),
-            mpatches.Wedge(center = [x, y], r = radius*2, theta2=-270, theta1=-270-90,alpha = 0.7)]
+# pac_23 = [mpatches.Wedge(center = [x, y], r = radius*1.2, theta1=0, theta2=0, alpha = 0.7),
+#             mpatches.Wedge(center = [x, y], r = radius*1.5, theta1=0, theta2=0, alpha = 0.7),
+#             mpatches.Wedge(center = [x, y], r = radius*2, theta2=-270, theta1=-270-90,alpha = 0.7)]
 # plt.gca().add_patch(pac)
 plt.gca().add_patch(pac_2)
-for plo in pac_23:
-    plt.gca().add_patch(plo)
-    plo.set_color("orange")
+# for plo in pac_23:
+#     plt.gca().add_patch(plo)
+#     plo.set_color("orange")
 pac_2.set_color('cyan')
 # plt.scatter(i["sector_centroid_lon"], i["sector_centroid_lat"])
 plt.axis('equal')

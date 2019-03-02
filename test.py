@@ -140,7 +140,7 @@ geodesic(kilometers=data["max_dist"]/1000)
 # plt.axes()
 plt.figure(figsize=(20,10))
 # for x, i in test.drop_duplicates("cid").loc[test.lac == test.lac.unique()[3],:].iterrows():
-test.loc[test.lac == test.lac.unique()[3],:]
+test.loc[test.index[3],:]
     # print(i["cid"])
     x = i["long"]
     y = i["lat"]

@@ -145,7 +145,7 @@ i = test.loc[test.index[2],:]
 x = i["long"]
 y = i["lat"]
 # angle = i["end_angle"] - i["start_angle"]
-start_angle = math.degrees(i["start_angle"])
+start_angle = i["start_angle"])
 end_angle = math.degrees(i["end_angle"])
 radius = i["plot_radius"]
 
@@ -163,7 +163,7 @@ plt.show()
 
 i["sector_centroid_lon"], i["sector_centroid_lat"]
 x, y
-start_angle,
+start_angle, end_angle
 
 plt.figure(figsize=(20,10))
 # for x, i in test.drop_duplicates("cid").head().iterrows():

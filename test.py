@@ -224,7 +224,7 @@ for index, combo in enumerate(list(list(i) for i in combinations(list_stuff, 2))
     # print(test.loc[test['msisdn']==combo[0],:].shape, test.loc[test['msisdn'] == combo[1],:].shape)
     event_frame = test.loc[test['msisdn'].isin(combo),:].copy()
     # event_frame.loc[:,"combo_id"] = index
-    pd.concat([,event_frame])
+    pd.concat([stack_events, event_frame])
     # print(combo[0], combo[1])
 
 stack_events

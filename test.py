@@ -213,7 +213,7 @@ geodesic(kilometers=data["max_dist"]/1000)
 plt.figure(figsize=(20,10))
 # cmap = get_cmap(test.drop_duplicates("cid").shape[0])
 new_cmap = rand_cmap(100, type='bright', first_color_black=True, last_color_black=False, verbose=True)
-len(cmap)
+# len(new_cmap)
 for ix, i in test.drop_duplicates("cid").iterrows():
 # i = test.loc[test.index[900],:]
     # print(i["cid"])

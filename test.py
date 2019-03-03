@@ -216,7 +216,7 @@ list_stuff
 
 # test['msisdn'].unique()[0:10]
 from itertools import combinations
-combinations(list_stuff, 2)
+len(list(combinations(list_stuff, 2)))
 
 
 

@@ -227,6 +227,13 @@ for index, combo in enumerate(list(list(i) for i in combinations(list_stuff, 2))
     stack_events.append(event_frame)
     # print(combo[0], combo[1])
 
+
+
+
+
+
+
+
 list(set([ tuple(set(i)) for i in combinations(list_stuff, 2) ]))
 
 pew = (1, 2, 3, 3)

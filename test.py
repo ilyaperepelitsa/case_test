@@ -207,7 +207,7 @@ plt.axis('equal')
 plt.savefig("fifty_towers_centroids.png")
 
 
-list_stuff = test.loc[test['msisdn'].isin(test['msisdn'].unique()[0:10]),'msisdn'].unique
+list_stuff = test.loc[test['msisdn'].isin(test['msisdn'].unique()[0:10]),'msisdn'].unique()
 list_stuff
 
 #
@@ -216,7 +216,7 @@ list_stuff
 
 # test['msisdn'].unique()[0:10]
 from itertools import combinations
-list(combinations(list_stuff, 2))
+combinations(list_stuff, 2)
 
 
 

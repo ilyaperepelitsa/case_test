@@ -65,8 +65,8 @@ def sector_centroid(data):
     origin = Point(data["lat"], data["long"])
     angle = data["end_angle"] - data["start_angle"]
     angle_mid = data["start_angle"] + angle / 2
-    if angle_mid > 360:
-        angle_mid = angle_mid - 180
+    # if angle_mid > 360:
+    #     angle_mid = angle_mid - 180
 # if data["end_angle"] - data["start_angle"] >= 180:
 #     destination = geodesic(kilometers=-data["sector_centroid_shift"]/1000).destination(origin, angle_mid)
 # else:
@@ -139,7 +139,7 @@ geodesic(kilometers=data["max_dist"]/1000)
 
 # plt.axes()
 plt.figure(figsize=(20,10))
-for x, i in test.drop_duplicates("cid").loc[test.lac == test.lac.unique()[0],:].iterrows():
+for x, i in test.drop_duplicates("cid").loc[test.lac == test.lac.unique()[5],:].iterrows():
 # i = test.loc[test.index[900],:]
     # print(i["cid"])
     x = i["long"]

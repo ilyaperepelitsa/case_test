@@ -220,7 +220,7 @@ len(set(i for i in combinations(test['msisdn'].unique(), 2))) / 1000000
 
 for index, combo in enumerate(list(list(i) for i in combinations(list_stuff, 2))):
     print(index)
-    print(index)
+    print(combo[0], combo)
 
 list(set([ tuple(set(i)) for i in combinations(list_stuff, 2) ]))
 

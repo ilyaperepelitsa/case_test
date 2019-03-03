@@ -225,7 +225,7 @@ for index, combo in enumerate(list(list(i) for i in combinations(list_stuff, 2))
     event_frame = test.loc[test['msisdn'].isin(combo),:].copy()
     # event_frame.loc[:,"combo_id"] = index
     # pd.concat([stack_events, event_frame])
-    # print(combo[0], combo[1])
+    print(event_frame.shape)
 
 stack_events
 

@@ -237,7 +237,7 @@ for ix, i in test.drop_duplicates("cid").iterrows():
 # for plo in pac_23:
 #     plt.gca().add_patch(plo)
 #     plo.set_color("orange")
-    pac_2.set_color(new_cmap(ix))
+    # pac_2.set_color(new_cmap(ix))
     # plt.scatter(i["sector_centroid_lon"], i["sector_centroid_lat"])
 plt.axis('equal')
 plt.show()

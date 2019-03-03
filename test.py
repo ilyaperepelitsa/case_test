@@ -272,8 +272,8 @@ for ix, i in test.drop_duplicates("cid").loc[test.drop_duplicates("cid").index[7
     plt.gca().add_patch(pac_2)
     plt.scatter(i["sector_centroid_lon"], i["sector_centroid_lat"])
 plt.axis('equal')
-plt.show()
-# plt.savefig("five_towers_centroids.png")
+# plt.show()
+plt.savefig("five_towers_centroids.png")
 
 
 

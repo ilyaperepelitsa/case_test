@@ -304,4 +304,4 @@ print()
 #
 # test["msisdn"].unique().shape[0]
 # test.sort_values(["msisdn", "tstamp"])
-datetime()
+datetime.strftime

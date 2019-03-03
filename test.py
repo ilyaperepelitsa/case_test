@@ -234,7 +234,8 @@ stack_events.shape
 stack_events
 
 
-test
+test.columns
+
 
 
 list(set([ tuple(set(i)) for i in combinations(list_stuff, 2) ]))

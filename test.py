@@ -206,7 +206,7 @@ plt.axis('equal')
 # plt.show()
 plt.savefig("fifty_towers_centroids.png")
 
-test['cid']
+test['cid'].unique()
 
 
 # i["sector_centroid_lon"], i["sector_centroid_lat"]

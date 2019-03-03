@@ -226,7 +226,7 @@ set(pew)
 print()
 
 
-
+combinations(['a'], 2)
 # i["sector_centroid_lon"], i["sector_centroid_lat"]
 # x, y
 # start_angle, end_angle

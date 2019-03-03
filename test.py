@@ -250,7 +250,7 @@ for ix, i in test.drop_duplicates("cid").loc[test.drop_duplicates("cid").index[5
     plt.scatter(i["sector_centroid_lon"], i["sector_centroid_lat"])
 plt.axis('equal')
 plt.show()
-plt.savefig("all_towers.png")
+plt.savefig("five_towers_centro_towers.png")
 
 
 

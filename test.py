@@ -225,11 +225,6 @@ for ix, i in test.drop_duplicates("cid").iterrows():
     radius = i["plot_radius"]
     pac_2 = mpatches.Wedge(center = [x, y], r = radius, theta2=-270 - start_angle, theta1=-270-end_angle, alpha = 0.3)
     plt.gca().add_patch(pac_2)
-# for plo in pac_23:
-#     plt.gca().add_patch(plo)
-#     plo.set_color("orange")
-    # pac_2.set_color(new_cmap(ix))
-    # plt.scatter(i["sector_centroid_lon"], i["sector_centroid_lat"])
 plt.axis('equal')
 # plt.show()
 plt.savefig("all_towers.png")

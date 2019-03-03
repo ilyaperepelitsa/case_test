@@ -304,5 +304,5 @@ print()
 #
 # test["msisdn"].unique().shape[0]
 # test.sort_values(["msisdn", "tstamp"])
-datetime.strftime("26092018", "%d%m%y")
-(datetime.now() - datetime.strptime('26092018', '%d%m%Y')).
+# datetime.strftime("26092018", "%d%m%y")
+(datetime.now() - datetime.strptime('26092018', '%d%m%Y')).days

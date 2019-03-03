@@ -208,9 +208,13 @@ plt.savefig("fifty_towers_centroids.png")
 
 
 test.loc[test['msisdn'].isin(test['msisdn'].unique()[0:10]),:].shape
-test['msisdn'].unique()[0:10]
+#
 
 
+
+# test['msisdn'].unique()[0:10]
+
+itertools.combinations(stuff, L)
 
 
 

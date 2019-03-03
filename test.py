@@ -206,6 +206,8 @@ plt.axis('equal')
 # plt.show()
 plt.savefig("fifty_towers_centroids.png")
 
+
+test.lo
 test['msisdn'].unique()[0:10]
 
 

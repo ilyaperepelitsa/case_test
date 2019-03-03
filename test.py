@@ -219,6 +219,8 @@ from itertools import combinations
 len(set(i for i in combinations(list_stuff, 2)))
 len(list(set(i) for i in combinations(list_stuff, 2)))
 
+list(set([ tuple(set(i)) for i in x ]))
+
 pew = (1, 2, 3, 3)
 set(pew)
 print()

@@ -241,6 +241,9 @@ for ix, i in test.drop_duplicates("cid").iterrows():
     # plt.scatter(i["sector_centroid_lon"], i["sector_centroid_lat"])
 plt.axis('equal')
 plt.show()
+
+
+
 plt.savefig("pewpew.png")
 
 i["sector_centroid_lon"], i["sector_centroid_lat"]

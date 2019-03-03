@@ -247,6 +247,7 @@ for ix, i in test.drop_duplicates("cid").loc[test.drop_duplicates("cid").index[5
     radius = i["plot_radius"]
     pac_2 = mpatches.Wedge(center = [x, y], r = radius, theta2=-270 - start_angle, theta1=-270-end_angle, alpha = 0.3)
     plt.gca().add_patch(pac_2)
+    plt.sc
 plt.axis('equal')
 plt.show()
 # plt.savefig("all_towers.png")

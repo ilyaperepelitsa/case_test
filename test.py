@@ -217,7 +217,7 @@ list_stuff
 # test['msisdn'].unique()[0:10]
 from itertools import combinations
 len(set(i for i in combinations(list_stuff, 2)))
-len(list(set(i) for i in combinations(list_stuff, 2)))
+list(set(i) for i in combinations(list_stuff, 2)))
 
 list(set([ tuple(set(i)) for i in combinations(list_stuff, 2) ]))
 
@@ -226,7 +226,9 @@ set(pew)
 print()
 
 
-list(combinations(['a', "b", "c"], 2)
+list(combinations(['a', "b", "c"], 2))
+
+print
 # i["sector_centroid_lon"], i["sector_centroid_lat"]
 # x, y
 # start_angle, end_angle

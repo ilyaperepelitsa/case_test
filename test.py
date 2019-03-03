@@ -165,7 +165,8 @@ for x, i in test.drop_duplicates("cid").iterrows():
     pac_2.set_color('cyan')
     # plt.scatter(i["sector_centroid_lon"], i["sector_centroid_lat"])
 plt.axis('equal')
-plt.show()
+# plt.show()
+
 
 i["sector_centroid_lon"], i["sector_centroid_lat"]
 x, y

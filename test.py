@@ -244,7 +244,7 @@ plt.axis('equal')
 
 
 
-plt.savefig("pewpew.png")
+plt.savefig("all_towers.png")
 
 i["sector_centroid_lon"], i["sector_centroid_lat"]
 x, y

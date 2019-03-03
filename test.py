@@ -222,7 +222,7 @@ stack_events = pd.DataFrame()
 
 for index, combo in enumerate(list(list(i) for i in combinations(list_stuff, 2))[0:5]):
     # print(test.loc[test['msisdn']==combo[0],:].shape, test.loc[test['msisdn'] == combo[1],:].shape)
-    event_frame = test.loc[test['msisdn'].isin(combo),:]
+    event_frame = test.loc[test['msisdn'].isin(combo),:].copy
     # event_frame.loc[:,"combo_id"] = index
     stack_events.append(event_frame)
     # print(combo[0], combo[1])

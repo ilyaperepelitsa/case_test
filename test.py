@@ -224,9 +224,6 @@ for ix, i in test.drop_duplicates("cid").iterrows():
     end_angle = i["end_angle"]
     radius = i["plot_radius"]
     pac_2 = mpatches.Wedge(center = [x, y], r = radius, theta2=-270 - start_angle, theta1=-270-end_angle, alpha = 0.3)
-    # pac_23 = [mpatches.Wedge(center = [x, y], r = radius*1.2, theta1=0, theta2=0, alpha = 0.7),
-    #             mpatches.Wedge(center = [x, y], r = radius*1.5, theta1=0, theta2=0, alpha = 0.7),
-    #             mpatches.Wedge(center = [x, y], r = radius*2, theta2=-270, theta1=-270-90,alpha = 0.7)]
     # plt.gca().add_patch(pac)
     plt.gca().add_patch(pac_2)
 # for plo in pac_23:

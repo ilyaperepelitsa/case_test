@@ -227,7 +227,7 @@ for index, combo in enumerate(list(list(i) for i in combinations(list_stuff, 2))
     stack_events.append(event_frame)
     # print(combo[0], combo[1])
 
-
+stack_events
 
 
 

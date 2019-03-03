@@ -240,7 +240,7 @@ for ix, i in test.drop_duplicates("cid").iterrows():
     # pac_2.set_color(new_cmap(ix))
     # plt.scatter(i["sector_centroid_lon"], i["sector_centroid_lat"])
 plt.axis('equal')
-plt.show()
+# plt.show()
 
 
 

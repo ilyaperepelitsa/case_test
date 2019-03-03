@@ -219,8 +219,8 @@ from itertools import combinations
 len(set(i for i in combinations(list_stuff, 2)))
 (set(type(i) for i in combinations(list_stuff, 2)))
 
-pew = (1, 2, 3)
-pew
+pew = (1, 2, 3, 3)
+set(pew)
 print()
 # i["sector_centroid_lon"], i["sector_centroid_lat"]
 # x, y

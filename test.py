@@ -72,7 +72,7 @@ def sector_centroid(data):
 # else:
     destination = geodesic(kilometers=data["sector_centroid_shift"]/1000).destination(origin, angle_mid)
     lat2, lon2 = destination.latitude, destination.longitude
-    # print(type(lat2))
+
     return lat2, lon2
 
 

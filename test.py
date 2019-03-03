@@ -217,7 +217,7 @@ list_stuff
 # test['msisdn'].unique()[0:10]
 from itertools import combinations
 len(set(i for i in combinations(list_stuff, 2)))
-(set(type(i) for i in combinations(list_stuff, 2)))
+(set(set(i) for i in combinations(list_stuff, 2)))
 
 pew = (1, 2, 3, 3)
 set(pew)

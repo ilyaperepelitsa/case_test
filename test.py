@@ -219,11 +219,14 @@ from itertools import combinations
 len(set(i for i in combinations(list_stuff, 2)))
 len(list(set(i) for i in combinations(list_stuff, 2)))
 
-len(list(set([ tuple(set(i)) for i in combinations(list_stuff, 2) ])))
+list(set([ tuple(set(i)) for i in combinations(list_stuff, 2) ]))
 
 pew = (1, 2, 3, 3)
 set(pew)
 print()
+
+
+
 # i["sector_centroid_lon"], i["sector_centroid_lat"]
 # x, y
 # start_angle, end_angle

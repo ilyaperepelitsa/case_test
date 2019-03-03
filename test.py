@@ -213,8 +213,8 @@ list_stuff = test.loc[test['msisdn'].isin(test['msisdn'].unique()[0:10]),:].shap
 
 
 # test['msisdn'].unique()[0:10]
-from itertools im
-itertools.combinations(list_stuff, 2)
+from itertools import combinations
+combinations(list_stuff, 2)
 
 
 

@@ -142,7 +142,7 @@ geodesic(kilometers=data["max_dist"]/1000)
 
 # plt.axes()
 plt.figure(figsize=(20,10))
-cmap = get_cmap(test.drop_duplicates("cid"))
+cmap = get_cmap(test.drop_duplicates("cid").shape[0])
 for ix, i in test.drop_duplicates("cid").iterrows():
 # i = test.loc[test.index[900],:]
     # print(i["cid"])
@@ -166,7 +166,7 @@ for ix, i in test.drop_duplicates("cid").iterrows():
 # for plo in pac_23:
 #     plt.gca().add_patch(plo)
 #     plo.set_color("orange")
-    pac_2.set_color('cyan')
+    pac_2.set_color(cmap(i))
     # plt.scatter(i["sector_centroid_lon"], i["sector_centroid_lat"])
 plt.axis('equal')
 # plt.show()

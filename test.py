@@ -214,12 +214,11 @@ plt.figure(figsize=(20,10))
 # cmap = get_cmap(test.drop_duplicates("cid").shape[0])
 # new_cmap = rand_cmap(100, type='bright', first_color_black=True, last_color_black=False, verbose=True)
 # len(new_cmap)
-for ix, i in test.drop_duplicates("cid").iterrows():
+for ix, i in test.drop_duplicates("cid").loc[].iterrows():
 # i = test.loc[test.index[900],:]
     # print(i["cid"])
     x = i["long"]
     y = i["lat"]
-    # angle = i["end_angle"] - i["start_angle"]
     start_angle = i["start_angle"]
     end_angle = i["end_angle"]
     radius = i["plot_radius"]

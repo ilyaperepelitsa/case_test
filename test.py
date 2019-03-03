@@ -304,4 +304,4 @@ print()
 #
 # test["msisdn"].unique().shape[0]
 # test.sort_values(["msisdn", "tstamp"])
-datetime.strftime("26092018", "%")
+datetime.strftime("26092018", "%d%m%y")

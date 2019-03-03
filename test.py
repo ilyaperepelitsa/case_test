@@ -220,14 +220,14 @@ len(set(i for i in combinations(test['msisdn'].unique(), 2))) / 1000000
 
 stack_events = pd.DataFrame()
 
-for index, combo in enumerate(list(list(i) for i in combinations(list_stuff, 2))[0:5]):
+for index, combo in enumerate(list(list(i) for i in combinations(list_stuff, 2))):
     # print(test.loc[test['msisdn']==combo[0],:].shape, test.loc[test['msisdn'] == combo[1],:].shape)
     event_frame = test.loc[test['msisdn'].isin(combo),:].copy()
     # event_frame.loc[:,"combo_id"] = index
     stack_events = pd.concat([stack_events, event_frame], axis = 0)
     # print(event_frame.shape)
 
-stack_events.sha
+stack_events.shape
 
 
 

@@ -207,14 +207,14 @@ plt.axis('equal')
 plt.savefig("fifty_towers_centroids.png")
 
 
-test.loc[test['msisdn'].isin(test['msisdn'].unique()[0:10]),:].shape
+list_stuff = test.loc[test['msisdn'].isin(test['msisdn'].unique()[0:10]),:].shape
 #
 
 
 
 # test['msisdn'].unique()[0:10]
 
-itertools.combinations(stuff, L)
+itertools.combinations(list_stuff, 2)
 
 
 

@@ -218,7 +218,7 @@ list_stuff
 from itertools import combinations
 len(set(i for i in combinations(test['msisdn'].unique(), 2))) / 1000000
 
-
+stack_event
 for index, combo in enumerate(list(list(i) for i in combinations(list_stuff, 2))[0:5]):
     print(test.loc[test['msisdn']==combo[0],:].shape, test.loc[test['msisdn'] == combo[1],:].shape)
     print(test.loc[test['msisdn'].isin(combo),:].shape)

@@ -236,7 +236,7 @@ stack_events
 
 test.columns
 
-
+test.drop([lac])
 
 list(set([ tuple(set(i)) for i in combinations(list_stuff, 2) ]))
 

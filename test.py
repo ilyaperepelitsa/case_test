@@ -219,8 +219,8 @@ from itertools import combinations
 len(set(i for i in combinations(test['msisdn'].unique(), 2))) / 1000000
 
 for index, combo in enumerate(list(list(i) for i in combinations(list_stuff, 2))):
-    print(index)
-    print(combo[0], combo)
+    # print(index)
+    print(combo[0], combo[1])
 
 list(set([ tuple(set(i)) for i in combinations(list_stuff, 2) ]))
 

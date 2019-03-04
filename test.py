@@ -228,7 +228,7 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     # print(event_frame.head())
     # event_frame.to_csv(os.path.join("combos", str(index) + ".csv"))
 
-    event_frame = event_frame.drop(['lac', , 'imei', 'max_dist', 'event_description',
+    event_frame = event_frame.drop(['lac', 'imei', 'max_dist', 'event_description',
                 'lat_prev', 'long_prev', 'previous_timestamp', 'previous_status_distance',
                 'segment_lat', 'segment_lon',
                 'station_angle', 'sector_centroid_shift'], axis = 1).\
@@ -256,7 +256,7 @@ plt.figure(figsize=(20,10))
 # cmap = get_cmap(test.drop_duplicates("cid").shape[0])
 # new_cmap = rand_cmap(100, type='bright', first_color_black=True, last_color_black=False, verbose=True)
 # len(new_cmap)
-for ix, i in stack_events.loc[stack_events.combo_id == 0].drop_duplicates(["long", "lat"]).iterrows():
+for ix, i in stack_events.loc[stack_events.combo_id == 0].drop_duplicates(["cid"]).iterrows():
 # i = test.loc[test.index[900],:]
     # print(i["cid"])
     x = i["long"]

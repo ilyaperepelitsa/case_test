@@ -268,8 +268,8 @@ stack_events.shape
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-pew = 
-TfidfVectorizer.fit_transform(stack_events.loc[stack_events.combo_id == id_id,"vendor"])
+pew = TfidfVectorizer
+.fit_transform(stack_events.loc[stack_events.combo_id == id_id,"vendor"])
 
 stack_events.columns
 

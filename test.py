@@ -272,7 +272,7 @@ for ix, i in stack_events.loc[stack_events.combo_id == 0,:].drop_duplicates(["ci
     radius = i["plot_radius"]
     pac_2 = mpatches.Wedge(center = [x, y], r = radius, theta2=-270 - start_angle, theta1=-270-end_angle, alpha = 0.3)
     plt.gca().add_patch(pac_2)
-plt.plot(i["sector_centroid_lon"], i["sector_centroid_lat"])
+plt.plot(stack_events.loc[stack_events.combo_id == 0,:]["sector_centroid_lon"], i["sector_centroid_lat"])
 # plt.scatter(i["sector_centroid_lon"], i["sector_centroid_lat"])
 plt.axis('equal')
 plt.show()

@@ -234,6 +234,7 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
                 'station_angle', 'sector_centroid_shift'], axis = 1).\
                 sort_values(['combo_id', 'tstamp'], ascending = False)
 
+                event_frame["msisdn_lag"] = event_frame.groupby(["combo_id"])["msisdn"].shift(-1)
     event_frame.loc[event_frame["msisdn_lag"] != event_frame["msisdn"],:]
 
 

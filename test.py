@@ -260,8 +260,8 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
 
     event_frame["vendor_all"] = event_frame["vendor"]
     event_frame["platform_all"] = event_frame["platform"]
-    event_frame["type_all"] = event_frame["type"].shift(-1)
-    event_frame["event_type_all"] = event_frame["event_type"].shift(-1)
+    event_frame["type_all"] = event_frame["type"]
+    event_frame["event_type_all"] = event_frame["event_type"].str.cat(sep = " ")
 
 
 

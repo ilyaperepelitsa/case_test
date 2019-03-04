@@ -240,7 +240,7 @@ stack_events.drop(['lac', 'cid', 'imei', 'long', 'lat', 'max_dist', 'event_descr
             'lat_prev', 'long_prev', 'previous_timestamp', 'previous_status_distance',
             'segment_lat', 'segment_lon', 'plot_radius', 'plot_radius_2',
             'station_angle', 'sector_centroid_shift'], axis = 1).\
-            sort_values(['combo_id', 'tstamp'])
+            sort_values(['combo_id', 'tstamp']).\
 
 list(set([ tuple(set(i)) for i in combinations(list_stuff, 2) ]))
 

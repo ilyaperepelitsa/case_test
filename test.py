@@ -238,7 +238,7 @@ test.columns
 
 stack_events.drop(['lac', 'cid', 'imei', 'long', 'lat', 'max_dist', 'event_description',
             'lat_prev', 'long_prev', 'previous_timestamp', 'previous_status_distance',
-            'segment_lat', 'segment_lon', /], axis = 1)
+            'segment_lat', 'segment_lon', 'plot_radius', 'plot_radius'], axis = 1)
 
 list(set([ tuple(set(i)) for i in combinations(list_stuff, 2) ]))
 

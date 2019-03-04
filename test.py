@@ -238,7 +238,7 @@ test.columns
 
 stack_events_clean = stack_events.drop(['lac', 'cid', 'imei', 'long', 'lat', 'max_dist', 'event_description',
             'lat_prev', 'long_prev', 'previous_timestamp', 'previous_status_distance',
-            'segment_lat', 'segment_lon', 'plot_radius', 'plot_radius_2',
+            'segment_lat', 'segment_lon', 'plot_radius',
             'station_angle', 'sector_centroid_shift'], axis = 1).\
             sort_values(['combo_id', 'tstamp'], ascending = False)
 

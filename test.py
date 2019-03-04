@@ -293,7 +293,7 @@ for ix, i in stack_events.loc[stack_events.combo_id == id_id,:].drop_duplicates(
 lc = LineCollection([stack_events.loc[((stack_events.combo_id == id_id) & (stack_events.tstamp.dt.date == date)),["long", "lat"]] for date in stack_events.tstamp.dt.date.unique()])
 # for patch in boxes["boxes"]:
 #         patch.set_facecolor(cmap())
-
+[lc]
 
 plt.gca().add_collection(lc)
 

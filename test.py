@@ -268,9 +268,9 @@ stack_events.shape
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-TfidfVectorizer.fit_transform(stack_events.loc[stack_events.combo_id == id_id,""])
+TfidfVectorizer.fit_transform(stack_events.loc[stack_events.combo_id == id_id,"vendr"])
 
-stack_events.colum
+stack_events.columns
 
 from matplotlib.collections import LineCollection
 plt.figure(figsize=(20,10))

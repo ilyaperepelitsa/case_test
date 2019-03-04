@@ -256,7 +256,7 @@ plt.figure(figsize=(20,10))
 # cmap = get_cmap(test.drop_duplicates("cid").shape[0])
 # new_cmap = rand_cmap(100, type='bright', first_color_black=True, last_color_black=False, verbose=True)
 # len(new_cmap)
-for ix, i in test.drop_duplicates("cid").loc[test.drop_duplicates("cid").index[700:750],:].iterrows():
+for ix, i in stack_events.loc[stack_events.combo_id == 0].drop_duplicates(["cid"]).loc[test.drop_duplicates("cid").index[700:750],:].iterrows():
 # i = test.loc[test.index[900],:]
     # print(i["cid"])
     x = i["long"]

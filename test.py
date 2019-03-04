@@ -288,6 +288,7 @@ for ix, i in stack_events.loc[stack_events.combo_id == id_id,:].drop_duplicates(
 # colors = [c for c in cmap(5)]
 colors
 lc = LineCollection(zip(xy[:-1], xy[1:]), array=z, cmap=plt.cm.hsv)
+
 for patch in boxes["boxes"]:
         patch.set_facecolor(cmap())
 plt.gca().add_collection(lc)

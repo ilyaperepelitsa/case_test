@@ -234,7 +234,7 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
                 'station_angle', 'sector_centroid_shift'], axis = 1).\
                 sort_values(['combo_id', 'tstamp'], ascending = False)
 
-                event_frame["msisdn_lag"] = event_frame.groupby(["combo_id"])["msisdn"].shift(-1)
+    event_frame["msisdn_lag"] = event_frame.groupby(["combo_id"])["msisdn"].shift(-1)
     event_frame.loc[event_frame["msisdn_lag"] != event_frame["msisdn"],:]
 
 
@@ -272,6 +272,7 @@ for ix, i in stack_events.loc[stack_events.combo_id == 0].drop_duplicates(["cid"
     radius = i["plot_radius"]
     pac_2 = mpatches.Wedge(center = [x, y], r = radius, theta2=-270 - start_angle, theta1=-270-end_angle, alpha = 0.3)
     plt.gca().add_patch(pac_2)
+    
     # plt.scatter(i["sector_centroid_lon"], i["sector_centroid_lat"])
 plt.axis('equal')
 plt.show()

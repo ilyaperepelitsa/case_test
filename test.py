@@ -231,7 +231,7 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     event_frame = event_frame.drop(['lac', 'cid', 'imei', 'max_dist', 'event_description',
                 'lat_prev', 'long_prev', 'previous_timestamp', 'previous_status_distance',
                 'segment_lat', 'segment_lon', 'plot_radius',
-                'station_angle', 'sector_centroid_shift', 'event_type'], axis = 1).\
+                'station_angle', 'sector_centroid_shift'], axis = 1).\
                 sort_values(['combo_id', 'tstamp'], ascending = False)
 
     event_frame["msisdn_lag"] = event_frame.groupby(["combo_id"])["msisdn"].shift(-1)

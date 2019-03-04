@@ -295,7 +295,7 @@ lc = LineCollection([stack_events.loc[((stack_events.combo_id == id_id) &\
 # for patch in boxes["boxes"]:
 #         patch.set_facecolor(cmap())
 # [i for i in lc]
-dir(lc)
+# dir(lc)
 plt.rc("axes", prop_cycle = (cycler("color", graph_palette)))
 plt.gca().add_collection(lc)
 

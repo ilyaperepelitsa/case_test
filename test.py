@@ -258,7 +258,7 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     # event_frame["type_lag"] = event_frame.groupby(["combo_id"])["type"].shift(-1)
     # event_frame["event_type_lag"] = event_frame.groupby(["combo_id"])["event_type"].shift(-1)
 
-    event_frame["vendor_all"] = event_frame.groupby(["combo_id"])["vendor"].shift(-1)
+    event_frame["vendor_all"] = event_frame["vendor"].shift(-1)
     event_frame["platform_all"] = event_frame.groupby(["combo_id"])["platform"].shift(-1)
     event_frame["type_all"] = event_frame.groupby(["combo_id"])["type"].shift(-1)
     event_frame["event_type_all"] = event_frame.groupby(["combo_id"])["event_type"].shift(-1)

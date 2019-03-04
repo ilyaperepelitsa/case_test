@@ -300,8 +300,7 @@ for ix, i in stack_events.loc[stack_events.combo_id == id_id,:].drop_duplicates(
 plt.gca().add_collection(lc)
 for i in [stack_events.loc[((stack_events.combo_id == id_id) &\
                     (stack_events.tstamp.dt.date == date)),["long", "lat"]] for date in stack_events.tstamp.dt.date.unique()]:
-    plt.plot(stack_events.loc[stack_events.combo_id == id_id,:]["sector_centroid_lon"],
-            stack_events.loc[stack_events.combo_id == id_id,:]["sector_centroid_lat"],
+    plt.plot(i,
             c = "black", alpha = 0.6, linewidth = 1)
 # plt.scatter(i["sector_centroid_lon"], i["sector_centroid_lat"])
 plt.axis('equal')
@@ -312,7 +311,7 @@ plt.show()
                     (stack_events.tstamp.dt.date == date)),["long", "lat"]] for date in stack_events.tstamp.dt.date.unique()]
 
 
-                    
+
 stack_events_clean["msisdn_lag"] = stack_events_clean.groupby(["combo_id"])["msisdn"].shift(-1)
 stack_events_clean["tstamp_lag"] = stack_events_clean.groupby(["combo_id"])["tstamp"].shift(-1)
 stack_events_clean["sector_centroid_lat_lag"] = stack_events_clean.groupby(["combo_id"])["sector_centroid_lat"].shift(-1)

@@ -258,6 +258,11 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     event_frame["type_lag"] = event_frame.groupby(["combo_id"])["type"].shift(-1)
     event_frame["event_type_lag"] = event_frame.groupby(["combo_id"])["event_type"].shift(-1)
 
+    event_frame["vendor_lag"] = event_frame.groupby(["combo_id"])["vendor"].shift(-1)
+    event_frame["platform_lag"] = event_frame.groupby(["combo_id"])["platform"].shift(-1)
+    event_frame["type_lag"] = event_frame.groupby(["combo_id"])["type"].shift(-1)
+    event_frame["event_type_lag"] = event_frame.groupby(["combo_id"])["event_type"].shift(-1)
+
 
 
     stack_events = pd.concat([stack_events, event_frame], axis = 0)

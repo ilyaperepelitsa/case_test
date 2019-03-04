@@ -284,6 +284,7 @@ for ix, i in stack_events.loc[stack_events.combo_id == id_id,:].drop_duplicates(
     end_angle = i["end_angle"]
     radius = i["plot_radius"]
     pac_2 = mpatches.Wedge(center = [x, y], r = radius, theta2=-270 - start_angle, theta1=-270-end_angle, alpha = 0.3)
+    # pac_2.set_color('cyan')
     plt.gca().add_patch(pac_2)
 
 # colors = [c for c in cmap(5)]

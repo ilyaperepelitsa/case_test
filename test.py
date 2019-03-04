@@ -286,7 +286,8 @@ for ix, i in stack_events.loc[stack_events.combo_id == id_id,:].drop_duplicates(
     plt.gca().add_patch(pac_2)
 
 lc = LineCollection(zip(xy[:-1], xy[1:]), array=z, cmap=plt.cm.hsv)
-
+colors = [mcolors.to_rgba(c)
+          for c in plt.rcParams['axes.prop_cycle'].by_key()['color']]
 
 plt.plot(stack_events.loc[stack_events.combo_id == id_id,:]["sector_centroid_lon"],
         stack_events.loc[stack_events.combo_id == id_id,:]["sector_centroid_lat"],

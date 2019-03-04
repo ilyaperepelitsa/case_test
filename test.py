@@ -221,14 +221,14 @@ from itertools import combinations
 
 stack_events = pd.DataFrame()
 
-for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].unique(), 2))[0:1000]):
+for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].unique(), 2))[0:10]):
     # print(test.loc[test['msisdn']==combo[0],:].shape, test.loc[test['msisdn'] == combo[1],:].shape)
     event_frame = test.loc[test['msisdn'].isin(combo),:].copy()
     event_frame.loc[:,"combo_id"] = index
     # print(event_frame.head())
     # event_frame.to_csv(os.path.join("combos", str(index) + ".csv"))
 
-    event_frame = event_frame.drop(['lac', 'cid', 'imei',, 'max_dist', 'event_description',
+    event_frame = event_frame.drop(['lac', 'cid', 'imei', 'max_dist', 'event_description',
                 'lat_prev', 'long_prev', 'previous_timestamp', 'previous_status_distance',
                 'segment_lat', 'segment_lon', 'plot_radius',
                 'station_angle', 'sector_centroid_shift', 'event_type'], axis = 1).\

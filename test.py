@@ -299,10 +299,10 @@ for ix, i in stack_events.loc[stack_events.combo_id == id_id,:].drop_duplicates(
 # plt.rc("axes", prop_cycle = (cycler("color", palette_pastel)))
 # plt.gca().add_collection(lc)
 colors = [palette_pastel[x] for x, i in enumerate(stack_events.tstamp.dt.date.unique())]
-for x, i in [stack_events.loc[((stack_events.combo_id == id_id) &\
+for x, i in enumerate()[stack_events.loc[((stack_events.combo_id == id_id) &\
                     (stack_events.tstamp.dt.date == date)),["long", "lat"]] for date in stack_events.tstamp.dt.date.unique()]:
     plt.plot(i["long"], i["lat"],
-            c = colors], alpha = 0.6, linewidth = 1)
+            c = colors[x], alpha = 0.6, linewidth = 1)
 # plt.scatter(i["sector_centroid_lon"], i["sector_centroid_lat"])
 plt.axis('equal')
 plt.show()

@@ -266,8 +266,6 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
 stack_events.shape
 
 
-stack_events
-
 
 from matplotlib.collections import LineCollection
 plt.figure(figsize=(20,10))

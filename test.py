@@ -291,13 +291,13 @@ for ix, i in stack_events.loc[stack_events.combo_id == id_id,:].drop_duplicates(
 # [stack_events.loc[stack_events.tstamp.dt.date == date,["long", "lat"]]for date in stack_events.tstamp.dt.date.unique()]
 # stack_events.columns
 lc = LineCollection([stack_events.loc[((stack_events.combo_id == id_id) &\
-                (stack_events.tstamp.dt.date == date)),["long", "lat"]] for date in stack_events.tstamp.dt.date.unique()]
+                    (stack_events.tstamp.dt.date == date)),["long", "lat"]] for date in stack_events.tstamp.dt.date.unique()],
                     cmap = cmap())
 # for patch in boxes["boxes"]:
 #         patch.set_facecolor(cmap())
 # [i for i in lc]
 dir(lc)
-
+plt.rc("axes", prop_cycle = (cycler("color", graph_palette)))
 plt.gca().add_collection(lc)
 
 # plt.plot(stack_events.loc[stack_events.combo_id == id_id,:]["sector_centroid_lon"],

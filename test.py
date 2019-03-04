@@ -308,9 +308,6 @@ plt.axis('equal')
 plt.show()
 
 
- plt.cm.YlOrBr(norm(pval))
-
-
 
 
 stack_events_clean.columns

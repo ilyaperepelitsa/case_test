@@ -292,7 +292,7 @@ for ix, i in stack_events.loc[stack_events.combo_id == id_id,:].drop_duplicates(
 # stack_events.columns
 lc = LineCollection([stack_events.loc[((stack_events.combo_id == id_id) &\
                     (stack_events.tstamp.dt.date == date)),["long", "lat"]] for date in stack_events.tstamp.dt.date.unique()],
-                    cmap = [palette_pastel[x] for x, i in enumerate(stack_events.tstamp.dt.date.unique())])
+                    colors = [palette_pastel[x] for x, i in enumerate(stack_events.tstamp.dt.date.unique())])
 # for patch in boxes["boxes"]:
 #         patch.set_facecolor(cmap())
 # [i for i in lc]
@@ -306,8 +306,6 @@ plt.gca().add_collection(lc)
 # plt.scatter(i["sector_centroid_lon"], i["sector_centroid_lat"])
 plt.axis('equal')
 plt.show()
-
-[palette_pastel[x] for x, i in enumerate(stack_events.tstamp.dt.date.unique())]
 
 
 stack_events_clean["msisdn_lag"] = stack_events_clean.groupby(["combo_id"])["msisdn"].shift(-1)

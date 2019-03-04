@@ -233,7 +233,7 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
                 'segment_lat', 'segment_lon',
                 'station_angle', 'sector_centroid_shift'], axis = 1).\
                 sort_values(['combo_id', 'tstamp'], ascending = False)
-
+                
     event_frame["msisdn_lag"] = event_frame.groupby(["combo_id"])["msisdn"].shift(-1)
     event_frame["tstamp_lag"] = event_frame.groupby(["combo_id"])["tstamp"].shift(-1)
     event_frame["sector_centroid_lat_lag"] = event_frame.groupby(["combo_id"])["sector_centroid_lat"].shift(-1)
@@ -244,7 +244,7 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     event_frame["type_lag"] = event_frame.groupby(["combo_id"])["type"].shift(-1)
     event_frame["event_type_lag"] = event_frame.groupby(["combo_id"])["event_type"].shift(-1)
 
-    # event_frame.loc[event_frame["msisdn_lag"] != event_frame["msisdn"],:]
+
 
     stack_events = pd.concat([stack_events, event_frame], axis = 0)
     # print(event_frame.shape)

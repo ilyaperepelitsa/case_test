@@ -217,7 +217,7 @@ list_stuff
 
 # test['msisdn'].unique()[0:10]
 from itertools import combinations
-len(set(i for i in combinations(test['msisdn'].unique(), 2))) / 1000000
+# len(set(i for i in combinations(test['smsisdn'].unique(), 2))) / 1000000
 
 stack_events = pd.DataFrame()
 

@@ -234,7 +234,7 @@ stack_events.shape
 stack_events
 
 
-test.columns
+stack_events_clean.columns
 
 stack_events_clean = stack_events.drop(['lac', 'cid', 'imei', 'long', 'lat', 'max_dist', 'event_description',
             'lat_prev', 'long_prev', 'previous_timestamp', 'previous_status_distance',

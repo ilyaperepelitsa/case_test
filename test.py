@@ -228,7 +228,7 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     # print(event_frame.head())
     # event_frame.to_csv(os.path.join("combos", str(index) + ".csv"))
 
-    event_frame = event_frame.drop(['lac', 'cid', 'imei', 'long', 'lat', 'max_dist', 'event_description',
+    event_frame = event_frame.drop(['lac', 'cid', 'imei',, 'max_dist', 'event_description',
                 'lat_prev', 'long_prev', 'previous_timestamp', 'previous_status_distance',
                 'segment_lat', 'segment_lon', 'plot_radius',
                 'station_angle', 'sector_centroid_shift', 'event_type'], axis = 1).\

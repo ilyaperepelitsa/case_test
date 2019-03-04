@@ -288,6 +288,10 @@ for ix, i in stack_events.loc[stack_events.combo_id == id_id,:].drop_duplicates(
 # colors = [c for c in cmap(5)]
 stack_events.loc[stack_events.combo_id == id_id,"long"],
 stack_events.loc[stack_events.combo_id == id_id,"lat"] for date in stack_events.
+
+stack_events
+
+
 lc = LineCollection()
 
 for patch in boxes["boxes"]:

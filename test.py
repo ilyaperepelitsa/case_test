@@ -269,10 +269,7 @@ stack_events.shape
 
 from matplotlib.collections import LineCollection
 plt.figure(figsize=(20,10))
-# cmap = get_cmap(test.drop_duplicates("cid").shape[0])
-# new_cmap = rand_cmap(100, type='bright', first_color_black=True, last_color_black=False, verbose=True)
-# len(new_cmap)
-id_id = 8
+id_id = 30
 for ix, i in stack_events.loc[stack_events.combo_id == id_id,:].drop_duplicates(["cid"]).iterrows():
 # i = test.loc[test.index[900],:]
     # print(i["cid"])

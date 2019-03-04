@@ -290,15 +290,15 @@ for ix, i in stack_events.loc[stack_events.combo_id == id_id,:].drop_duplicates(
 # [stack_events.loc[((stack_events.combo_id == id_id) & (stack_events.tstamp.dt.date == date)),["long", "lat"]] for date in stack_events.tstamp.dt.date.unique()]
 # [stack_events.loc[stack_events.tstamp.dt.date == date,["long", "lat"]]for date in stack_events.tstamp.dt.date.unique()]
 # stack_events.columns
-lc = LineCollection(,
-                    colors = [palette_pastel[x] for x, i in enumerate(stack_events.tstamp.dt.date.unique())])
+# lc = LineCollection(,
+#                     colors = [palette_pastel[x] for x, i in enumerate(stack_events.tstamp.dt.date.unique())])
 # for patch in boxes["boxes"]:
 #         patch.set_facecolor(cmap())
 # [i for i in lc]
 # dir(lc)
 # plt.rc("axes", prop_cycle = (cycler("color", palette_pastel)))
 plt.gca().add_collection(lc)
-
+for i in 
 # plt.plot(stack_events.loc[stack_events.combo_id == id_id,:]["sector_centroid_lon"],
 #         stack_events.loc[stack_events.combo_id == id_id,:]["sector_centroid_lat"],
 #         c = "black", alpha = 0.6, linewidth = 1)

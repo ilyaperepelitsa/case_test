@@ -266,9 +266,9 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     # print(event_frame.shape)
 # event_frame["event_type"]
 
-
+pew = TfidfVectorizer()
 stack_events["event_type_all"]
-
+pew.fit_transform(stack_events.loc[stack_events.combo_id == id_id,"vendor"].dropna())
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 

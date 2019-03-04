@@ -252,6 +252,9 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
 stack_events.shape
 
 
+stack_events
+
+
 plt.figure(figsize=(20,10))
 # cmap = get_cmap(test.drop_duplicates("cid").shape[0])
 # new_cmap = rand_cmap(100, type='bright', first_color_black=True, last_color_black=False, verbose=True)

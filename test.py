@@ -22,7 +22,7 @@ from cycler import cycler
 
 color_cycler = cycle(plt.rcParams["axes.prop_cycle"])
 cmap = lambda: next(color_cycler)["color"]
-
+cmap = lambda: next(color_cycler)["color"]
 
 facts = pd.read_excel("01_Facts.xlsx", header = None)
 event_type_data = pd.read_excel("04_event_type.xlsx")

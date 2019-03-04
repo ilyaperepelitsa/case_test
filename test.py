@@ -264,7 +264,7 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     event_frame["event_type_all"] = event_frame["event_type"].str.cat(sep = " ")
     stack_events = pd.concat([stack_events, event_frame], axis = 0)
     # print(event_frame.shape)
-event_frame["event_type"]
+# event_frame["event_type"]
 
 
 stack_events.shape

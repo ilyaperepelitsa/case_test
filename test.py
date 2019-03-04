@@ -307,7 +307,7 @@ plt.gca().add_collection(lc)
 plt.axis('equal')
 plt.show()
 
-[x for x, i in enumerate(stack_events.tstamp.dt.date.unique())]
+[palette_pastel[x] for x, i in enumerate(stack_events.tstamp.dt.date.unique())]
 enumerate(stack_events.tstamp.dt.date.unique())
 
 stack_events_clean.columns

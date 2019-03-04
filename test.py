@@ -269,6 +269,7 @@ stack_events.shape
 stack_events
 
 
+from matplotlib.collections import LineCollection
 plt.figure(figsize=(20,10))
 # cmap = get_cmap(test.drop_duplicates("cid").shape[0])
 # new_cmap = rand_cmap(100, type='bright', first_color_black=True, last_color_black=False, verbose=True)

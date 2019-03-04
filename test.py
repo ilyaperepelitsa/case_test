@@ -286,7 +286,8 @@ for ix, i in stack_events.loc[stack_events.combo_id == id_id,:].drop_duplicates(
     plt.gca().add_patch(pac_2)
 
 # colors = [c for c in cmap(5)]
-stack_events.loc[stack_events.combo_id == id_id,"long"], stack_events.loc[stack_events.combo_id == id_id,"lat"]
+stack_events.loc[stack_events.combo_id == id_id,"long"],
+stack_events.loc[stack_events.combo_id == id_id,"lat"]
 lc = LineCollection()
 
 for patch in boxes["boxes"]:

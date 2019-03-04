@@ -268,6 +268,7 @@ stack_events.shape
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 
+TfidfVectorizer.fi
 
 from matplotlib.collections import LineCollection
 plt.figure(figsize=(20,10))

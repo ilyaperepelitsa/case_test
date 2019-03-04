@@ -297,7 +297,7 @@ lc = LineCollection([stack_events.loc[((stack_events.combo_id == id_id) &\
 #         patch.set_facecolor(cmap())
 # [i for i in lc]
 # dir(lc)
-plt.rc("axes", prop_cycle = (cycler("color", palette_pastel)))
+# plt.rc("axes", prop_cycle = (cycler("color", palette_pastel)))
 plt.gca().add_collection(lc)
 
 # plt.plot(stack_events.loc[stack_events.combo_id == id_id,:]["sector_centroid_lon"],

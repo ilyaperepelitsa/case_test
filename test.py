@@ -298,10 +298,11 @@ for ix, i in stack_events.loc[stack_events.combo_id == id_id,:].drop_duplicates(
 # dir(lc)
 # plt.rc("axes", prop_cycle = (cycler("color", palette_pastel)))
 plt.gca().add_collection(lc)
-for i in 
-# plt.plot(stack_events.loc[stack_events.combo_id == id_id,:]["sector_centroid_lon"],
-#         stack_events.loc[stack_events.combo_id == id_id,:]["sector_centroid_lat"],
-#         c = "black", alpha = 0.6, linewidth = 1)
+for i in [stack_events.loc[((stack_events.combo_id == id_id) &\
+                    (stack_events.tstamp.dt.date == date)),["long", "lat"]] for date in stack_events.tstamp.dt.date.unique()]:
+    # plt.plot(stack_events.loc[stack_events.combo_id == id_id,:]["sector_centroid_lon"],
+    #         stack_events.loc[stack_events.combo_id == id_id,:]["sector_centroid_lat"],
+    #         c = "black", alpha = 0.6, linewidth = 1)
 # plt.scatter(i["sector_centroid_lon"], i["sector_centroid_lat"])
 plt.axis('equal')
 plt.show()

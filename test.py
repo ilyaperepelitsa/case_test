@@ -18,7 +18,11 @@ palette_pastel = ['#bcc19c','#c19c9e','#c19cbc','#c1a09c','#c19cac','#9c9dc1','#
             '#c1b19c','#b29cc1','#9cc1bd','#9cc1a2']
 
 from itertools import cycle
-from cycler import cycler        
+from cycler import cycler
+
+color_cycler = cycle(plt.rcParams["axes.prop_cycle"])
+cmap = lambda: next(color_cycler)["color"]
+
 
 facts = pd.read_excel("01_Facts.xlsx", header = None)
 event_type_data = pd.read_excel("04_event_type.xlsx")

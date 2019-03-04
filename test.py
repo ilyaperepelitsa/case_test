@@ -290,8 +290,7 @@ for ix, i in stack_events.loc[stack_events.combo_id == id_id,:].drop_duplicates(
 # [stack_events.loc[((stack_events.combo_id == id_id) & (stack_events.tstamp.dt.date == date)),["long", "lat"]] for date in stack_events.tstamp.dt.date.unique()]
 # [stack_events.loc[stack_events.tstamp.dt.date == date,["long", "lat"]]for date in stack_events.tstamp.dt.date.unique()]
 # stack_events.columns
-lc = LineCollection([stack_events.loc[((stack_events.combo_id == id_id) &\
-                    (stack_events.tstamp.dt.date == date)),["long", "lat"]] for date in stack_events.tstamp.dt.date.unique()],
+lc = LineCollection(,
                     colors = [palette_pastel[x] for x, i in enumerate(stack_events.tstamp.dt.date.unique())])
 # for patch in boxes["boxes"]:
 #         patch.set_facecolor(cmap())

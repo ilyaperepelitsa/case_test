@@ -249,7 +249,7 @@ stack_events_clean["tstamp_lag"] = stack_events_clean.groupby(["combo_id"])["tst
 stack_events_clean["sector_centroid_lat_lag"] = stack_events_clean.groupby(["combo_id"])["sector_centroid_lat"].shift(-1)
 stack_events_clean["sector_centroid_lon_lag"] = stack_events_clean.groupby(["combo_id"])["sector_centroid_lon"].shift(-1)
 
-stack_events_clean.loc[stack_events_clean["msisdn_lag"] != stack_events_clean["msisdn"],:].groupby("combo_id").count()
+stack_events_clean.loc[stack_events_clean["msisdn_lag"] != stack_events_clean["msisdn"],:].groupby("combo_id")
 
 
 test["lat_prev"] = test.groupby(["msisdn"])["lat"].shift(-1)

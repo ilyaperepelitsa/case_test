@@ -268,8 +268,7 @@ for ix, i in stack_events.loc[stack_events.combo_id == 0].drop_duplicates(["long
     plt.gca().add_patch(pac_2)
     # plt.scatter(i["sector_centroid_lon"], i["sector_centroid_lat"])
 plt.axis('equal')
-# plt.show()
-plt.savefig("fifty_towers_centroids.png")
+plt.show()
 
 
 

@@ -267,7 +267,7 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
 # event_frame["event_type"]
 
 
-stack_events
+stack_events["event_type_all"]
 
 
 from sklearn.feature_extraction.text import TfidfVectorizer

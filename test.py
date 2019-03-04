@@ -250,7 +250,7 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     # print(event_frame.shape)
 
 stack_events.shape
-stack_events
+stack_events.loc[stack_events..]
 
 
 

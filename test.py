@@ -257,6 +257,7 @@ stack_events
 
 
 
+
 stack_events_clean.columns
 
 stack_events_clean["msisdn_lag"] = stack_events_clean.groupby(["combo_id"])["msisdn"].shift(-1)

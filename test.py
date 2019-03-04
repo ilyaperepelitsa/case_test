@@ -243,6 +243,7 @@ stack_events_clean = stack_events.drop(['lac', 'cid', 'imei', 'long', 'lat', 'ma
             sort_values(['combo_id', 'tstamp'], ascending = False)
 
 stack_events_clean["msisdn_lag"] = stack_events_clean.groupby(["msisdn"])["msisdn"].shift(-1)
+stack_events_clean["msisdn_lag"] = stack_events_clean.groupby(["msisdn"])["msisdn"].shift(-1)
 
 test["lat_prev"] = test.groupby(["msisdn"])["lat"].shift(-1)
 test["long_prev"] = test.groupby(["msisdn"])["long"].shift(-1)

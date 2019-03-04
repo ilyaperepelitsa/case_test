@@ -270,6 +270,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 TfidfVectorizer.fit_transform(stack_events.loc[stack_events.combo_id == id_id,""])
 
+stack_events.colum
+
 from matplotlib.collections import LineCollection
 plt.figure(figsize=(20,10))
 id_id = 77

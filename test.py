@@ -242,6 +242,12 @@ stack_events_clean = stack_events.drop(['lac', 'cid', 'imei', 'long', 'lat', 'ma
             'station_angle', 'sector_centroid_shift'], axis = 1).\
             sort_values(['combo_id', 'tstamp'], ascending = False)
 
+
+
+test["lat_prev"] = test.groupby(["msisdn"])["lat"].shift(-1)
+test["long_prev"] = test.groupby(["msisdn"])["long"].shift(-1)
+
+
 # stack_events_clean.loc[stack_events_clean["combo_id"] == 0,:].groupby("msisdn").count()
 
 list(set([ tuple(set(i)) for i in combinations(list_stuff, 2) ]))

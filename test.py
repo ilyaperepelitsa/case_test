@@ -271,7 +271,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 pew = TfidfVectorizer()
 pew.fit_transform(stack_events.loc[stack_events.combo_id == id_id,"vendor"].dropna())
 
-stack_events.loc[stack_events.combo_id == id_id,"vendor"].
+stack_events.loc[stack_events.combo_id == id_id,"vendor"].str.cat()
 
 
 dir(pew)

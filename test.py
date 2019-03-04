@@ -221,7 +221,7 @@ from itertools import combinations
 
 stack_events = pd.DataFrame()
 
-for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].unique(), 2))[0:1000]):
+for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].unique(), 2))[0:10]):
     # print(test.loc[test['msisdn']==combo[0],:].shape, test.loc[test['msisdn'] == combo[1],:].shape)
     event_frame = test.loc[test['msisdn'].isin(combo),:].copy()
     event_frame.loc[:,"combo_id"] = index
@@ -239,7 +239,7 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     event_frame["sector_centroid_lat_lag"] = event_frame.groupby(["combo_id"])["sector_centroid_lat"].shift(-1)
     event_frame["sector_centroid_lon_lag"] = event_frame.groupby(["combo_id"])["sector_centroid_lon"].shift(-1)
 
-    stack_events_clean.loc[stack_events_clean["msisdn_lag"] != stack_events_clean["msisdn"],:]
+    event_frame.loc[event_frame["msisdn_lag"] != event_frame["msisdn"],:]
 
     stack_events = pd.concat([stack_events, event_frame], axis = 0)
     # print(event_frame.shape)

@@ -275,7 +275,7 @@ for ix, i in stack_events.loc[stack_events.combo_id == id_id,:].drop_duplicates(
     plt.gca().add_patch(pac_2)
 plt.plot(stack_events.loc[stack_events.combo_id == id_id,:]["sector_centroid_lon"],
         stack_events.loc[stack_events.combo_id == id_id,:]["sector_centroid_lat"],
-        alpha = 0.6, linewidth = 1)
+        c = "black", alpha = 0.6, linewidth = 1)
 # plt.scatter(i["sector_centroid_lon"], i["sector_centroid_lat"])
 plt.axis('equal')
 plt.show()

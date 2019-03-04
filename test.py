@@ -234,13 +234,15 @@ stack_events.shape
 stack_events
 
 
-stack_events_clean.columns
+
 
 stack_events_clean = stack_events.drop(['lac', 'cid', 'imei', 'long', 'lat', 'max_dist', 'event_description',
             'lat_prev', 'long_prev', 'previous_timestamp', 'previous_status_distance',
             'segment_lat', 'segment_lon', 'plot_radius',
             'station_angle', 'sector_centroid_shift'], axis = 1).\
             sort_values(['combo_id', 'tstamp'], ascending = False)
+
+stack_events_clean.columns
 
 stack_events_clean["msisdn_lag"] = stack_events_clean.groupby(["msisdn"])["msisdn"].shift(-1)
 stack_events_clean["msisdn_lag"] = stack_events_clean.groupby(["msisdn"])["msisdn"].shift(-1)

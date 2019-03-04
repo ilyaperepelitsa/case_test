@@ -242,7 +242,7 @@ stack_events_clean = stack_events.drop(['lac', 'cid', 'imei', 'long', 'lat', 'ma
             'station_angle', 'sector_centroid_shift'], axis = 1).\
             sort_values(['combo_id', 'tstamp'])
 
-loc[stack_events["combo_id"] == 0,:]
+stack_events_clean.loc[stack_events_clean["combo_id"] == 0,:]
 
 list(set([ tuple(set(i)) for i in combinations(list_stuff, 2) ]))
 

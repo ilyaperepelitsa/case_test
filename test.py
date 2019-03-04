@@ -294,9 +294,9 @@ lc = LineCollection([stack_events.loc[((stack_events.combo_id == id_id) & (stack
 #         patch.set_facecolor(cmap())
 plt.gca().add_collection(lc)
 
-plt.plot(stack_events.loc[stack_events.combo_id == id_id,:]["sector_centroid_lon"],
-        stack_events.loc[stack_events.combo_id == id_id,:]["sector_centroid_lat"],
-        c = "black", alpha = 0.6, linewidth = 1)
+# plt.plot(stack_events.loc[stack_events.combo_id == id_id,:]["sector_centroid_lon"],
+#         stack_events.loc[stack_events.combo_id == id_id,:]["sector_centroid_lat"],
+#         c = "black", alpha = 0.6, linewidth = 1)
 # plt.scatter(i["sector_centroid_lon"], i["sector_centroid_lat"])
 plt.axis('equal')
 plt.show()

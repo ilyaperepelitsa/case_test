@@ -227,7 +227,7 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     event_frame.loc[:,"combo_id"] = index
     print(event_frame.head())
     # event_frame.to_csv(os.path.join("combos", str(index) + ".csv"))
-    # stack_events = pd.concat([stack_events, event_frame], axis = 0)
+    stack_events = pd.concat([stack_events, event_frame], axis = 0)
     # print(event_frame.shape)
 
 stack_events.shape

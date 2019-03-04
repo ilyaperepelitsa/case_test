@@ -286,7 +286,7 @@ for ix, i in stack_events.loc[stack_events.combo_id == id_id,:].drop_duplicates(
     plt.gca().add_patch(pac_2)
 
 colors = [c for c in cmap()]
-          cmap
+colors
 lc = LineCollection(zip(xy[:-1], xy[1:]), array=z, cmap=plt.cm.hsv)
 plt.gca().add_collection(lc)
 

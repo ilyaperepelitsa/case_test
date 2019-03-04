@@ -238,6 +238,9 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     event_frame["tstamp_lag"] = event_frame.groupby(["combo_id"])["tstamp"].shift(-1)
     event_frame["sector_centroid_lat_lag"] = event_frame.groupby(["combo_id"])["sector_centroid_lat"].shift(-1)
     event_frame["sector_centroid_lon_lag"] = event_frame.groupby(["combo_id"])["sector_centroid_lon"].shift(-1)
+    event_frame["sector_centroid_lon_lag"] = event_frame.groupby(["combo_id"])["sector_centroid_lon"].shift(-1)
+    event_frame["sector_centroid_lon_lag"] = event_frame.groupby(["combo_id"])["sector_centroid_lon"].shift(-1)
+    event_frame["sector_centroid_lon_lag"] = event_frame.groupby(["combo_id"])["sector_centroid_lon"].shift(-1)
 
     event_frame.loc[event_frame["msisdn_lag"] != event_frame["msisdn"],:]
 

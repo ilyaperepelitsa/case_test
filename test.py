@@ -287,7 +287,7 @@ for ix, i in stack_events.loc[stack_events.combo_id == id_id,:].drop_duplicates(
 
 # colors = [c for c in cmap(5)]
 colors
-lc = LineCollection(zip(xy[:-1], xy[1:]))
+lc = LineCollection()
 
 for patch in boxes["boxes"]:
         patch.set_facecolor(cmap())

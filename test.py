@@ -262,7 +262,7 @@ plt.figure(figsize=(20,10))
 # cmap = get_cmap(test.drop_duplicates("cid").shape[0])
 # new_cmap = rand_cmap(100, type='bright', first_color_black=True, last_color_black=False, verbose=True)
 # len(new_cmap)
-for ix, i in stack_events.loc[stack_events.combo_id == 0,:].drop_duplicates(["cid"]).iterrows():
+for ix, i in stack_events.loc[stack_events.combo_id == ,:].drop_duplicates(["cid"]).iterrows():
 # i = test.loc[test.index[900],:]
     # print(i["cid"])
     x = i["long"]
@@ -274,7 +274,7 @@ for ix, i in stack_events.loc[stack_events.combo_id == 0,:].drop_duplicates(["ci
     plt.gca().add_patch(pac_2)
 plt.plot(stack_events.loc[stack_events.combo_id == 0,:]["sector_centroid_lon"],
         stack_events.loc[stack_events.combo_id == 0,:]["sector_centroid_lat"],
-        c = "black", alpha = 0.6, linewidth = )
+        c = "black", alpha = 0.6, linewidth = 1)
 # plt.scatter(i["sector_centroid_lon"], i["sector_centroid_lat"])
 plt.axis('equal')
 plt.show()

@@ -22,7 +22,7 @@ from cycler import cycler
 
 color_cycler = cycle(plt.rcParams["axes.prop_cycle"])
 cmap = lambda: next(color_cycler)["color"]
-cmap = lambda: next(color_cycler)["color"]
+
 
 facts = pd.read_excel("01_Facts.xlsx", header = None)
 event_type_data = pd.read_excel("04_event_type.xlsx")
@@ -166,6 +166,7 @@ for ix, i in test.drop_duplicates("cid").iterrows():
     radius = i["plot_radius"]
     pac_2 = mpatches.Wedge(center = [x, y], r = radius, theta2=-270 - start_angle, theta1=-270-end_angle, alpha = 0.3)
     plt.gca().add_patch(pac_2)
+    lc = LineCollection(zip(xy[:-1], xy[1:]), array=z, cmap=plt.cm.hsv)
 plt.axis('equal')
 # plt.show()
 plt.savefig("all_towers.png")

@@ -291,7 +291,7 @@ stack_events.loc[stack_events.combo_id == id_id,"lat"] for date in stack_events.
 
 stack_events.columns
 
-stack_events.tstamp.date
+stack_events.tstamp..dt.date
 
 
 lc = LineCollection()

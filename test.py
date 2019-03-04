@@ -272,7 +272,7 @@ pew = TfidfVectorizer()
 pew.fit_transform(stack_events.loc[stack_events.combo_id == id_id,"vendor"].dropna())
 
 dir(pew)
-print(pew.get_feature_names
+pew.get_feature_names()
 
 stack_events.columns
 

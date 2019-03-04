@@ -250,7 +250,26 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     # print(event_frame.shape)
 
 stack_events.shape
-stack_events.loc[stack_events.combo_id ==]
+stack_events.loc[stack_events.combo_id == 0]
+
+plt.figure(figsize=(20,10))
+# cmap = get_cmap(test.drop_duplicates("cid").shape[0])
+# new_cmap = rand_cmap(100, type='bright', first_color_black=True, last_color_black=False, verbose=True)
+# len(new_cmap)
+for ix, i in test.drop_duplicates("cid").loc[test.drop_duplicates("cid").index[700:750],:].iterrows():
+# i = test.loc[test.index[900],:]
+    # print(i["cid"])
+    x = i["long"]
+    y = i["lat"]
+    start_angle = i["start_angle"]
+    end_angle = i["end_angle"]
+    radius = i["plot_radius"]
+    pac_2 = mpatches.Wedge(center = [x, y], r = radius, theta2=-270 - start_angle, theta1=-270-end_angle, alpha = 0.3)
+    plt.gca().add_patch(pac_2)
+    plt.scatter(i["sector_centroid_lon"], i["sector_centroid_lat"])
+plt.axis('equal')
+# plt.show()
+plt.savefig("fifty_towers_centroids.png")
 
 
 

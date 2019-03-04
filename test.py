@@ -245,7 +245,9 @@ stack_events_clean = stack_events.drop(['lac', 'cid', 'imei', 'long', 'lat', 'ma
 stack_events_clean.columns
 
 stack_events_clean["msisdn_lag"] = stack_events_clean.groupby(["msisdn"])["msisdn"].shift(-1)
-stack_events_clean["tstamp_lag"] = stack_events_clean.groupby(["msisdn"])["msisdn"].shift(-1)
+stack_events_clean["tstamp_lag"] = stack_events_clean.groupby(["tstamp"])["tstamp"].shift(-1)
+stack_events_clean["tstamp_lag"] = stack_events_clean.groupby(["tstamp"])["tstamp"].shift(-1)
+stack_events_clean["tstamp_lag"] = stack_events_clean.groupby(["tstamp"])["tstamp"].shift(-1)
 
 test["lat_prev"] = test.groupby(["msisdn"])["lat"].shift(-1)
 test["long_prev"] = test.groupby(["msisdn"])["long"].shift(-1)

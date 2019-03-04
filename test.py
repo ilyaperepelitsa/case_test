@@ -274,7 +274,7 @@ plt.figure(figsize=(20,10))
 # cmap = get_cmap(test.drop_duplicates("cid").shape[0])
 # new_cmap = rand_cmap(100, type='bright', first_color_black=True, last_color_black=False, verbose=True)
 # len(new_cmap)
-id_id = 5
+id_id = 10
 for ix, i in stack_events.loc[stack_events.combo_id == id_id,:].drop_duplicates(["cid"]).iterrows():
 # i = test.loc[test.index[900],:]
     # print(i["cid"])
@@ -284,7 +284,7 @@ for ix, i in stack_events.loc[stack_events.combo_id == id_id,:].drop_duplicates(
     end_angle = i["end_angle"]
     radius = i["plot_radius"]
     pac_2 = mpatches.Wedge(center = [x, y], r = radius, theta2=-270 - start_angle, theta1=-270-end_angle, alpha = 0.3)
-    # pac_2.set_color('cyan')
+    pac_2.set_color('cyan')
     plt.gca().add_patch(pac_2)
 
 # colors = [c for c in cmap(5)]

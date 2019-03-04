@@ -285,6 +285,7 @@ for ix, i in stack_events.loc[stack_events.combo_id == id_id,:].drop_duplicates(
     pac_2 = mpatches.Wedge(center = [x, y], r = radius, theta2=-270 - start_angle, theta1=-270-end_angle, alpha = 0.3)
     plt.gca().add_patch(pac_2)
     
+lc = LineCollection(zip(xy[:-1], xy[1:]), array=z, cmap=plt.cm.hsv)
 plt.plot(stack_events.loc[stack_events.combo_id == id_id,:]["sector_centroid_lon"],
         stack_events.loc[stack_events.combo_id == id_id,:]["sector_centroid_lat"],
         c = "black", alpha = 0.6, linewidth = 1)

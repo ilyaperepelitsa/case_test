@@ -228,7 +228,11 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     # print(event_frame.head())
     # event_frame.to_csv(os.path.join("combos", str(index) + ".csv"))
 
-
+    event_frame = event_frame.drop(['lac', 'cid', 'imei', 'long', 'lat', 'max_dist', 'event_description',
+                'lat_prev', 'long_prev', 'previous_timestamp', 'previous_status_distance',
+                'segment_lat', 'segment_lon', 'plot_radius',
+                'station_angle', 'sector_centroid_shift'], axis = 1).\
+                sort_values(['combo_id', 'tstamp'], ascending = False)
 
 
     stack_events = pd.concat([stack_events, event_frame], axis = 0)
@@ -240,11 +244,7 @@ stack_events
 
 
 
-stack_events_clean = stack_events.drop(['lac', 'cid', 'imei', 'long', 'lat', 'max_dist', 'event_description',
-            'lat_prev', 'long_prev', 'previous_timestamp', 'previous_status_distance',
-            'segment_lat', 'segment_lon', 'plot_radius',
-            'station_angle', 'sector_centroid_shift'], axis = 1).\
-            sort_values(['combo_id', 'tstamp'], ascending = False)
+
 
 stack_events_clean.columns
 

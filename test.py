@@ -272,7 +272,7 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
                                                                     (x["sector_centroid_lat_lag"],
                                                                     x["sector_centroid_lon_lag"])).meters, axis = 1)
 
-    (df_test['tstamp'] - df_test['Second Date']).dt.days
+    (event_frame['tstamp'] - event_frame['tstamp_lag Date']).dt.hours
 
     stack_events = pd.concat([stack_events, event_frame], axis = 0)
     # print(event_frame.shape)

@@ -266,7 +266,7 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     # event_frame["lat_change"] = event_frame["sector_centroid_lat"] - event_frame["sector_centroid_lat_lag"]
     # event_frame["lat_change"] = event_frame["sector_centroid_lat"] - event_frame["sector_centroid_lat_lag"]
 
-    event_frame.loc[~event_frame["lat_prev"].isnull(),"path_traveled"] = event_frame.loc[~event_frame["lat_prev"].isnull(),:].\
+    event_frame.loc[~event_frame["lat_prev"].isnull(),"path_traveled"] = event_frame.loc[~event_frame["sector_centroid_lat_lag"].isnull(),:].\
                                             apply(lambda x: geodesic((x["sector_centroid_lat"],
                                                                         x["sector_centroid_lon"]),
                                                                     (x["sector_centroid_lat_lag"],

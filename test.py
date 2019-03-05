@@ -4,7 +4,7 @@ from datetime import datetime
 from geopy.distance import vincenty
 from geopy.distance import geodesic
 from geopy import Point
-
+from itertools import combinations
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 # import matplotlib.pyplot as plt

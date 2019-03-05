@@ -272,7 +272,7 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
                                                                     (x["sector_centroid_lat_lag"],
                                                                     x["sector_centroid_lon_lag"])).meters, axis = 1)
 
-    event_frame.loc[~event_frame["sector_centroid_lat_lag"].isnull(),"path_traveled"]["path_hours"] = (event_frame['tstamp'] - event_frame['tstamp_lag Date']).dt.hours
+    event_frame.loc[~event_frame["sector_centroid_lat_lag"].isnull(),"path_hours"] = (event_frame['tstamp'] - event_frame['tstamp_lag Date']).dt.hours
 
     stack_events = pd.concat([stack_events, event_frame], axis = 0)
 

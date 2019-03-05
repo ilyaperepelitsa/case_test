@@ -272,6 +272,8 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
                                                                     (x["sector_centroid_lat_lag"],
                                                                     x["sector_centroid_lon_lag"])).meters, axis = 1)
 
+                                                
+
     stack_events = pd.concat([stack_events, event_frame], axis = 0)
     # print(event_frame.shape)
 # event_frame["event_type"]

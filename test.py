@@ -267,7 +267,7 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     event_frame["lat_change"] = event_frame["sector_centroid_lat"] - event_frame["sector_centroid_lat_lag"]
 
     event_frame.loc[~event_frame["lat_prev"].isnull(),"previous_status_distance"] = event_frame.loc[~event_frame["lat_prev"].isnull(),:].\
-                                            apply(lambda x: geodesic((x["sector_centroid_lat_lag"],
+                                            apply(lambda x: geodesic((x["sector_centroid_lat"],
                                                                         x["long"]),
                                                                     (x["sector_centroid_lat_lag"],
                                                                     x["long_prev"])).meters, axis = 1)

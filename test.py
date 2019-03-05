@@ -227,7 +227,7 @@ list_stuff
 
 
 # test['msisdn'].unique()[0:10]
-from itertools import combinations
+
 # len(set(i for i in combinations(test['smsisdn'].unique(), 2))) / 1000000
 
 stack_events = pd.DataFrame()
@@ -278,7 +278,7 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
 
 
 
-    
+
     # print(event_frame.shape)
 # event_frame["event_type"]
 

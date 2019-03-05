@@ -277,7 +277,7 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     stack_events = pd.concat([stack_events, event_frame], axis = 0)
 
 
-stack_events.path_hours.days
+stack_events.path_hours.dt.days
 
     # print(event_frame.shape)
 # event_frame["event_type"]

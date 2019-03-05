@@ -268,9 +268,9 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
 
     event_frame.loc[~event_frame["lat_prev"].isnull(),"previous_status_distance"] = event_frame.loc[~event_frame["lat_prev"].isnull(),:].\
                                             apply(lambda x: geodesic((x["sector_centroid_lat"],
-                                                                        x["long"]),
+                                                                        x["sector_centroid_lon"]),
                                                                     (x["sector_centroid_lat_lag"],
-                                                                    x["long_prev"])).meters, axis = 1)
+                                                                    x["sector_centroid_lon_lag"])).meters, axis = 1)
 
     stack_events = pd.concat([stack_events, event_frame], axis = 0)
     # print(event_frame.shape)

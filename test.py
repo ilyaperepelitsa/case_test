@@ -276,12 +276,15 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
 
     stack_events = pd.concat([stack_events, event_frame], axis = 0)
 
-stack_events.drop(['tstamp', 'start_angle', "end_angle", 'tac', 'vendor', 'platform',
-                    'type', 'event_description'])
 stack_events["path_speed"] = (stack_events["path_traveled"] / stack_events["path_hours"])
 stack_events[stack_events["path_speed"] != np.inf]["path_speed"].mean()
 plt.hist(stack_events[stack_events["path_speed"] != np.inf]["path_speed"])
 stack_events.columns
+
+stack_events.groupby(['combo_id','date'])['sector_centroid_lat'].min(),
+stack_events.groupby(['combo_id','date'])['sector_centroid_lat'].max(),
+stack_events.groupby(['combo_id','date'])['sector_centroid_lon'].min(),
+stack_events.groupby(['combo_id','date'])['sector_centroid_lon'].max()
 
     # print(event_frame.shape)
 # event_frame["event_type"]

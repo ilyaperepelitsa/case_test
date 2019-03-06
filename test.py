@@ -305,10 +305,10 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
 
     nums = list(set(event_frame["msisdn"].unique().tolist() + event_frame["msisdn_lag"].unique().tolist()))
     nums.sort()
-    
+
     pair = pd.Series({
-                "msisdn" : list(set(event_frame["msisdn"].unique().tolist() + event_frame["msisdn_lag"].unique().tolist()))[0],
-                "msisdn_lag" : set(event_frame["msisdn"].unique().tolist() + event_frame["msisdn_lag"].unique().tolist())[1],
+                "msisdn" : nums[0],
+                "msisdn_lag" : nums[1],
                 "bbox_25p" : bbox_25p,
                 "bbox_50p" : bbox_50p,
                 "bbox_75p" : bbox_75p,

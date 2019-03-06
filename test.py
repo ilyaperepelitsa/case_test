@@ -270,7 +270,7 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
                                             apply(lambda x: geodesic((x["sector_centroid_lat"],
                                                                         x["sector_centroid_lon"]),
                                                                     (x["sector_centroid_lat_lag"],
-                                                                    x["sector_centroid_lon_lag"])).meters, axis = 1)
+                                                                    x["sector_centroid_lon_lag"])).kilometers, axis = 1)
     event_frame = event_frame.dropna()
     event_frame["path_hours"] = (event_frame['tstamp'] - event_frame['tstamp_lag']).dt.seconds/3600
 
@@ -323,7 +323,7 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     # stack_events = pd.concat([stack_events, pair], axis = 0)
     # stack_events = pd.concat([stack_events, event_frame], axis = 0)
 
-pd.DataFrame()
+pd.DataFrame(pewpew)
 
 
 pew = list(set(event_frame["msisdn"].unique().tolist() + event_frame["msisdn_lag"].unique().tolist()))

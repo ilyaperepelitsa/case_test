@@ -59,106 +59,33 @@ test.loc[~test["lat_prev"].isnull(),"previous_status_distance"] = test.loc[~test
                                                                     x["long"]),
                                                                 (x["lat_prev"],
                                                                 x["long_prev"])).meters, axis = 1)
-
-
 test["date"] = test["tstamp"].dt.date
 
 def circle_segment(data):
     origin = Point(data["lat"], data["long"])
     destination = geodesic(kilometers=data["max_dist"]/1000).destination(origin, data["start_angle"])
     lat2, lon2 = destination.latitude, destination.longitude
-    # print(type(lat2))
     return lat2, lon2
-    # print(pd.concat(lat2, lon2), axis = 0)
-    # return pd.DataFrame(pd.Series(lat2), pd.Series(lon2))
 
 def sector_centroid(data):
     origin = Point(data["lat"], data["long"])
     angle = data["end_angle"] - data["start_angle"]
     angle_mid = data["start_angle"] + angle / 2
-    # if angle_mid > 360:
-    #     angle_mid = angle_mid - 180
-# if data["end_angle"] - data["start_angle"] >= 180:
-#     destination = geodesic(kilometers=-data["sector_centroid_shift"]/1000).destination(origin, angle_mid)
-# else:
     destination = geodesic(kilometers=data["sector_centroid_shift"]/1000).destination(origin, angle_mid)
     lat2, lon2 = destination.latitude, destination.longitude
 
     return lat2, lon2
 
-
-# def sector_angle_mid(data):
-#     angle_mid = (data["end_angle"] + data["start_angle"]) / 2
-#     if angle_mid > 360:
-#         angle_mid = angle_mid - 180
-#     # print(type(lat2))
-#     return angle_mid
-#
-# def get_cmap(n, name='hsv'):
-#     '''Returns a function that maps each index in 0, 1, ..., n-1 to a distinct
-#     RGB color; the keyword argument name must be a standard mpl colormap name.'''
-#     return plt.cm.get_cmap(name, n)
-
-# test["segment_lat"], test["segment_lon"] = test.apply(circle_segment, axis = 1)
-
 test["segment_lat"], test["segment_lon"] = test.apply(circle_segment, axis = 1).apply(lambda x: x[0]), test.apply(circle_segment, axis = 1).apply(lambda x: x[1])
-
 test["plot_radius"] = test.apply(lambda x: math.hypot(x["segment_lon"] - x["long"], x["segment_lat"] - x["lat"]), axis = 1)
-# test["plot_radius_2"] = test.apply(lambda x: math.sqrt((x["segment_lon"] - x["long"])**2 + (x["segment_lat"] - x["lat"])**2), axis = 1)
-
 test["station_angle"] = test.end_angle - test.start_angle
-# test["station_angle"][test["station_angle"] < 0] += 360
 test["station_angle"][test["station_angle"] < 0] = test["station_angle"][test["station_angle"] < 0] + 360
 
 test["sector_centroid_shift"] = test.apply(lambda x: (2*x["max_dist"] * np.sin(math.radians(x["station_angle"]))) / (3*math.radians(x["station_angle"])),axis = 1)
 test["sector_centroid_lat"], test["sector_centroid_lon"] = test.apply(sector_centroid, axis = 1).apply(lambda x: x[0]), test.apply(sector_centroid, axis = 1).apply(lambda x: x[1])
 
-#
-# test["sector_centroid_shift"]
-# np.sin(math.degrees(45))
-#
-# # pd.concat([test["plot_radius"], test["plot_radius_2"]], axis = 1)
-# pd.concat([test["sector_centroid_shift"], test["max_dist"]], axis = 1)
-#
-
-
-# pd.concat([test["start_angle"], test.apply(sector_angle_mid, axis = 1), test["end_angle"]], axis = 1)
-# plt.hist(np.log((2*test["max_dist"] * np.sin(test["station_angle"])) / 3*np.sin(test["station_angle"])))
-# pd.concat([test["start_angle"], test["station_angle"], test["end_angle"]], axis = 1)
-
-#
-# test[["sector_centroid_lat","sector_centroid_lon"]]
-#
-#
-# test.head().apply(lambda x: x["max_dist"]/1000, axis = 1)
-#
-#
-# geodesic(kilometers=data["max_dist"]/1000)
-#
-#
-# 350 + 100
-# (350 + 180)/2 -360/2
-# # test["station_angle"].columns
-#
-# test.columns
-# (test.end_angle > test.start_angle).sum()
-#
-# pd.concat([test.end_angle - test.start_angle, test.start_angle, test.end_angle], axis =  1)
-#
-# a = pd.Series(test.end_angle - test.start_angle)
-# a[a<0] += 360
-# # Here's a simpler workaround. Use the hatch argument in your mpatches.Arc command. If you repeat symbols with the hatch argument it increases the density of the patterning. I find that if you use 6 dashes, '-', or 6 dots, '.' (others probably also work), then it solidly fills in the arc as desired. When I run this
-#
-#
-
-# plt.axes()
 plt.figure(figsize=(20,10))
-# cmap = get_cmap(test.drop_duplicates("cid").shape[0])
-# new_cmap = rand_cmap(100, type='bright', first_color_black=True, last_color_black=False, verbose=True)
-# len(new_cmap)
 for ix, i in test.drop_duplicates("cid").iterrows():
-# i = test.loc[test.index[900],:]
-    # print(i["cid"])
     x = i["long"]
     y = i["lat"]
     start_angle = i["start_angle"]
@@ -168,20 +95,11 @@ for ix, i in test.drop_duplicates("cid").iterrows():
     plt.gca().add_patch(pac_2)
 
 plt.axis('equal')
-# plt.show()
 plt.savefig("all_towers.png")
 
 
-
-
-
-# plt.axes()
 plt.figure(figsize=(20,10))
-# cmap = get_cmap(test.drop_duplicates("cid").shape[0])
-# new_cmap = rand_cmap(100, type='bright', first_color_black=True, last_color_black=False, verbose=True)
-# len(new_cmap)
 for ix, i in test.drop_duplicates("cid").loc[test.drop_duplicates("cid").index[500:505],:].iterrows():
-
     x = i["long"]
     y = i["lat"]
     start_angle = i["start_angle"]

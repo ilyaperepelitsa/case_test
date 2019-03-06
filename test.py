@@ -220,17 +220,57 @@ plt.savefig("fifty_towers_centroids.png")
 
 
 list_stuff = test.loc[test['msisdn'].isin(test['msisdn'].unique()[0:10]),'msisdn'].unique()
-list_stuff
-
-#
+# list_stuff
 
 
+stack_events = pd.DataFrame()
+for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].unique(), 2))[0:10]):
+    # print(test.loc[test['msisdn']==combo[0],:].shape, test.loc[test['msisdn'] == combo[1],:].shape)
+    event_frame = test.loc[test['msisdn'].isin(combo),:].copy()
+    event_frame.loc[:,"combo_id"] = index
+    # print(event_frame.head())
+    # event_frame.to_csv(os.path.join("combos", str(index) + ".csv"))
 
-# test['msisdn'].unique()[0:10]
+    event_frame = event_frame.drop(['lac', 'imei', 'max_dist', 'event_type',
+                'lat_prev', 'long_prev', 'previous_timestamp', 'previous_status_distance',
+                'segment_lat', 'segment_lon',
+                'station_angle', 'sector_centroid_shift'], axis = 1).\
+                sort_values(['combo_id', 'tstamp'], ascending = False)
 
-# len(set(i for i in combinations(test['smsisdn'].unique(), 2))) / 1000000
+    event_frame["msisdn_lag"] = event_frame.groupby(["combo_id"])["msisdn"].shift(-1)
+    event_frame.loc[event_frame["msisdn_lag"] != event_frame["msisdn"],:]
 
-# stack_events = pd.DataFrame()
+    event_frame["tstamp_lag"] = event_frame.groupby(["combo_id"])["tstamp"].shift(-1)
+    event_frame["sector_centroid_lat_lag"] = event_frame.groupby(["combo_id"])["sector_centroid_lat"].shift(-1)
+    event_frame["sector_centroid_lon_lag"] = event_frame.groupby(["combo_id"])["sector_centroid_lon"].shift(-1)
+
+    stack_events = pd.concat([stack_events, event_frame], axis = 0)
+
+from matplotlib.collections import LineCollection
+
+plt.figure(figsize=(20,10))
+id_id = 3
+for ix, i in stack_events.loc[stack_events.combo_id == id_id,:].drop_duplicates(["cid"]).iterrows():
+    x = i["long"]
+    y = i["lat"]
+    start_angle = i["start_angle"]
+    end_angle = i["end_angle"]
+    radius = i["plot_radius"]
+    pac_2 = mpatches.Wedge(center = [x, y], r = radius, theta2=-270 - start_angle, theta1=-270-end_angle, alpha = 0.3)
+    pac_2.set_color('cyan')
+    plt.gca().add_patch(pac_2)
+
+
+colors = [palette_pastel[x] for x, i in enumerate(stack_events.tstamp.dt.date.unique())]
+for x, i in enumerate([stack_events.loc[((stack_events.combo_id == id_id) &\
+                    (stack_events.tstamp.dt.date == date)),["sector_centroid_lon", "sector_centroid_lat"]] for date in stack_events.tstamp.dt.date.unique()]):
+    plt.plot(i["sector_centroid_lon"], i["sector_centroid_lat"],
+            c = "black", alpha = 0.6, linewidth = 1)
+plt.axis('equal')
+plt.savefig("algo_idea.png")
+
+
+
 pewpew = []
 for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].unique(), 2))[0:10000]):
     # print(test.loc[test['msisdn']==combo[0],:].shape, test.loc[test['msisdn'] == combo[1],:].shape)
@@ -323,55 +363,6 @@ pd.DataFrame(pewpew).head()
 
 
 
-
-stack_events = pd.DataFrame()
-for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].unique(), 2))[0:10]):
-    # print(test.loc[test['msisdn']==combo[0],:].shape, test.loc[test['msisdn'] == combo[1],:].shape)
-    event_frame = test.loc[test['msisdn'].isin(combo),:].copy()
-    event_frame.loc[:,"combo_id"] = index
-    # print(event_frame.head())
-    # event_frame.to_csv(os.path.join("combos", str(index) + ".csv"))
-
-    event_frame = event_frame.drop(['lac', 'imei', 'max_dist', 'event_type',
-                'lat_prev', 'long_prev', 'previous_timestamp', 'previous_status_distance',
-                'segment_lat', 'segment_lon',
-                'station_angle', 'sector_centroid_shift'], axis = 1).\
-                sort_values(['combo_id', 'tstamp'], ascending = False)
-
-    event_frame["msisdn_lag"] = event_frame.groupby(["combo_id"])["msisdn"].shift(-1)
-    event_frame.loc[event_frame["msisdn_lag"] != event_frame["msisdn"],:]
-
-    event_frame["tstamp_lag"] = event_frame.groupby(["combo_id"])["tstamp"].shift(-1)
-    event_frame["sector_centroid_lat_lag"] = event_frame.groupby(["combo_id"])["sector_centroid_lat"].shift(-1)
-    event_frame["sector_centroid_lon_lag"] = event_frame.groupby(["combo_id"])["sector_centroid_lon"].shift(-1)
-
-    stack_events = pd.concat([stack_events, event_frame], axis = 0)
-
-from matplotlib.collections import LineCollection
-
-plt.figure(figsize=(20,10))
-id_id = 3
-for ix, i in stack_events.loc[stack_events.combo_id == id_id,:].drop_duplicates(["cid"]).iterrows():
-# i = test.loc[test.index[900],:]
-    # print(i["cid"])
-    x = i["long"]
-    y = i["lat"]
-    start_angle = i["start_angle"]
-    end_angle = i["end_angle"]
-    radius = i["plot_radius"]
-    pac_2 = mpatches.Wedge(center = [x, y], r = radius, theta2=-270 - start_angle, theta1=-270-end_angle, alpha = 0.3)
-    pac_2.set_color('cyan')
-    plt.gca().add_patch(pac_2)
-
-
-colors = [palette_pastel[x] for x, i in enumerate(stack_events.tstamp.dt.date.unique())]
-for x, i in enumerate([stack_events.loc[((stack_events.combo_id == id_id) &\
-                    (stack_events.tstamp.dt.date == date)),["sector_centroid_lon", "sector_centroid_lat"]] for date in stack_events.tstamp.dt.date.unique()]):
-    plt.plot(i["sector_centroid_lon"], i["sector_centroid_lat"],
-            c = "black", alpha = 0.6, linewidth = 1)
-# plt.scatter(i["sector_centroid_lon"], i["sector_centroid_lat"])
-plt.axis('equal')
-plt.savefig("algo_idea.png")
 
 
 

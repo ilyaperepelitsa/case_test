@@ -261,7 +261,7 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     event_frame["vendor_all"] = event_frame["vendor"].str.cat(sep = ", ")
     event_frame["platform_all"] = event_frame["platform"].str.cat(sep = ", ")
     event_frame["type_all"] = event_frame["type"].str.cat(sep = ", ")
-    event_frame["event_type_all"] = event_frame["event_description"].str.cat(sep = ", ")
+    event_frame["event_type_all"] = event_frame["event_symbol"].str.cat(sep = ", ")
 
     # event_frame["lat_change"] = event_frame["sector_centroid_lat"] - event_frame["sector_centroid_lat_lag"]
     # event_frame["lat_change"] = event_frame["sector_centroid_lat"] - event_frame["sector_centroid_lat_lag"]
@@ -277,7 +277,7 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     stack_events = pd.concat([stack_events, event_frame], axis = 0)
 
 stack_events.drop(['tstamp', 'start_angle', "end_angle", 'tac', 'vendor', 'platform',
-                    'type', 'event_Description'])
+                    'type', 'event_description'])
 stack_events["path_speed"] = (stack_events["path_traveled"] / stack_events["path_hours"])
 stack_events[stack_events["path_speed"] != np.inf]["path_speed"].mean()
 plt.hist(stack_events[stack_events["path_speed"] != np.inf]["path_speed"])

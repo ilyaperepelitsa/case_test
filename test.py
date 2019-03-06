@@ -323,6 +323,9 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     # stack_events = pd.concat([stack_events, pair], axis = 0)
     # stack_events = pd.concat([stack_events, event_frame], axis = 0)
 
+pd.DataFrame()
+
+
 pew = list(set(event_frame["msisdn"].unique().tolist() + event_frame["msisdn_lag"].unique().tolist()))
 pew
 pew.sort()

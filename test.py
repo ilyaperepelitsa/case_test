@@ -271,13 +271,13 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
                                                                         x["sector_centroid_lon"]),
                                                                     (x["sector_centroid_lat_lag"],
                                                                     x["sector_centroid_lon_lag"])).meters, axis = 1)
-    event_frame = event_frame.dropna()                                                                    
+    event_frame = event_frame.dropna()
     event_frame["path_hours"] = (event_frame['tstamp'] - event_frame['tstamp_lag']).dt.seconds/3600
 
 
 
-    stack_events["path_speed"] = (stack_events["path_traveled"] / stack_events["path_hours"])
-    stack_events[stack_events["path_speed"] != np.inf]["path_speed"].mean()
+    event_frame["path_speed"] = (event_frame["path_traveled"] / event_frame["path_hours"])
+    # stack_events[stack_events["path_speed"] != np.inf]["path_speed"].mean()
 
     latmin = stack_events.groupby(['combo_id','date'])['sector_centroid_lat'].min()
     latmin.name = "lat_min"

@@ -279,13 +279,13 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     event_frame["path_speed"] = (event_frame["path_traveled"] / event_frame["path_hours"])
     # stack_events[stack_events["path_speed"] != np.inf]["path_speed"].mean()
 
-    latmin = stack_events.groupby(['date'])['sector_centroid_lat'].min()
+    latmin = event_frame.groupby(['date'])['sector_centroid_lat'].min()
     latmin.name = "lat_min"
-    latmax = stack_events.groupby(['date'])['sector_centroid_lat'].max()
+    latmax = event_frame.groupby(['date'])['sector_centroid_lat'].max()
     latmax.name = "lat_max"
-    lonmin = stack_events.groupby(['date'])['sector_centroid_lon'].min()
+    lonmin = event_frame.groupby(['date'])['sector_centroid_lon'].min()
     lonmin.name = "lon_min"
-    lonmax = stack_events.groupby(['date'])['sector_centroid_lon'].max()
+    lonmax = event_frame.groupby(['date'])['sector_centroid_lon'].max()
     lonmax.name = "lon_max"
 
     location_data["binding_box_diag"] = location_data.apply(lambda x: geodesic((x["lat_min"],
@@ -298,10 +298,10 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     bbox_75p = location_data["binding_box_diag"].describe()["75%"]
     bbox_mean = location_data["binding_box_diag"].describe()["mean"]
 
-    speed_25p = stack_events[stack_events["path_speed"] != np.inf]["path_speed"].describe()["25%"]
-    speed_50p = stack_events[stack_events["path_speed"] != np.inf]["path_speed"].describe()["50%"]
-    speed_75p = stack_events[stack_events["path_speed"] != np.inf]["path_speed"].describe()["75%"]
-    speed_mean = stack_events[stack_events["path_speed"] != np.inf]["path_speed"].describe()["mean"]
+    speed_25p = event_frame[event_frame["path_speed"] != np.inf]["path_speed"].describe()["25%"]
+    speed_50p = event_frame[event_frame["path_speed"] != np.inf]["path_speed"].describe()["50%"]
+    speed_75p = event_frame[event_frame["path_speed"] != np.inf]["path_speed"].describe()["75%"]
+    speed_mean = event_frame[event_frame["path_speed"] != np.inf]["path_speed"].describe()["mean"]
 
     pair = pd.Series({
                 "msisdn" : event_frame["msisdn"].iloc[0],
@@ -316,11 +316,11 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
                 "speed_75p" : speed_75p,
                 "speed_mean" : speed_mean
                 })
-
+    pewpew.append(pair)
     stack_events = pd.concat([stack_events, pair], axis = 0)
 
 
-
+stack_events
 
 
 

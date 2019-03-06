@@ -271,10 +271,10 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
                                                                         x["sector_centroid_lon"]),
                                                                     (x["sector_centroid_lat_lag"],
                                                                     x["sector_centroid_lon_lag"])).meters, axis = 1)
-
+    event_frame = event_frame.dropna()                                                                    
     event_frame["path_hours"] = (event_frame['tstamp'] - event_frame['tstamp_lag']).dt.seconds/3600
 
-    stack_events = pd.concat([stack_events, event_frame], axis = 0)
+
 
     stack_events["path_speed"] = (stack_events["path_traveled"] / stack_events["path_hours"])
     stack_events[stack_events["path_speed"] != np.inf]["path_speed"].mean()
@@ -302,6 +302,30 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     speed_50p = stack_events[stack_events["path_speed"] != np.inf]["path_speed"].describe()["50%"]
     speed_75p = stack_events[stack_events["path_speed"] != np.inf]["path_speed"].describe()["75%"]
     speed_mean = stack_events[stack_events["path_speed"] != np.inf]["path_speed"].describe()["mean"]
+
+    pair = pd.Series({
+                "msisdn" : event_frame["msisdn"].iloc[0],
+                "msisdn_lag" : event_frame["msisdn_lag"].iloc[0],
+                "bbox_25p" : bbox_25p,
+                "bbox_50p" : bbox_50p,
+                "bbox_75p" : bbox_75p,
+                "bbox_mean" : bbox_mean,
+
+                "speed_25p" : speed_25p,
+                "speed_50p" : speed_50p,
+                "speed_75p" : speed_75p,
+                "speed_mean" : speed_mean
+                })
+
+    stack_events = pd.concat([stack_events, pair], axis = 0)
+
+
+
+
+
+
+event_frame["msisdn_lag"].iloc[0]
+
 
 plt.hist(stack_events[stack_events["path_speed"] != np.inf]["path_speed"])
 stack_events.columns

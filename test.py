@@ -201,10 +201,6 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     event_frame["platform_all"] = event_frame["platform"].str.cat(sep = ", ")
     event_frame["type_all"] = event_frame["type"].str.cat(sep = ", ")
     event_frame["event_type_all"] = event_frame["event_symbol"].str.cat(sep = ", ")
-
-    # event_frame["lat_change"] = event_frame["sector_centroid_lat"] - event_frame["sector_centroid_lat_lag"]
-    # event_frame["lat_change"] = event_frame["sector_centroid_lat"] - event_frame["sector_centroid_lat_lag"]
-
     event_frame.loc[~event_frame["sector_centroid_lat_lag"].isnull(),"path_traveled"] = event_frame.loc[~event_frame["sector_centroid_lat_lag"].isnull(),:].\
                                             apply(lambda x: geodesic((x["sector_centroid_lat"],
                                                                         x["sector_centroid_lon"]),
@@ -216,8 +212,6 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
 
 
     event_frame["path_speed"] = (event_frame["path_traveled"] / event_frame["path_hours"])
-    # stack_events[stack_events["path_speed"] != np.inf]["path_speed"].mean()
-
     latmin = event_frame.groupby(['date'])['sector_centroid_lat'].min()
     latmin.name = "lat_min"
     latmax = event_frame.groupby(['date'])['sector_centroid_lat'].max()
@@ -264,6 +258,23 @@ pd.DataFrame(pewpew).head()
 
 
 
+stack_events.loc[(stack_events.combo_id == id_id) & (stack_events["msisdn_lag"] != stack_events["msisdn"]),
+                                                    ["cid", "msisdn", 'msisdn_lag',
+                                                    'tstamp', 'tstamp_lag',
+                                                    'sector_centroid_lat', 'sector_centroid_lat_lag',
+                                                    'sector_centroid_lon', 'sector_centroid_lon_lag',
+                                                    'combo_id'
+                                                    ]].head()
+
+
+stack_events.loc[(stack_events.combo_id == id_id),
+                                                    ["msisdn",
+                                                    'tstamp',
+                                                    'sector_centroid_lat',
+                                                    'sector_centroid_lon'
+                                                    ]].head()
+
+stack_events.loc[stack_events.combo_id == id_id,:].columns
 
 
 

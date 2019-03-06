@@ -230,7 +230,7 @@ list_stuff
 
 # len(set(i for i in combinations(test['smsisdn'].unique(), 2))) / 1000000
 
-stack_events = pd.DataFrame()
+# stack_events = pd.DataFrame()
 pewpew = []
 for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].unique(), 2))[0:10000]):
     # print(test.loc[test['msisdn']==combo[0],:].shape, test.loc[test['msisdn'] == combo[1],:].shape)

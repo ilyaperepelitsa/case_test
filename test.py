@@ -276,17 +276,43 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
 
     stack_events = pd.concat([stack_events, event_frame], axis = 0)
 
-stack_events["path_speed"] = (stack_events["path_traveled"] / stack_events["path_hours"])
-stack_events[stack_events["path_speed"] != np.inf]["path_speed"].mean()
+    stack_events["path_speed"] = (stack_events["path_traveled"] / stack_events["path_hours"])
+    stack_events[stack_events["path_speed"] != np.inf]["path_speed"].mean()
+
+    latmin = stack_events.groupby(['combo_id','date'])['sector_centroid_lat'].min()
+    latmin.name = "lat_min"
+    latmax = stack_events.groupby(['combo_id','date'])['sector_centroid_lat'].max()
+    latmax.name = "lat_max"
+    lonmin = stack_events.groupby(['combo_id','date'])['sector_centroid_lon'].min()
+    lonmin.name = "lon_min"
+    lonmax = stack_events.groupby(['combo_id','date'])['sector_centroid_lon'].max()
+    lonmax.name = "lon_max"
+
+    location_data["binding_box_diag"] = location_data.apply(lambda x: geodesic((x["lat_min"],
+                                x["lon_min"]),
+                            (x["lat_max"],
+                            x["lon_max"])).meters, axis = 1)
+
+    bbox_25p = location_data["binding_box_diag"].describe()["25%"]
+    bbox_50p = location_data["binding_box_diag"].describe()["50%"]
+    bbox_75p = location_data["binding_box_diag"].describe()["75%"]
+    bbox_mean = location_data["binding_box_diag"].describe()["mean"]
+
 plt.hist(stack_events[stack_events["path_speed"] != np.inf]["path_speed"])
 stack_events.columns
 
-stack_events.groupby(['combo_id','date'])['sector_centroid_lat'].min(),
-stack_events.groupby(['combo_id','date'])['sector_centroid_lat'].max(),
-stack_events.groupby(['combo_id','date'])['sector_centroid_lon'].min(),
-stack_events.groupby(['combo_id','date'])['sector_centroid_lon'].max()
+
+
+
+
+
+location_data = pd.DataFrame(pd.concat([latmin, latmax, lonmin, lonmax], axis = 1))
+location_data
+
 
     # print(event_frame.shape)
+
+location_data
 # event_frame["event_type"]
 
 pew = TfidfVectorizer()

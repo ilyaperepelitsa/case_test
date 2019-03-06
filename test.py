@@ -232,7 +232,7 @@ list_stuff
 
 stack_events = pd.DataFrame()
 pewpew = []
-for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].unique(), 2))[0:100]):
+for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].unique(), 2))[0:10000]):
     # print(test.loc[test['msisdn']==combo[0],:].shape, test.loc[test['msisdn'] == combo[1],:].shape)
     event_frame = test.loc[test['msisdn'].isin(combo),:].copy()
     event_frame.loc[:,"combo_id"] = index
@@ -305,25 +305,25 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
 
     nums = list(set(event_frame["msisdn"].unique().tolist() + event_frame["msisdn_lag"].unique().tolist()))
     nums.sort()
+    if len(nums) > 1:
+        pair = pd.Series({
+                    "msisdn" : nums[0],
+                    "msisdn_lag" : nums[1],
+                    "bbox_25p" : bbox_25p,
+                    "bbox_50p" : bbox_50p,
+                    "bbox_75p" : bbox_75p,
+                    "bbox_mean" : bbox_mean,
 
-    pair = pd.Series({
-                "msisdn" : nums[0],
-                "msisdn_lag" : nums[1],
-                "bbox_25p" : bbox_25p,
-                "bbox_50p" : bbox_50p,
-                "bbox_75p" : bbox_75p,
-                "bbox_mean" : bbox_mean,
-
-                "speed_25p" : speed_25p,
-                "speed_50p" : speed_50p,
-                "speed_75p" : speed_75p,
-                "speed_mean" : speed_mean
-                })
-    pewpew.append(pair)
+                    "speed_25p" : speed_25p,
+                    "speed_50p" : speed_50p,
+                    "speed_75p" : speed_75p,
+                    "speed_mean" : speed_mean
+                    })
+        pewpew.append(pair)
     # stack_events = pd.concat([stack_events, pair], axis = 0)
     # stack_events = pd.concat([stack_events, event_frame], axis = 0)
 
-pd.DataFrame(pewpew)
+pd.DataFrame(pewpew).shape
 
 
 pew = list(set(event_frame["msisdn"].unique().tolist() + event_frame["msisdn_lag"].unique().tolist()))

@@ -28,16 +28,12 @@ facts = pd.read_excel("01_Facts.xlsx", header = None)
 event_type_data = pd.read_excel("04_event_type.xlsx")
 event_type_data = event_type_data.rename(columns = {"Номер":"event_type", "Обозначение":"event_symbol", "Описание":"event_description"})
 event_type_data = event_type_data.astype({"event_type" : int})
-# event_type.to_dict("records")
 test = pd.read_csv("02_Data_test.csv", sep = ";", dtype = {"imei" : "object",
                                                             "lac" : "object",
                                                             "cid" : "object",
                                                             "msisdn" : "object",
                                                             "event_type" : int})
 test['tstamp'] = pd.to_datetime(test['tstamp'], unit='ms')
-# test
-
-# test.groupby(["cid"])["max_dist"].describe()
 devices = pd.read_csv("03_устройства.csv", sep = "\"*,\"*")
 devices = devices.applymap(lambda x: x.replace("\"", ""))
 
@@ -263,9 +259,6 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
                     "speed_mean" : speed_mean
                     })
         pewpew.append(pair)
-    # stack_events = pd.concat([stack_events, pair], axis = 0)
-    # stack_events = pd.concat([stack_events, event_frame], axis = 0)
-
 
 pd.DataFrame(pewpew).head()
 

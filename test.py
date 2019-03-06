@@ -298,6 +298,11 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     bbox_75p = location_data["binding_box_diag"].describe()["75%"]
     bbox_mean = location_data["binding_box_diag"].describe()["mean"]
 
+    speed_25p = stack_events[stack_events["path_speed"] != np.inf]["path_speed"].describe()["25%"]
+    speed_50p = stack_events[stack_events["path_speed"] != np.inf]["path_speed"].describe()["50%"]
+    speed_75p = stack_events[stack_events["path_speed"] != np.inf]["path_speed"].describe()["75%"]
+    speed_mean = stack_events[stack_events["path_speed"] != np.inf]["path_speed"].describe()["mean"]
+
 plt.hist(stack_events[stack_events["path_speed"] != np.inf]["path_speed"])
 stack_events.columns
 

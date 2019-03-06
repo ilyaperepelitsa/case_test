@@ -318,7 +318,7 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     # stack_events = pd.concat([stack_events, event_frame], axis = 0)
 
 
-pd.DataFrame(pewpew)
+pd.DataFrame(pewpew).head()
 
 
 
@@ -345,14 +345,12 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     event_frame["sector_centroid_lat_lag"] = event_frame.groupby(["combo_id"])["sector_centroid_lat"].shift(-1)
     event_frame["sector_centroid_lon_lag"] = event_frame.groupby(["combo_id"])["sector_centroid_lon"].shift(-1)
 
-    stack_events = pd.concat([stack_events, event_frame])
-
-
-
+    stack_events = pd.concat([stack_events, event_frame], axis = 0)
 
 from matplotlib.collections import LineCollection
+
 plt.figure(figsize=(20,10))
-id_id = 77
+id_id = 3
 for ix, i in stack_events.loc[stack_events.combo_id == id_id,:].drop_duplicates(["cid"]).iterrows():
 # i = test.loc[test.index[900],:]
     # print(i["cid"])
@@ -373,174 +371,9 @@ for x, i in enumerate([stack_events.loc[((stack_events.combo_id == id_id) &\
             c = "black", alpha = 0.6, linewidth = 1)
 # plt.scatter(i["sector_centroid_lon"], i["sector_centroid_lat"])
 plt.axis('equal')
-plt.show()
-
-
-[stack_events.loc[((stack_events.combo_id == id_id) &\
-                    (stack_events.tstamp.dt.date == date)),["long", "lat"]] for date in stack_events.tstamp.dt.date.unique()]
+plt.savefig("algo_idea.png")
 
 
 
-stack_events_clean["msisdn_lag"] = stack_events_clean.groupby(["combo_id"])["msisdn"].shift(-1)
-stack_events_clean["tstamp_lag"] = stack_events_clean.groupby(["combo_id"])["tstamp"].shift(-1)
-stack_events_clean["sector_centroid_lat_lag"] = stack_events_clean.groupby(["combo_id"])["sector_centroid_lat"].shift(-1)
-stack_events_clean["sector_centroid_lon_lag"] = stack_events_clean.groupby(["combo_id"])["sector_centroid_lon"].shift(-1)
-
-stack_events_clean.loc[stack_events_clean["msisdn_lag"] != stack_events_clean["msisdn"],:]
-
-
-test["lat_prev"] = test.groupby(["msisdn"])["lat"].shift(-1)
-test["long_prev"] = test.groupby(["msisdn"])["long"].shift(-1)
-
-
-# stack_events_clean.loc[stack_events_clean["combo_id"] == 0,:].groupby("msisdn").count()
-
-list(set([ tuple(set(i)) for i in combinations(list_stuff, 2) ]))
-
-pew = (1, 2, 3, 3)
-set(pew)
-print()
-
-
-list(combinations(['a', "b", "c"], 2))
-
-print
-# i["sector_centroid_lon"], i["sector_centroid_lat"]
-# x, y
-# start_angle, end_angle
-#
-# plt.figure(figsize=(20,10))
-# # for x, i in test.drop_duplicates("cid").head().iterrows():
-# #     # print(i["cid"])
-# x = 1
-# y = 1
-# # angle = i["end_angle"] - i["start_angle"]
-# start_angle = math.degrees(0)
-# end_angle = math.degrees(90)
-# radius = 1
-#
-# pac_2 = mpatches.Wedge(center = [x, y], r = radius, theta1=math.radians(start_angle), theta2=math.radians(end_angle), alpha = 0.6)
-# plt.gca().add_patch(pac_2)
-# pac_2.set_color('cyan')
-# # plt.scatter(x = test.drop_duplicates("cid").head()["long"], y = test.drop_duplicates("cid").head()["lat"])
-# # plt.scatter(x = test.drop_duplicates("cid").head()["sector_centroid_lon"], y = test.drop_duplicates("cid").head()["sector_centroid_lat"])
-# plt.axis('equal')
-# plt.show()
-#
-#
-#
-#
-#
-#
-# plt.figure(figsize=(20,10))
-# # for x, i in test.drop_duplicates("cid").iterrows():
-#     # print(i["cid"])
-#
-# i = test.loc[test.index[0],:]
-# x = i["long"]
-# y = i["lat"]
-# # angle = i["end_angle"] - i["start_angle"]
-# start_angle = i["start_angle"]
-# end_angle = i["end_angle"]
-# radius = i["plot_radius"]
-#
-#
-# # pac = mpatches.Wedge(center = [x, y], r = radius, theta1=start_angle + 90, theta2=end_angle)
-# # pac = mpatches.Wedge(center = [x, y], r = radius, theta1=0, theta2=15)
-# # pac_2 = mpatches.Wedge(center = [x + 0.1, y + 0.1], r = radius, theta1=0, theta2=35)
-# pac_2 = mpatches.Wedge(center = [x, y], r = radius, theta1=start_angle-120, theta2=end_angle-120, alpha = 0.6)
-# # plt.gca().add_patch(pac)
-# plt.gca().add_patch(pac_2)
-# pac_2.set_color('cyan')
-# # plt.scatter(x = test.drop_duplicates("cid").head()["long"], y = test.drop_duplicates("cid").head()["lat"])
-# plt.scatter(x = i["sector_centroid_lon"], y = i["sector_centroid_lat"])
-# plt.axis('equal')
-# plt.show()
-#
-
-
-
-pd.concat([test["sector_centroid_shift"], test["plot_radius"]], axis = 1)
-
-
-
-test.drop_duplicates("cid")
-
-plt.scatter(test.drop_duplicates("cid").loc[:,["sector_centroid_lat"]],
-                test.drop_duplicates("cid").loc[:,["sector_centroid_lon"]])
-
-plt.scatter(test.drop_duplicates("cid").loc[:,["lat"]],
-                test.drop_duplicates("cid").loc[:,["long"]])
-
-test.head().loc[:,["long", "sector_centroid_lon", "lat", "sector_centroid_lat", "plot_radius"]]
-
-
-
-
-
-
-
-math.pi
-
-
-
-from matplotlib.patches import Arc as arc
-
-
-fig_width, fig_height = 3.30, 3.30
-fig = plt.figure(figsize=(fig_width, fig_height), frameon=False)
-ax = fig.add_axes([0.0, 0.0, 1.0, 1.0], aspect='equal')
-
-
-
-fig = plt.figure()
-
-ax = plt.axes(xlim = (-10,10), ylim = (-10,10))
-
-
-
-print()
-
-# test["max_dist"]
-# a1, a2 = test.head().apply(circle_segment, axis = 1).apply(lambda x: x[0]), test.head().apply(circle_segment, axis = 1).apply(lambda x: x[0])
-
-
-# a1
-# test.head()
-#
-# test.apply(lambda x: (x["lat"], x["long"]))
-# test.apply(lambda x: print(x["lat"]))
-#
-#
-# event_type_data.event_type.values
-# test.event_type.values
-#
-#
-# .astype({"event_type" : "object"})
-#
-# pd.Series(test.event_type.values).isin(event_type_data.event_type.values).any()
-#
-#
-# test.merge(event_type)
-#
-# test.
-# event_type.info()
-# test.info()
-#
-# test.imei.isnull().sum()
-# test.msisdn.isnull().sum()
-# test
-#
-#
-#
-#
-#
-#
-#
-# test.describe()
-# test.info()
-#
-# test["msisdn"].unique().shape[0]
-# test.sort_values(["msisdn", "tstamp"])
-# datetime.strftime("26092018", "%d%m%y")
 (datetime.now() - datetime.strptime('26092018', '%d%m%Y')).days
+len(list(combinations(test['msisdn'].unique(), 2)))

@@ -304,8 +304,8 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     speed_mean = event_frame[event_frame["path_speed"] != np.inf]["path_speed"].describe()["mean"]
 
     pair = pd.Series({
-                "msisdn" : event_frame["msisdn"].unique()[0],
-                "msisdn_lag" : event_frame["msisdn"].unique()[1],
+                "msisdn" : set(event_frame["msisdn"].unique().tolist() + event_frame["msisdn_lag"].unique().tolist())[0],
+                "msisdn_lag" : set(event_frame["msisdn"].unique().tolist() + event_frame["msisdn_lag"].unique().tolist())[1],
                 "bbox_25p" : bbox_25p,
                 "bbox_50p" : bbox_50p,
                 "bbox_75p" : bbox_75p,
@@ -316,9 +316,9 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
                 "speed_75p" : speed_75p,
                 "speed_mean" : speed_mean
                 })
-    # pewpew.append(pair)
+    pewpew.append(pair)
     # stack_events = pd.concat([stack_events, pair], axis = 0)
-    stack_events = pd.concat([stack_events, event_frame], axis = 0)
+    # stack_events = pd.concat([stack_events, event_frame], axis = 0)
 
 
 stack_events.loc[]

@@ -248,15 +248,9 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     event_frame["msisdn_lag"] = event_frame.groupby(["combo_id"])["msisdn"].shift(-1)
     event_frame.loc[event_frame["msisdn_lag"] != event_frame["msisdn"],:]
 
-
     event_frame["tstamp_lag"] = event_frame.groupby(["combo_id"])["tstamp"].shift(-1)
     event_frame["sector_centroid_lat_lag"] = event_frame.groupby(["combo_id"])["sector_centroid_lat"].shift(-1)
     event_frame["sector_centroid_lon_lag"] = event_frame.groupby(["combo_id"])["sector_centroid_lon"].shift(-1)
-
-    # event_frame["vendor_lag"] = event_frame.groupby(["combo_id"])["vendor"].shift(-1)
-    # event_frame["platform_lag"] = event_frame.groupby(["combo_id"])["platform"].shift(-1)
-    # event_frame["type_lag"] = event_frame.groupby(["combo_id"])["type"].shift(-1)
-    # event_frame["event_type_lag"] = event_frame.groupby(["combo_id"])["event_type"].shift(-1)
 
     event_frame["vendor_all"] = event_frame["vendor"].str.cat(sep = ", ")
     event_frame["platform_all"] = event_frame["platform"].str.cat(sep = ", ")
@@ -323,63 +317,38 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     # stack_events = pd.concat([stack_events, pair], axis = 0)
     # stack_events = pd.concat([stack_events, event_frame], axis = 0)
 
-pd.DataFrame(pewpew).shape
-
-
-pew = list(set(event_frame["msisdn"].unique().tolist() + event_frame["msisdn_lag"].unique().tolist()))
-pew
-pew.sort()
-pew
-
-stack_events.loc[]
-stack_events.loc[stack_events.combo_id == 0,'msisdn'].unique()
-
-
-stack_events.columns
-
 
 pd.DataFrame(pewpew)
 
-stack_events
-
-
-
-event_frame["msisdn_lag"].iloc[0]
-
-
-plt.hist(stack_events[stack_events["path_speed"] != np.inf]["path_speed"])
-stack_events.columns
 
 
 
 
+stack_events = pd.DataFrame()
+for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].unique(), 2))[0:10]):
+    # print(test.loc[test['msisdn']==combo[0],:].shape, test.loc[test['msisdn'] == combo[1],:].shape)
+    event_frame = test.loc[test['msisdn'].isin(combo),:].copy()
+    event_frame.loc[:,"combo_id"] = index
+    # print(event_frame.head())
+    # event_frame.to_csv(os.path.join("combos", str(index) + ".csv"))
+
+    event_frame = event_frame.drop(['lac', 'imei', 'max_dist', 'event_type',
+                'lat_prev', 'long_prev', 'previous_timestamp', 'previous_status_distance',
+                'segment_lat', 'segment_lon',
+                'station_angle', 'sector_centroid_shift'], axis = 1).\
+                sort_values(['combo_id', 'tstamp'], ascending = False)
+
+    event_frame["msisdn_lag"] = event_frame.groupby(["combo_id"])["msisdn"].shift(-1)
+    event_frame.loc[event_frame["msisdn_lag"] != event_frame["msisdn"],:]
+
+    event_frame["tstamp_lag"] = event_frame.groupby(["combo_id"])["tstamp"].shift(-1)
+    event_frame["sector_centroid_lat_lag"] = event_frame.groupby(["combo_id"])["sector_centroid_lat"].shift(-1)
+    event_frame["sector_centroid_lon_lag"] = event_frame.groupby(["combo_id"])["sector_centroid_lon"].shift(-1)
+
+    stack_events = pd.concat([stack_events, event_frame])
 
 
-location_data = pd.DataFrame(pd.concat([latmin, latmax, lonmin, lonmax], axis = 1))
-location_data
 
-
-    # print(event_frame.shape)
-
-location_data
-# event_frame["event_type"]
-
-pew = TfidfVectorizer()
-
-pew.fit_transform(stack_events["type_all"])
-
-from sklearn.feature_extraction.text import TfidfVectorizer
-
-pew = TfidfVectorizer()
-pew.fit_transform(stack_events.loc[stack_events.combo_id == id_id,"vendor"].dropna())
-pew.fit_transform(stack_events.loc[stack_events.combo_id == id_id,"vendor"].str.cat(sep = " "))
-
-
-
-dir(pew)
-pew.get_feature_names()
-
-stack_events.columns
 
 from matplotlib.collections import LineCollection
 plt.figure(figsize=(20,10))
@@ -396,18 +365,7 @@ for ix, i in stack_events.loc[stack_events.combo_id == id_id,:].drop_duplicates(
     pac_2.set_color('cyan')
     plt.gca().add_patch(pac_2)
 
-# colors = [c for c in cmap(5)]
-# [stack_events.loc[((stack_events.combo_id == id_id) & (stack_events.tstamp.dt.date == date)),["long", "lat"]] for date in stack_events.tstamp.dt.date.unique()]
-# [stack_events.loc[stack_events.tstamp.dt.date == date,["long", "lat"]]for date in stack_events.tstamp.dt.date.unique()]
-# stack_events.columns
-# lc = LineCollection(,
-#                     colors = [palette_pastel[x] for x, i in enumerate(stack_events.tstamp.dt.date.unique())])
-# for patch in boxes["boxes"]:
-#         patch.set_facecolor(cmap())
-# [i for i in lc]
-# dir(lc)
-# plt.rc("axes", prop_cycle = (cycler("color", palette_pastel)))
-# plt.gca().add_collection(lc)
+
 colors = [palette_pastel[x] for x, i in enumerate(stack_events.tstamp.dt.date.unique())]
 for x, i in enumerate([stack_events.loc[((stack_events.combo_id == id_id) &\
                     (stack_events.tstamp.dt.date == date)),["sector_centroid_lon", "sector_centroid_lat"]] for date in stack_events.tstamp.dt.date.unique()]):

@@ -231,7 +231,7 @@ list_stuff
 # len(set(i for i in combinations(test['smsisdn'].unique(), 2))) / 1000000
 
 stack_events = pd.DataFrame()
-
+pewpew = []
 for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].unique(), 2))[0:100]):
     # print(test.loc[test['msisdn']==combo[0],:].shape, test.loc[test['msisdn'] == combo[1],:].shape)
     event_frame = test.loc[test['msisdn'].isin(combo),:].copy()
@@ -316,9 +316,13 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
                 "speed_75p" : speed_75p,
                 "speed_mean" : speed_mean
                 })
-    pewpew.append(pair)
+    # pewpew.append(pair)
+    # stack_events = pd.concat([stack_events, pair], axis = 0)
     stack_events = pd.concat([stack_events, pair], axis = 0)
 
+
+
+pd.DataFrame(pewpew)
 
 stack_events
 

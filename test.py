@@ -306,7 +306,3 @@ stack_events.loc[(stack_events.combo_id == id_id),
                   ]].head()
 
 stack_events.loc[stack_events.combo_id == id_id, :].columns
-
-
-(datetime.now() - datetime.strptime('26092018', '%d%m%Y')).days
-len(list(combinations(test['msisdn'].unique(), 2)))

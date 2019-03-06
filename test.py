@@ -181,8 +181,7 @@ plt.figure(figsize=(20,10))
 # new_cmap = rand_cmap(100, type='bright', first_color_black=True, last_color_black=False, verbose=True)
 # len(new_cmap)
 for ix, i in test.drop_duplicates("cid").loc[test.drop_duplicates("cid").index[500:505],:].iterrows():
-# i = test.loc[test.index[900],:]
-    # print(i["cid"])
+
     x = i["long"]
     y = i["lat"]
     start_angle = i["start_angle"]
@@ -196,9 +195,6 @@ plt.axis('equal')
 plt.savefig("five_towers_centroids.png")
 
 
-
-
-# plt.axes()
 plt.figure(figsize=(20,10))
 for ix, i in test.drop_duplicates("cid").loc[test.drop_duplicates("cid").index[700:750],:].iterrows():
     x = i["long"]

@@ -279,13 +279,13 @@ for index, combo in enumerate(list(list(i) for i in combinations(test['msisdn'].
     event_frame["path_speed"] = (event_frame["path_traveled"] / event_frame["path_hours"])
     # stack_events[stack_events["path_speed"] != np.inf]["path_speed"].mean()
 
-    latmin = stack_events.groupby(['combo_id','date'])['sector_centroid_lat'].min()
+    latmin = stack_events.groupby(['date'])['sector_centroid_lat'].min()
     latmin.name = "lat_min"
-    latmax = stack_events.groupby(['combo_id','date'])['sector_centroid_lat'].max()
+    latmax = stack_events.groupby(['date'])['sector_centroid_lat'].max()
     latmax.name = "lat_max"
-    lonmin = stack_events.groupby(['combo_id','date'])['sector_centroid_lon'].min()
+    lonmin = stack_events.groupby(['date'])['sector_centroid_lon'].min()
     lonmin.name = "lon_min"
-    lonmax = stack_events.groupby(['combo_id','date'])['sector_centroid_lon'].max()
+    lonmax = stack_events.groupby(['date'])['sector_centroid_lon'].max()
     lonmax.name = "lon_max"
 
     location_data["binding_box_diag"] = location_data.apply(lambda x: geodesic((x["lat_min"],

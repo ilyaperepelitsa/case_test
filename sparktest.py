@@ -11,4 +11,11 @@ findspark.init()
 sc = SparkContext(appName="MyFirstApp")
 spark = SparkSession(sc)
 print("Hello World!")
-sc.close() #closing the spark session
+sc.stop() #closing the spark session
+
+
+data_hetero = sc.parallelize([
+    ("Ferrari", "fast"),
+    {"Porsche" : 100000},
+    ["spain", 'visited', 4504]
+])

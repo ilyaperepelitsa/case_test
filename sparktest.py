@@ -1,6 +1,10 @@
 import findspark
 from pyspark import SparkContext
 # import SparkContext from pyspark.sql
+
+from pyspark import SparkContext
+
+
 import SparkSession
 findspark.init()
 

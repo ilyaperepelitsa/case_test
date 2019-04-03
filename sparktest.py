@@ -5,7 +5,7 @@ from pyspark import SparkContext
 from pyspark import SparkContext
 from pyspark.sql import SparkSession
 
-import SparkSession
+# import SparkSession
 findspark.init()
 
 sc = SparkContext(appName="MyFirstApp")

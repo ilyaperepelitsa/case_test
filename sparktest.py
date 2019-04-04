@@ -25,11 +25,18 @@ data_hetero = sc.parallelize([
 
 data_hetero
 
+# 
+# data_from_file = sc.\
+#        textFile(
+#            '/Users/ilyaperepelitsa/Downloads/mort2014us.zip',
+#            4)
+
 
 data_from_file = sc.\
        textFile(
-           '/Users/ilyaperepelitsa/Downloads/mort2014us.zip',
+           '/Users/ilyaperepelitsa/Downloads/train.csv',
            4)
+
 
 from pyspark.sql.types import StructType, StructField
 from pyspark.sql.types import DoubleType, IntegerType, StringType, FloatType

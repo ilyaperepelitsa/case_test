@@ -31,8 +31,8 @@ data_from_file = sc.\
            '/Users/ilyaperepelitsa/Downloads/mort2014us.zip',
            4)
 
-spark.read.csv(
-    '/Users/ilyaperepelitsa/Downloads/train.csv', header=True, mode="DROPMALFORMED", schema=schema
+data_from_csv = spark.read.csv(
+    '/Users/ilyaperepelitsa/Downloads/train.csv', header=True, mode="DROPMALFORMED"
 )
 data_from_file.take(10)
 data_hetero[1]['Porsche']

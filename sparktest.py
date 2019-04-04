@@ -31,18 +31,19 @@ data_from_file = sc.\
            '/Users/ilyaperepelitsa/Downloads/mort2014us.zip',
            4)
 
-data_from_csv = spark.read.csv(
-    '/Users/ilyaperepelitsa/Downloads/train.csv', header=True, mode="DROPMALFORMED"
-)
-
 from pyspark.sql.types import StructType, StructField
 from pyspark.sql.types import DoubleType, IntegerType, StringType, FloatType
 
 schema = StructType([
     StructField("accoustic_data", IntegerType()),
-    StructField("time_to_failure", FloatType()),
-    StructField("C", StringType())
+    StructField("time_to_failure", FloatType())
 ])
+
+
+data_from_csv = spark.read.csv(
+    '/Users/ilyaperepelitsa/Downloads/train.csv', header=True, mode="DROPMALFORMED", schema = schema
+)
+
 
 data_from_csv.take(10)
 data_hetero[1]['Porsche']
@@ -162,4 +163,7 @@ data_from_csv.count()
 data_from_csv.map(lambda row: row[0]).distinct().collect()
 
 data_from_csv['acoustic_data'].unique()
-data_from_csv.select('acoustic_data').distinct().rdd.map(lambda r: r[0]).collect()
+data_from_csv.select('accoustic_data').distinct().rdd.map(lambda r: r[0]).count()
+data_from_csv.select('accoustic_data').distinct().rdd.map(lambda r: r[0]).collect()
+
+# data_from_csv.select('accoustic_data').distinct()

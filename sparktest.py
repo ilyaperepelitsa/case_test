@@ -174,6 +174,12 @@ data_from_csv.map(lambda row: row[0]).distinct().collect()
 data_from_csv['acoustic_data'].unique()
 data_from_csv.select('accoustic_data').distinct().rdd.map(lambda r: r[0]).count()
 data_from_csv.select('accoustic_data').distinct().rdd.map(lambda r: r[0]).collect()
+data_from_csv.select('accoustic_data').rdd.reduce(lambda x, y: x + y).collect()
+
+
+
+
+
 # data_from_csv.map(lambda row: int(row[0])).take(10)
 # type(data_from_file_conv)
 # data_from_csv.select('accoustic_data').distinct()
